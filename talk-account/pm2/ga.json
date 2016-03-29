@@ -1,9 +1,0 @@
-[{
-  "name": "talk-account-ga",
-  "script": "/usr/local/teambition/talk-account-ga/current/app.coffee",
-  "exec_mode": "cluster_mode",
-  "instances": 1,
-  "PORT": 7650,
-  "NODE_ENV": "ga",
-  "NODE_CONFIG_DIR": "/usr/local/teambition/talk-account-ga/current/config"
-}]

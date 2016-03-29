@@ -1,0 +1,32 @@
+{
+  "version": "0.4.1",
+  "main": "./lib/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --require coffee-script/register --require should --reporter spec test/main.coffee"
+  },
+  "license": "MIT",
+  "name": "snapper",
+  "repository": {
+    "type": "git",
+    "url": "git@code.teambition.com:server/snapper.git"
+  },
+  "devDependencies": {
+    "engine.io-client": "^1.5.2",
+    "mocha": "^2.2.5",
+    "should": "^7.0.3"
+  },
+  "dependencies": {
+    "coffee-script": "^1.9.3",
+    "config": "^1.15.0",
+    "engine.io": "^1.5.2",
+    "express": "^4.13.3",
+    "graceful-logger": "^0.4.3",
+    "hiredis": "^0.4.0",
+    "lodash": "^3.10.1",
+    "primus": "^3.2.1",
+    "redis": "^0.12.1"
+  }
+}

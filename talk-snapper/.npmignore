@@ -1,0 +1,6 @@
+.git*
+doc/
+book/
+test/
+src/
+.DS_Store
