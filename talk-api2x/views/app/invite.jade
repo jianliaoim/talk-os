@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+    title 简聊
+    meta(name="viewport", content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    link(rel='shortcut icon', type='image/x-icon', href='/favicon.ico')
+    link(rel="stylesheet", href="/v2/public/styles/app.css")
+    script(id="gta-main",
+      data-baidu="ec912ecc405ccd050e4cdf452ef4e85a",
+      data-google="UA-58083865-1",
+      data-mixpanel="2fa08c155ec778a576474191f22a6c80")
+  body
+    div.container
+      div.signup
+        header
+          div.logo
+        if errMsg
+          p.error #{errMsg}
+        else
+          p 您即将以邀请链接访问团队 #{team.name}
+        a.login-btn(href="#{loginUrl}") 登录/注册
+        footer
+          p.links
+            a(href="/site") 首页
+            a(href="/blog") 博客
+          p.credit Copyright © 2016 Teambition Ltd.
+    script(src="/v2/public/vendor/gta/lib/index.js")

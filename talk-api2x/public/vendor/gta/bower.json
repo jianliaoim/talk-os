@@ -1,0 +1,15 @@
+{
+  "name": "gta",
+  "version": "0.3.4",
+  "main": "lib/index.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.7.0"
+  }
+}

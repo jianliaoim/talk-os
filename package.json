@@ -1,0 +1,21 @@
+{
+  "name": "talk-os",
+  "version": "1.0.0",
+  "description": "Open source version of jianliao.com",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "cd talk-api2x && npm i --production",
+    "start": "coffee app.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jianliaoim/talk-os.git"
+  },
+  "author": "Teambition",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jianliaoim/talk-os/issues"
+  },
+  "homepage": "https://github.com/jianliaoim/talk-os#readme"
+}

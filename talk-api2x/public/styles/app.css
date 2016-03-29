@@ -1,0 +1,78 @@
+body, html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #383838;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #03a9f4;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+a:focus, a:hover {
+  color: #0275a8;
+}
+
+footer {
+  margin: 80px auto;
+  font-size: 14px;
+}
+
+footer .links a {
+  margin: 0 10px 0 10px;
+}
+
+.credit {
+  color: #a6a6a6;
+}
+
+.logo {
+  width: 190px;
+  height: 68px;
+  background: url("../images/logo@2x.png") 0 0/cover;
+  margin: 40px auto 80px;
+}
+
+.signup {
+  width: 300px;
+  margin: 100px auto;
+  font-size: 16px;
+  text-align: center;
+}
+
+.login-btn {
+  color: #fff;
+  background-color: #03a9f4;
+  border: 1px solid #0398db;
+  border-radius: 3px;
+  height: 26px;
+  display: block;
+  padding: 8px 12px;
+  margin-bottom: 0;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+}
+
+.login-btn:focus, .login-btn:hover {
+  color: #FFF;
+  background-color: #0286c2;
+  border-color: #026e9e;
+}
+
+.error {
+  color: red;
+}

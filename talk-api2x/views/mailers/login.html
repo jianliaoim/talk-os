@@ -1,0 +1,45 @@
+<% include _header.html %>
+<tr>
+  <td colspan="2" style="padding: 50px 30px 15px 30px;" class="main large font"><?= user.name ?>，欢迎来到“简聊”</td>
+</tr>
+<tr>
+  <td colspan="2" style="font-weight: bold;" class="main normal font">“简聊” 是由 Teambition 开发的一款面向团队的即时沟通工具。<br/>您已成功创建了 Teambition 账号，您可以使用该账号登录简聊、今天和 Teambition。</td>
+</tr>
+<tr>
+  <td colspan="2" class="main normal font"><?= redirectTip ?></td>
+</tr>
+<tr>
+  <td colspan="2" class="main"><a href="<?= redirectUrl ?>" style="font-size: 18px;display: block;height: 50px;line-height: 50px;" class="btn btn-primary large font"><?= redirectBtnTip ?></a></td>
+</tr>
+<tr>
+  <td colspan="2" style="padding: 0 30px 30px 30px;" class="main normal font">如果按钮无法点击，请点击下面的链接<br><a href="<?= redirectUrl ?>" class="normal font"><?= redirectUrl ?></a></td>
+</tr>
+<tr>
+  <td colspan="2" class="main normal font">您还可以下载使用“简聊”客户端：</td>
+</tr>
+<tr>
+  <td colspan="2" class="main">
+    <table style="width:100%;" cellspacing="0" cellpadding="0" class="logo-groups">
+      <tr>
+        <td><a href="https://itunes.apple.com/cn/app/id922425179" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/iphone-logo%402x.png" class="client-logo"/><br>iPhone 客户端</a></td>
+        <td><a href="https://dn-talk.oss.aliyuncs.com/downloads/talk-teambition-release.apk" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/android-logo%402x.png" class="client-logo"/><br>Android 客户端</a></td>
+        <td><a href="https://dn-talk.oss.aliyuncs.com/downloads/talk-1.0.0.exe" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/windows-logo%402x.png" class="client-logo"/><br>Windows 客户端</a></td>
+        <td class="normal font"><a href="https://itunes.apple.com/us/app/talk-by-teambition/id917532002?ls=1&amp;mt=12" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/mac-logo%402x.png" class="client-logo"/><br>Mac 客户端</a></td>
+      </tr>
+    </table>
+    <table style="width:100%;" cellspacing="0" cellpadding="0" class="logo-groups-mobile">
+      <tr style="height:150px;">
+        <td><a href="https://itunes.apple.com/cn/app/id922425179" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/iphone-logo%402x.png" class="client-logo"/><br>iPhone 客户端</a></td>
+        <td><a href="https://dn-talk.oss.aliyuncs.com/downloads/talk-teambition-release.apk" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/android-logo%402x.png" class="client-logo"/><br>Android 客户端</a></td>
+      </tr>
+      <tr>
+        <td><a href="https://dn-talk.oss.aliyuncs.com/downloads/talk_v2.1.1_setup_x86.exe" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/windows-logo%402x.png" class="client-logo"/><br>Windows 客户端</a></td>
+        <td class="normal font"><a href="https://dn-talk.oss.aliyuncs.com/downloads/talk_mac_0.0.2.dmg" style="color: #6E6E6E;" class="normal font"><img src="https://dn-talk.oss.aliyuncs.com/icons/mails/mac-logo%402x.png" class="client-logo"/><br>Mac 客户端</a></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+  <td colspan="2" class="main normal gray font">如果你在使用中有任何疑问和疑义，请联系&nbsp;<a href="mailto:support@teambition.com" class="normal font">support@teambition.com</a></td>
+</tr>
+<% include _footer.html %>

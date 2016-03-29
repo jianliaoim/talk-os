@@ -1,0 +1,38 @@
+<% include _header.html %>
+<tr>
+  <td colspan="2" style="padding: 50px 30px 15px 30px;" class="main large font">
+    朋友们在
+    <?= story.title ?>
+    的讨论中提及了你：
+  </td>
+</tr>
+<tr>
+  <td colspan="2" class="main normal gray font">
+    你可以在附件里下载聊天过程中传输的文件。<br>
+    如果你没有进行过相关操作，请忽略该邮件。如有任何问题，请联系&nbsp;<a href="mailto:support@jianliao.com" class="normal font">support@jianliao.com</a>
+  </td>
+</tr>
+<tr>
+  <td colspan="2" style="padding: 0 30px 30px 30px" class="main messages">
+    <table style="width:100%;" cellspacing="0" cellpadding="0">
+      <tr>
+        <td class="room-label font"># <?= story.title ?></td>
+        <td class="visit-link"><a href="<?= clickUrl ?>" class="font">再次访问该话题</a></td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <table style="width:100%;" cellspacing="0" cellpadding="0" class="message-list">
+            <? messages.forEach(function(message){ ?>
+            <? message.creator = message.creator || {}; ?>
+            <tr class="message-line">
+              <td class="user-name normal font"><?= message.creator.name ?></td>
+              <td class="message-content normal gray font"><?= message.alert ?></td>
+              <td class="message-date normal gray font"><?= message.formatedDate ?></td><? }); ?>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<% include _footer.html %>

@@ -1,0 +1,34 @@
+{
+  "name": "gta",
+  "version": "0.3.4",
+  "description": "group teambition analysis tool",
+  "main": "lib/index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:teambition/gta"
+  },
+  "keywords": [
+    "google",
+    "baidu",
+    "analysis"
+  ],
+  "author": {
+    "name": "teambition"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teambition/gta/issues"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-coffee": "^0.10.1"
+  },
+  "readme": "# Analysis Tool for Teambition\n\n# Usage\n\nFirst, use bower to install gta:\n```\nbower install gta\n```\n\nThen, include the following script in your html and you are ready to go:\n\n```\n<script id=\"gta-main\" src=\"bower_component/gta/lib/index.js\" data-baidu=\"ec912ecc405ccd050e4cdf452ef4xxxx\" data-google=\"UA-3318xxxx-1\" data-mixpanel=\"a0378064615fc4a8c3dc1bca7a82xxxx\"></script>\n<script src=\"test.js\"></script>\n<script id=\"gta-baidu\" src=\"https://hm.baidu.com/hm.js?ec912ecc405ccd050e4cdf452ef4xxxx\" async></script>\n<script id=\"gta-mixpanel\" src=\"https://cdn.mxpnl.com/libs/mixpanel-2.2.min.js\" async></script>\n<script id=\"gta-google\" src=\"https://www.google-analytics.com/analytics.js\" async></script>\n```\n\n# Page View\n\nCall the `pageview` function to record a new page view:\n```\n// use single object\ngta.pageview({\n    'page': '/my-overridden-page?id=1',\n    'title': 'my overridden page'\n})\n\n// use multiple string\ngta.pageview('/api/hello', '?world');\n```\n\n# Events\n\nYou can call the `event` function to track an event:\n```\ngta.event('button', 'click', 'nav buttons', 4)  //@params: category, action, label, value\n```\nOr, easily add `data-gta='event'` to a dom element as:\n```\n<button data-gta='event' data-label='clicked a button' data-action='click' data-category='button'>click</button>\n```\nIf `data-label` `data-action` `data-category` `data-value` is not provided then `className` `event type` `tagName` and `html` will be used instead.\n\n# Api Documents\n\n* [google](https://developers.google.com/analytics/devguides/collection/analyticsjs/)\n* [baidu](http://tongji.baidu.com/open/api/more?p=ref_trackPageview)\n* [Mixpanel](https://mixpanel.com/help/reference)\n",
+  "readmeFilename": "README.md",
+  "homepage": "https://github.com/teambition/gta",
+  "_id": "gta@0.3.4",
+  "_shasum": "83e98cfd3faa32cdeab58f22180b152dd7d75b4c",
+  "_resolved": "git://github.com/teambition/gta#ce584be6d7895d1ca12eaddf621b915551895674",
+  "_from": "git://github.com/teambition/gta"
+}

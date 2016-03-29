@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title redirect now...
+  body
+    div redirect now...
+    script.
+      setTimeout(function() {
+        if (typeof MacGap !== "undefined" && MacGap !== null) {
+          MacGap.Window.resize();
+        } else {
+          window.close();
+        }
+      }, 100)

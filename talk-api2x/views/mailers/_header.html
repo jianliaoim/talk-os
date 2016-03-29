@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?= subject ?></title>
+    <style>
+      body, html {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        color: #6E6E6E;
+        background-color: #F9F9F9;
+        font-size: 14px;
+        font-family: Helvetica Neue Light,Helvetica Neue,WenQuanYi Micro Hei,Trebuchet MS,Arial;
+      }
+      a {
+        text-decoration: none;
+        color: #03A9F4;
+      }
+      .btn {
+        text-decoration: none;
+        color: #6E6E6E;
+        cursor: pointer;
+        border-radius: 3px;
+        display: inline-block;
+        border: 1px solid #A6A6A6;
+        text-align: center;
+      }
+      .btn-primary {
+        color: #FFFFFF;
+        background-color: #03A9F4;
+        border-color: #03A9F4;
+      }
+      .header .btn {
+        height: 30px;
+        width: 60px;
+        line-height: 28px;
+      }
+      .normal {
+        font-size: 14px;
+      }
+      .large {
+        font-size: 16px;
+      }
+      .gray {
+        color: #C7C7C7;
+      }
+      .main-container {
+        width: 690px;
+        margin: 30px auto;
+        border: 1px solid #E8E8E8;
+      }
+      .header {
+        height: 104px;
+        vertical-align: middle;
+      }
+      .header .logo-vendor {
+        text-align: center;
+      }
+      .header .logo-vendor .logo {
+        width: 120px;
+        height: 44px;
+      }
+      .header .links-vendor {
+        width: 300px;
+        text-align: right;
+        padding: 0 30px 0 0;
+      }
+      .header .links-vendor a {
+        margin-left: 15px;
+      }
+      .header-logo {
+        padding-left: 30px;
+      }
+      .main {
+        background-color: #FFF;
+        padding: 0 30px 15px 30px;
+        height: 50px;
+        line-height: 24px;
+      }
+      .cutting-line {
+        border-bottom: 1px solid #DEDEDE;
+      }
+      .messages .room-label {
+        background: #03A9F4;
+        color: #FFF;
+        border-radius: 3px 0 0 0;
+        height: 50px;
+        padding-left: 10px;
+      }
+      .messages .visit-link {
+        background: #03A9F4;
+        height: 50px;
+        border-radius: 0 3px 0 0;
+        width: 150px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      .messages .visit-link a {
+        color: #FFF;
+      }
+      .messages .message-list {
+        padding: 0 10px 0 10px;
+        border: 1px solid #DEDEDE;
+        border-top: none;
+        border-radius: 0 0 3px 3px;
+        line-height: 20px;
+      }
+      .messages .message-list td {
+        border-bottom: 1px solid #EDEDED;
+        vertical-align: top;
+        padding: 15px 0 15px 0;
+      }
+      .messages .message-list tr:last-child td {
+        border-bottom: none;
+      }
+      .messages .message-list .user-name {
+        width: 125px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: inline-block;
+      }
+      .messages .message-list .message-date {
+        width: 60px;
+        text-align: right;
+      }
+      .logo-groups, .logo-groups-mobile {
+        margin: 30px 0 50px 0;
+      }
+      .logo-groups .client-logo, .logo-groups-mobile .client-logo {
+        width: 48px;
+        height: 48px;
+        padding-bottom: 20px;
+      }
+      .logo-groups td, .logo-groups-mobile td {
+        text-align: center;
+      }
+      .logo-groups-mobile {
+        display: none;
+      }
+      .avatar {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        vertical-align: middle;
+      }
+      .footer {
+        padding: 30px;
+        text-align: center;
+        line-height: 20px;
+      }
+      .font {
+        font-family: Helvetica Neue Light,Helvetica Neue,WenQuanYi Micro Hei,Trebuchet MS,Arial;
+      }
+      @media (max-width: 600px) {
+        .main-container {
+          width: 95% !important;
+          margin-top: 10px !important;
+        }
+        .logo-groups {
+          display: none !important;
+        }
+        .logo-groups-mobile {
+          display: table !important;
+        }
+      }
+    </style>
+  </head>
+  <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+    <table style="width:100%;" cellspacing="0" cellpadding="0">
+      <tbody>
+        <tr>
+          <td>
+            <table cellspacing="0" cellpadding="0" align="center" class="main-container">
+              <tbody>
+                <tr class="header">
+                  <td colspan="2" class="logo-vendor"><img src="https://dn-talk.oss.aliyuncs.com/icons/talk-display-zh%402x.png" class="logo"/></td>
+                </tr>

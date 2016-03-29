@@ -1,0 +1,11 @@
+module.exports =
+  debug: true
+  test: true
+  apiHost: 'localhost:7000'
+  webHost: 'localhost:7000'
+  mongodb: 'mongodb://localhost:27017/talk_test'
+  redisHost: 'localhost'
+  redisDb: 3
+  sessionDb: 3
+  talkAccountApiUrl: 'http://localhost:7000/v2/account'
+  talkAccountPageUrl: 'http://localhost:7000/account'
