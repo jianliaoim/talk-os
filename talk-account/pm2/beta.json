@@ -1,0 +1,9 @@
+[{
+  "name": "talk-account",
+  "script": "/data/app/talk-account/current/app.coffee",
+  "exec_mode": "cluster_mode",
+  "instances": 2,
+  "PORT": 7630,
+  "NODE_ENV": "beta",
+  "NODE_CONFIG_DIR": "/data/app/talk-account/current/config"
+}]

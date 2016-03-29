@@ -1,0 +1,24 @@
+
+.app-signin {
+}
+
+.app-signin .as-guide {
+  width: 380px;
+}
+
+.app-signin .old-user-guide {
+  text-align: center;
+  background-color: hsl(0,0%,93%);
+  padding: 10px 0;
+  color: #A1A1A1;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.app-signin .old-user-guide:hover {
+  background-color: hsl(0,0%,90%);
+}
+
+.app-signin .as-line > input[name="password"] {
+  padding-right: 70px;
+}

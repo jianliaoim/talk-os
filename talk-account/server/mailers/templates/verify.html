@@ -1,0 +1,23 @@
+<% include _header.html %>
+<tr>
+  <td colspan="2" style="padding: 50px 30px 15px 30px;" class="main large font">请点击按钮验证你的邮箱</td>
+</tr>
+<tr>
+  <td colspan="2" class="main"><a href="<?= verifyUrl ?>" style="font-size: 18px;display: block;height: 50px;line-height: 50px;" class="btn btn-primary large font">验证邮箱</a></td>
+</tr>
+<tr>
+  <td colspan="2" style="padding: 0 30px 0 30px;" class="main normal font">如果按钮无法点击，请点击下面的链接</td>
+</tr>
+<tr>
+  <td colspan="2" style="word-break: break-all; padding: 0 30px 0 30px;" class="main normal font"><a href="<?= verifyUrl ?>" class="normal font"><?= verifyUrl ?></a></td>
+</tr>
+<tr>
+  <td colspan="2" style="padding: 0 30px 0 30px;" class="main normal font">如您在移动端操作，请使用随机口令：<span style="font-size:30px;font-weight:700;color:#FA6855"><?= verifyCode ?><span></td>
+</tr>
+<tr>
+  <td colspan="2" style="padding: 0 30px 0 30px;" class="main small gray font">为保障账号安全性，链接和口令仅在 1 小时内有效。如果您并不想更换密码，请忽略此邮件</td>
+</tr>
+<tr>
+  <td colspan="2" class="main normal gray font">如果你在使用中有任何疑问和疑义，请联系&nbsp;<a href="mailto:support@jianliao.com" class="normal font">support@jianliao.com</a></td>
+</tr>
+<% include _footer.html %>

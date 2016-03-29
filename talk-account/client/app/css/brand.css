@@ -1,0 +1,12 @@
+
+.app-brand {
+  width: 100px;
+  height: 150px;
+  background-image: url(../../images/talk-zh@2x.png);
+  background-size: cover;
+  z-index: 20;
+}
+
+.app-brand.is-en {
+  background-image: url(../../images/talk-en@2x.png);
+}

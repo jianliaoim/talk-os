@@ -1,0 +1,90 @@
+
+.app-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.devtools-layer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+/* style the card */
+
+.app-page .main-card {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.app-page .app-feature {
+  background-image: url(../../images/brand-bg.jpg);
+  background-color: hsla(0,0%,70%,1);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  background-position: 100% center;
+}
+
+.app-page .brand-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: hsla(0,0%,0%,0.35);
+  z-index: 10;
+}
+
+.app-page .app-container {
+  flex: 1;
+  padding-top: 14vh;
+  padding-bottom: 14vh;
+  overflow: auto;
+}
+
+.app-page .control-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.app-page .wide-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.app-page .control-panel .ok-icon {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  line-height: 50px;
+}
+
+.app-page .control-panel > a {
+  display: block;
+}
+
+.app-page .control-line {
+}
+
+.app-page .control-line input {
+  width: 100%;
+}

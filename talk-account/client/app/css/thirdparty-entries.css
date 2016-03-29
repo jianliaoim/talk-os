@@ -1,0 +1,28 @@
+
+.thirdparty-entries {
+  text-align: center;
+  background-color: hsl(0,0%,93%);
+  padding: 10px 0;
+  color: #A1A1A1;
+  border-radius: 3px;
+}
+
+.thirdparty-entries:hover {
+  background-color: hsl(0,0%,90%);
+}
+
+a.thirdparty-entries:hover {
+  color: #A1A1A1;
+}
+
+.thirdparty-entries .teambition-icon {
+  font-size: 18px;
+  background-color: hsl(0,0%,20%);
+  color: white;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 50%;
+}

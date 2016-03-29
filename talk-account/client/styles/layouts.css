@@ -1,0 +1,42 @@
+
+/* box layouts */
+
+.hbox {
+  display: flex;
+  flex-direction: row;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column;
+}
+
+/* line layouts */
+
+.as-line-filled {
+  display: flex;
+  position: relative;
+  line-height: 1.5em;
+}
+
+.as-line-filled input,
+.as-line-filled .button {
+  flex: 1;
+}
+
+.as-line-centered {
+  display: flex;
+  justify-content: center;
+  line-height: 1.5em;
+}
+
+.as-line-between {
+  display: flex;
+  justify-content: space-between;
+  line-height: 1.5em;
+}
+
+.as-line {
+  position: relative;
+  line-height: 1.5em;
+}

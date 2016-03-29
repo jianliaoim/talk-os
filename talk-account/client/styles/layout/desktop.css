@@ -1,0 +1,21 @@
+
+@media screen and (min-width: 800px) {
+  .app-page .main-card {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .app-page .app-feature {
+    width: 35%;
+    padding-top: 28vh;
+  }
+
+  .app-page .control-panel {
+    width: 380px;
+  }
+
+  .app-signin input {
+    width: 380px;
+  }
+
+}

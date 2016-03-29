@@ -1,0 +1,16 @@
+
+.verify-mobile {
+}
+
+.verify-mobile .resend-button {
+  position: absolute;
+  white-space: nowrap;
+  right: 10px;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.verify-mobile .resend-button.is-disabled {
+  color: hsl(0,0%,65%);
+  cursor: not-allowed;
+}

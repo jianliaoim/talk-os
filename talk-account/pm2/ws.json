@@ -1,0 +1,9 @@
+[{
+  "name": "talk-account",
+  "script": "/usr/local/teambition/talk-account/current/app.coffee",
+  "exec_mode": "cluster_mode",
+  "instances": 2,
+  "PORT": 7630,
+  "NODE_ENV": "ws",
+  "NODE_CONFIG_DIR": "/usr/local/teambition/talk-account/current/config"
+}]

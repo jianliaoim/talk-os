@@ -1,0 +1,19 @@
+
+@media screen and (max-width: 800px) {
+  .app-page .main-card {
+  }
+
+  .app-page .app-feature {
+    padding: 40px 0;
+  }
+
+  /* rewrite signin component */
+  .app-signin input {
+    width: 100%;
+  }
+
+  .app-page .control-panel {
+    padding: 0 20px;
+  }
+
+}

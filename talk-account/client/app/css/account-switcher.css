@@ -1,0 +1,21 @@
+
+.account-switcher {
+  font-size: 16px;
+  display: flex;
+  line-height: 49px;
+}
+
+.account-switcher .account-tab {
+  color: hsl(0, 0%, 63%);
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: hsla(0,0%,85%,1);
+}
+
+.account-switcher .account-tab.is-selected {
+  color: #47BDF4;
+  border-color: #4FC3F7;
+}

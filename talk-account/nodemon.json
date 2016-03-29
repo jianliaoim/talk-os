@@ -1,0 +1,25 @@
+{
+  "env": {
+    "NODE_ENV": "dev"
+  },
+  "events": {
+    "restart": "osascript -e 'display notification \"App restarted due to:\n'$FILENAME'\" with title \"nodemon\"'"
+  },
+  "execMap": {
+    "coffee": "./node_modules/.bin/coffee"
+  },
+  "ext": "coffee jade json",
+  "ignore": [
+    ".git",
+    "build",
+    "client",
+    "node_modules"
+  ],
+  "restartable": "rs",
+  "verbose": true,
+  "watch": [
+    "./package.json",
+    "./config",
+    "./server"
+  ]
+}

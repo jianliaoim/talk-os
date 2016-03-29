@@ -1,0 +1,60 @@
+
+.captcha-icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.captcha-icons.is-default {
+  padding: 0 10px;
+}
+
+.captcha-icons.is-default,
+.captcha-icons.is-loading {
+  min-height: 70px;
+}
+
+.captcha-icons.is-default img {
+  opacity: 0.7;
+}
+
+.captcha-icons.is-default img:hover {
+  opacity: 1;
+}
+
+.captcha-icons.is-successful {
+  flex-direction: row;
+  background-color: hsla(150, 36%, 52%,0.1);
+  color: hsl(150, 36%, 52%);
+  border-radius: 3px;
+  padding: 1px 10px;
+  justify-content: center;
+  line-height: 32px;
+}
+
+.captcha-icons.is-successful .text-guide {
+  color: hsl(150, 36%, 52%);
+  font-size: 12px;
+}
+
+.captcha-icons .as-head {
+  position: relative;
+}
+
+.captcha-icons .as-head .icon-refresh {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 18px;
+  color: hsl(0,0%,50%);
+  cursor: pointer;
+}
+
+.captcha-icons .captcha-icon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.captcha-icons .as-response {
+  display: flex;
+  flex-direction: column;
+}

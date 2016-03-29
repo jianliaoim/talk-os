@@ -1,0 +1,96 @@
+
+/* input module, rewrite modules */
+
+input[type=text],
+input[type=email],
+input[type=password] {
+  height: 48px;
+  line-height: 1;
+  border-radius: 0;
+  border-width: 0 0 1px 0;
+  border-color: hsl(0, 0%, 90%);
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=password]:focus {
+  border-color: hsl(0,0%,70%);
+}
+
+::-webkit-input-placeholder { color: hsl(0,0%,76%); }
+:-moz-placeholder { /* Firefox 18- */ color: hsl(0,0%,76%); }
+::-moz-placeholder { /* Firefox 19+ */ color: hsl(0,0%,76%); }
+:-ms-input-placeholder { color: hsl(0,0%,76%); }
+
+/* button module */
+
+.button,
+.button.is-default,
+.button.is-primary,
+.button.is-danger {
+  line-height: 48px;
+  height: 48px;
+  font-size: 16px;
+}
+
+.button.is-default {
+  color: #4FC3F7;
+  border-color: #4FC3F7;
+}
+
+.button.is-default:hover {
+  background-color: hsla(200, 90%, 63%, 0.1);
+}
+
+.button.is-primary {
+  background-color: hsl(200, 90%, 63%);
+}
+.button.is-primary:hover {
+  background-color: hsl(203, 93%, 61%);
+}
+.button.is-primary.is-disabled {
+  background-color: hsla(200, 90%, 63%, 0.6);
+  pointer-events: none;
+}
+
+/* special module */
+
+.ok-icon {
+  color: hsl(121,32%,77%);
+}
+
+.hint-error {
+  color: hsl(15, 89%, 61%);
+  display: block;
+  border-radius: 3px;
+  background-color: hsla(15, 89%, 61%, 0.1);
+  padding: 0 12px;
+  font-size: 12px;
+  line-height: 32px;
+}
+
+.hint-title {
+  font-size: 16px;
+  line-height: 50px;
+}
+
+.hint-text {}
+
+.text-guide {
+  color: hsl(0, 0%, 63%);
+}
+
+.link-inside {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  line-height: 49px;
+  font-size: 12px;
+  color: hsl(0, 0%, 63%);
+}
+
+/* */
+
+a {
+  cursor: pointer;
+}

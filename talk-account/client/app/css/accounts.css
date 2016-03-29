@@ -1,0 +1,25 @@
+
+.app-accounts {}
+
+.app-accounts .as-head {
+  font-size: 16px;
+}
+
+.account-line {
+  padding: 10px 0px;
+}
+
+.account-line .account-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: hsl(0,0%,90%);
+}
+
+.account-line .account-name {
+  width: 25%;
+}
+
+.account-line .account-status {
+  flex: 1;
+}

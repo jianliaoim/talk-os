@@ -1,0 +1,91 @@
+
+.mobile-input {
+  position: relative;
+  display: flex;
+  border: 1px solid hsl(0, 0%, 85%);
+  border-width: 0 0 1px 0;
+  border-radius: 0px;
+}
+
+.mobile-input.is-focused {
+  border-color: hsl(0,0%,70%);
+}
+
+.mobile-input .area-part {
+  width: 40px;
+  cursor: pointer;
+  color: #47BDF4;
+  height: 47px;
+  line-height: 47px;
+  text-align: center;
+}
+
+.mobile-input .number-part {
+  border: none;
+  height: 47px;
+  flex: 1;
+}
+
+/* menu part */
+
+.mobile-input .area-menu {
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  background-color: white;
+  color: #383838;
+  padding: 0px 0px;
+  z-index: 100;
+  border-style: solid;
+  border-color: hsl(0,0%,85%);
+  border-width: 1px;
+  padding: 4px 0;
+  width: 140px;
+}
+
+.mobile-input .area-item {
+  cursor: pointer;
+  padding: 2px 10px;
+}
+
+.mobile-input .area-item:hover {
+  background-color: hsl(180,50%,94%);
+}
+
+.mobile-input .area-icon {
+  width: 24px;
+  height: 24px;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mobile-input .area-icon.is-cn {
+  background-image: url(../../images/areas/cn.svg);
+}
+.mobile-input .area-icon.is-hk {
+  background-image: url(../../images/areas/hk.svg);
+}
+.mobile-input .area-icon.is-jp {
+  background-image: url(../../images/areas/jp.svg);
+}
+.mobile-input .area-icon.is-tw {
+  background-image: url(../../images/areas/tw.svg);
+}
+.mobile-input .area-icon.is-usa {
+  background-image: url(../../images/areas/usa.svg);
+}
+.mobile-input .area-icon.is-other {
+  background-image: url(../../images/areas/other.svg);
+}
+
+.mobile-input .area-number {
+  margin-left: 10px;
+}
+
+.mobile-input .ok-icon {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  line-height: 50px;
+}
