@@ -1,0 +1,41 @@
+
+.lite-dropdown.is-for-filter-topic {
+
+  input.query {
+    height: 36px;
+    line-height: 1;
+    padding: 0 10px;
+    outline: none;
+    margin: 15px 7% 10px;
+    width: 86%;
+  }
+
+  .display {
+    padding: 0 15px;
+  }
+
+  hr.divider {
+    margin: 5px 15px;
+  }
+
+  .scroll {
+    max-height: 211px; // since hr.divider
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .item {
+    line-height: 40px;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.is-active {
+      background-color: #eee;
+    }
+
+    .short {
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,172 @@
+
+.button-close {
+  color: @font-level-3;
+  cursor: pointer;
+
+  &:hover {
+    color: @font-level-3;
+  }
+}
+
+.button-close.is-white {
+  color: white;
+
+  &:hover {
+    color: white;
+  }
+}
+
+@buttonBg: hsl(240,100%,80%);
+
+.button {
+  outline: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+  border-radius: 3px;
+  border: none;
+  text-transform: none;
+  -webkit-user-select: none;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  min-width: 80px;
+}
+
+// different styles
+.button.is-default {
+  background-color: white;
+  border: 1px solid #ccc;
+  color: @font-level-1;
+  line-height: 38px;
+}
+.button.is-default:hover {
+  background-color: #eee;
+}
+.button.is-primary {
+  background-color: @buttonBg;
+
+  &:hover {
+    color: white;
+    background-color: darken(@buttonBg, 5%)
+  }
+}
+.button.is-danger {
+  color: white;
+  background-color: #ff7043;
+
+  &:hover {
+    color: white;
+    background-color: darken(#ff7043, 5%)
+  }
+}
+.button.is-disabled {
+  background-color: fade(@buttonBg, 70%);
+  cursor: default;
+}
+.button.is-link {
+  background-color: transparent;
+  color: @font-level-2;
+}
+
+// smaller size
+.button.is-small {
+  font-size: 12px;
+  height: 30px;
+  line-height: 30px;
+}
+.button.is-default.is-small {
+  line-height: 28px;
+}
+.button.is-extended {
+  display: block;
+  width: 100%;
+}
+
+// some buttons may have icons
+.button > .icon {
+  margin-right: 6px;
+}
+
+// disabled cursor
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button-plain,
+.button-small {
+  display: inline-block;
+
+  color: initial;
+  outline: none;
+
+  font-size: 18px;
+  text-align: center;
+  text-transform: none;
+  white-space: nowrap;
+  vertical-align: middle;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+}
+
+.button-plain > * + * {
+  margin-left: 5px;
+
+  font-size: 16px;
+  vertical-align: bottom;
+}
+
+.button-small {
+  height: 30px;
+  min-width: 30px;
+
+  border-style: solid;
+  border-width: 1px;
+}
+
+.button-small:hover {
+  color: initial;
+}
+
+.button-small.corner {
+  border-radius: 5px;
+}
+
+.button-small.round {
+  border-radius: 50%
+}
+
+
+.clr-btn {
+  display: inline-block;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent;
+  border: 0;
+  outline: 0;
+
+  & > * {
+    vertical-align: baseline;
+  }
+
+  &.large {
+    height: 64px;
+    width: 64px;
+
+    line-height: 60px;
+  }
+
+  &.round {
+    border-radius: 50%;
+  }
+
+}

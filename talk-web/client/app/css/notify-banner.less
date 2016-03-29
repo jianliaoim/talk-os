@@ -1,0 +1,31 @@
+.notify-banner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: @font-special-white;
+  line-height: 30px;
+  text-align: center;
+  padding: 0 20px;
+  transition: .2s;
+  opacity: 1;
+  z-index: @z-index-notify-banner;
+  &.is-empty {
+    opacity: 0;
+  }
+  &.is-success {
+    background-color: #b0d784;
+  }
+
+  &.is-error {
+    background-color: #ff8d69;
+  }
+
+  &.is-info {
+    background-color: #72cff9;
+  }
+
+  &.is-warn {
+    background-color: #ffc73c;
+  }
+}

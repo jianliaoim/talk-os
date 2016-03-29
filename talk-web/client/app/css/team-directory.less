@@ -1,0 +1,146 @@
+.team-directory {
+  position: relative;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  > .header {
+    position: absolute;
+
+    line-height: 61px;
+    size: 14px;
+    padding: 0 24px;
+    top: 0;
+    width: 100%;
+
+    .content {
+      border-bottom: 1px solid @color-gray-lighter;
+    }
+
+    .tab:hover {
+      color: #FA6855;
+    }
+
+    .tab {
+      text-align: center;
+      color: #B3B3B3;
+      cursor: pointer;
+    }
+
+    .tab.is-active {
+      border-bottom: 2px solid #FA6855;
+      color: #FA6855;
+    }
+  }
+
+  .header .ti-remove {
+    margin: auto;
+    margin-left: 56px;
+
+    .ButtonRound();
+    .ButtonLight();
+  }
+
+  & > .body {
+    margin-top: @channel-header-height;
+    background-color: @color-background-gray;
+
+    overflow: auto;
+  }
+
+  > .body .footer {
+    overflow: hidden;
+  }
+
+  > .body .member-list,
+  > .body .group-list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 16px;
+  }
+
+  > .body .member-list {
+    .contact-item {
+      opacity: .8;
+      padding: 8px 29px;
+    }
+
+    .contact-item:hover {
+      background-color: transparent;
+      opacity: 1;
+    }
+
+    .contact-item .action {
+      padding-left: 24px;
+      #gradient.horizontal(rgba(255, 255, 255, 0), @color-background-gray, 0%, 10%);
+    }
+  }
+
+  .body .member-board .search {
+    padding: 24px 24px 16px;
+  }
+
+  .body .member-board .search-box {
+    height: 40px;
+    border-radius: 20px;
+    background-color: @color-white;
+    flex: 1 1 auto;
+
+    .input {
+      margin-left: 10px;
+    }
+  }
+
+  .body .member-board .invite-button {
+    color: #FA6855;
+    padding-left: 18px;
+  }
+
+  .body .group-board .group-list {
+    padding: 24px;
+
+    .placeholder {
+      padding: 0 16px;
+    }
+  }
+
+  .body .footer {
+    height: 80px;
+    background-color: @color-white;
+    border-top: 1px solid @border-color-gray;
+
+    .button {
+      margin: auto;
+      border-radius: 20px;
+      height: 32px;
+      line-height: 1;
+      font-size: 14px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+
+      transition: @transition-duration;
+
+      .text {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  .body .group-create .button {
+    background-color: @color-red;
+
+    &:hover {
+      background-color: @color-red-dark;
+    }
+  }
+
+  .body .member-invite .button {
+    background-color: @color-green;
+
+    &:hover {
+      background-color: @color-green-dark;
+    }
+  }
+}

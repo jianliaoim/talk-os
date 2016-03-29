@@ -1,0 +1,45 @@
+
+.light-menu {
+    display: inline-block;
+    position: relative;
+    color: @font-level-2;
+}
+
+.light-menu .hint {
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.light-menu .menu {
+    position: absolute;
+    z-index: @z-index-popover;
+    right: 0;
+    top: 100%;
+    box-shadow: 0 1px 3px #a8a8a8;
+    background-color: white;
+}
+
+.light-menu.is-reached-bottom .menu {
+    bottom: 100%;
+    top: auto;
+}
+
+.light-menu.is-reached-left .menu {
+    left: 100%;
+    right: auto;
+}
+
+.light-menu .menu .item {
+    line-height: 40px;
+    cursor: pointer;
+    padding: 0 15px;
+    white-space: nowrap;
+    color: @font-level-2;
+    display: block;
+    min-width: 96px;
+}
+
+.light-menu .menu .item:hover {
+    background-color: #f7f7f7;
+    color: @font-level-2;
+}

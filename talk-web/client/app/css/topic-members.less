@@ -1,0 +1,109 @@
+
+.topic-members {
+
+  input {
+    margin-bottom: 10px;
+  }
+
+  .lm-content {
+    min-height: 240px;
+  }
+}
+
+.members .member-item .handlerset {
+  display: none;
+}
+
+.members .member-item:hover .handlerset {
+  display: block;
+}
+
+.member-wrap + .member-wrap {
+  border-top: 1px solid @border-level-2;
+}
+
+.member-item  .handlerset {
+  flex: 0 0 auto;
+}
+
+.room-members-view {
+  background-color: white;
+  width: 700px;
+  margin: 50px auto 0;
+  min-height: 450px;
+
+  .member-item {
+    .room-members-join {}
+    .room-members-joined { display: none; }
+  }
+
+  .member-item.is-member {
+    .room-members-join { display: none; }
+    .room-members-joined { display: inline-block; }
+  }
+}
+
+.room-members-input {
+  position: relative;
+
+  input {
+    border-color: @border-level-1;
+    box-shadow: none;
+    color: @font-level-2;
+
+    &:focus, &:active {
+      border-color: @border-level-2;
+      box-shadow: none !important;
+    }
+  }
+}
+
+.room-members-do {
+  position: absolute;
+  right: 12px;
+  top: 9px;
+}
+
+.room-members-complete .ui-autocomplete {
+  padding-left: 0;
+  position: absolute;
+  top: 100%;
+  background-color: white;
+  max-height: 300px;
+  border-radius: 0 0 3px 3px;
+  overflow: auto;
+
+  .room-members-name {
+    color: @font-level-1;
+    margin-right: 0.5em;
+  }
+}
+
+.room-members-empty {
+  text-align: center;
+  padding-top: 60px;
+}
+
+.room-members-empty .icon-add-user {
+  font-size: 60px;
+  color: @font-level-3;
+}
+
+.room-members-empty .room-members-add {
+  font-size: 15px;
+  color: @font-level-3;
+}
+
+.room-members-members {
+  padding: 1em 0;
+}
+
+.room-members-already {
+  float: right;
+}
+
+.room-members-complete {
+  .is-focused, .is-focused:hover {
+    background-color: #f7f7f7;
+  }
+}

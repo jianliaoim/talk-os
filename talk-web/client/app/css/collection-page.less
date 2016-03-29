@@ -1,0 +1,94 @@
+
+.collection-page {
+
+  > .header {
+    flex: 0 0 auto;
+  }
+
+  .header .search-box {
+    .flex(1);
+    border: none;
+    font-size: 18px;
+  }
+
+  .header .search-box .icon {
+    line-height: 36px;
+  }
+
+  .header .search-box > input {
+    margin-left: 20px;
+    width: 400px;
+  }
+
+  .header .button-close {
+    width: 24px;
+    color: @font-level-1;
+  }
+
+  .wheeling {
+    .flex(1);
+    padding-bottom: 50px;
+  }
+
+  .panel {
+    padding: 0 24px 16px 24px;
+  }
+
+  // styling tabs
+
+  .tabs {
+    margin-bottom: 30px;
+  }
+
+  .tabs .tab {
+    display: inline-block;
+    border-radius: 3px;
+    font-size: 16px;
+    color: @font-level-2;
+    cursor: pointer;
+  }
+
+  .tabs .tab.is-active {
+    color: blue;
+  }
+
+  .tabs > .tab + .tab {
+    margin-left: 40px;
+  }
+
+  // table
+
+  .table {
+    padding: 0 40px;
+  }
+
+  .table .header {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: @font-level-2;
+  }
+
+  .table hr.divider {
+    margin: 20px 0;
+  }
+
+  .table .msg-result + .msg-result {
+    margin-top: 20px;
+  }
+
+  .timeline .wrap {
+    position: relative;
+  }
+
+  .wrap .group {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: @font-level-2;
+  }
+
+  .loading-indicator {
+    margin-top: 50px;
+  }
+
+}

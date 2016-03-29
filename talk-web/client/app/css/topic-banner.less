@@ -1,0 +1,85 @@
+
+.topic-banner {
+  padding: 24px 48px;
+
+  .display {
+    font-size: 18px;
+    color: @font-level-2;
+    margin-bottom: 8px;
+  }
+
+  .line {
+    margin-top: 16px;
+  }
+
+  .display-default {
+    .button {
+      color: white;
+
+      &.add-members {
+        @color: #7986CB;
+        background-color: @color;
+        &:hover {
+          background-color: darken(@color, 10%)
+        }
+      }
+
+      &.add-integrations {
+        @color: #4DB6AC;
+        background-color: @color;
+        &:hover {
+          background-color: darken(@color, 10%)
+        }
+      }
+
+      &.guest-mode {
+        @color: #9CCC65;
+        background-color: @color;
+        &:hover {
+          background-color: darken(@color, 10%)
+        }
+      }
+    }
+  }
+
+  .display-slim {
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    .display-name {
+      margin-bottom: 10px;
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    .display-guide{
+      font-size: 14px;
+      line-height: 14px;
+    }
+
+    .button {
+      height: 24px;
+      line-height: 24px;
+      background-color: transparent!important;
+
+      &.add-members {
+        color: #7986CB;
+      }
+
+      &.add-integrations {
+        color: #4DB6AC;
+      }
+
+      &.guest-mode {
+        color: #9CCC65;
+      }
+    }
+  }
+}
+
+.topic-banner .clients {
+  margin-top: 32px;
+  .talk-download {
+    margin-top: 8px;
+  }
+}

@@ -1,0 +1,69 @@
+
+.team-card {
+  width: 296px;
+  background-color: white;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #EDEDED;
+  border-radius: 4px;
+
+  .card-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 48px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .card-logo {
+    width: 80px;
+    height: 80px;
+    color: #B33322;
+    background-color: #FA6855;
+    background-size: cover;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 80px;
+    text-align: center;
+    box-shadow: 0 0 1px gray;
+  }
+
+  .card-title {
+    margin-top: 4px;
+    line-height: 36px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #393C40;
+  }
+
+  .card-text {
+    line-height: 24px;
+    font-size: 14px;
+    color: #393C40;
+  }
+
+  .members-row .avatar {
+    margin: 4px;
+  }
+
+  .card-footer {
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color: #FA6855;
+    border-top: 1px solid #EDEDED;
+    cursor: pointer;
+
+    & > * {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: #FAFAFA;
+    }
+  }
+
+}

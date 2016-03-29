@@ -1,0 +1,116 @@
+
+.inte-item {
+  margin: 20px 0;
+  display: flex;
+}
+
+.inte-item > div {
+  display: inline-block;
+}
+
+.inte-item .service-col {
+  flex: 1 1 auto;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.inte-item .service-col .title {
+  .TextTruncate();
+  display: flex;
+  align-items: center;
+}
+
+.inte-item .service-col .title-text {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.inte-item .service-col .errorinfo {
+  color: #E51C23;
+}
+
+.inte-item .icon.category {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 50%;
+}
+
+.inte-item .icon-col {
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.inte-item .action-col {
+  flex: 0 0 auto;
+}
+
+.inte-item.is-incoming .icon.category {
+  background-image: url('../../images/webhook@2x.png');
+}
+.inte-item.is-weibo .icon.category {
+  background-image: url('../../images/weibo@2x.png');
+}
+.inte-item.is-rss .icon.category {
+  background-image: url('../../images/rss@2x.png');
+}
+.inte-item.is-github .icon.category {
+  background-image: url('../../images/github@2x.png');
+}
+.inte-item.is-firim .icon.category {
+  background-image: url('../../images/firim@2x.jpg');
+  border-radius: 50%;
+}
+.inte-item.is-gitlab .icon.category {
+  background-image: url('../../images/gitlab@2x.png');
+}
+.inte-item.is-coding .icon.category {
+  background-image: url('../../images/coding@2x.png');
+}
+.inte-item.is-jinshuju .icon.category {
+  background-image: url('../../images/jinshuju@2x.png');
+}
+.inte-item.is-jiankongbao .icon.category {
+  background-image: url('../../images/jiankongbao@2x.png');
+}
+
+.inte-item .webhook-url {
+  max-width: 400px;
+}
+
+.inte-item .icon.warning {
+  position: absolute;
+  color: #E51C23;
+  top: 24px;
+  left: 24px;
+  font-size: 20px;
+  line-height: 20px;
+}
+.inte-item .button {
+  width: 80px;
+}
+
+.inte-item .label.is-new {
+  font-weight: normal;
+  height: 20px;
+  line-height: 16px;
+}
+
+.inte-item .robot-tip {
+  display: inline-block;
+  user-select: none;
+
+  .robot-guide {
+    color: hsl(0,0%,60%);
+    margin-right: 6px;
+    font-size: 12px;
+  }
+
+  .robot-code {
+    color: hsl(0,0%,60%);
+    font-size: 12px;
+    user-select: text;
+  }
+}

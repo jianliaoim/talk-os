@@ -1,0 +1,131 @@
+.profile-page {
+  height: 100%;
+
+  padding: 60px 0 0;
+
+  background-color: #FFF;
+
+  & > .header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    height: @header-height;
+
+    padding: 0 16px;
+
+    color: #FFF;
+
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+
+    .icon {
+      color: fade(#FFF, 75%);
+
+      cursor: pointer;
+
+      &:hover {
+        color: #FFF;
+      }
+    }
+  }
+
+  & > .content {
+    height: 100%;
+    width: 100%;
+
+    padding: 50px 0;
+
+    overflow: auto;
+
+    .section {
+      width: 720px;
+
+      margin: 0 auto;
+      padding: 0 60px;
+
+      .title {
+        margin-bottom: 25px;
+
+        border-bottom: 1px solid #EEE;
+        color: @color-black;
+
+        font-size: 16px;
+        line-height: 40px;
+      }
+
+      .item {
+        display: flex;
+
+        width: 100%;
+
+        line-height: 35px;
+
+        > .item-label {
+          width: 140px;
+        }
+
+        > .item-content {
+          flex: 9;
+
+          &.item-email {
+            flex: 10;
+          }
+
+          label {
+            font-weight: normal !important;
+          }
+        }
+
+        > .item-action {
+          flex: 1;
+          color: @color-black;
+          text-align: right;
+          cursor: pointer;
+          white-space: nowrap;
+
+          &:hover {
+            color: darken(@color-black, 10%);
+          }
+
+          &.is-null {
+            cursor: default;
+          }
+        }
+
+        .avatar-url {
+          display: inline-block;
+
+          height: 24px;
+          width: 24px;
+
+          border-radius: 50%;
+
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          vertical-align: middle;
+        }
+
+        label {
+          margin-bottom: 0;
+          cursor: pointer;
+          margin-right: 20px;
+        }
+
+      }
+
+      .item + .item {
+        margin-top: 5px;
+      }
+    }
+
+    .section + .section {
+      margin-top: 30px;
+    }
+  }
+
+}

@@ -1,0 +1,19 @@
+image: node:0.12
+
+before_script:
+  - eval $(ssh-agent -s)
+  - ssh-add <(echo "$SSH_CLONE_KEY")
+  - mkdir -p ~/.ssh
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\nGSSAPIAuthentication=no" > ~/.ssh/config
+  - npm install
+
+cache:
+  untracked: true
+  key: "$CI_SERVER_NAME"
+  paths:
+    - node_modules
+
+test:
+  script:
+    - npm run lint
+    - npm run test

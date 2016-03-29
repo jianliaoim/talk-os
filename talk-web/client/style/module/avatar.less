@@ -1,0 +1,87 @@
+
+.no-avatar {
+  background-image: url('../../images/nobody-avatar@2x.png');
+}
+
+.avatar.img-circle {
+  background-size: cover;
+  background-position: center;
+}
+
+.img-24, .img-32, .img-36, .img-48, .img-60 {
+  background-color: transparent;
+}
+
+.avatar {
+  display: inline-block;
+  box-sizing: content-box;
+
+  overflow: hidden;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  text-align: center;
+  vertical-align: middle;
+
+  & {
+    height: 36px;
+    width: 36px;
+
+    line-height: 36px;
+  }
+
+  &.small {
+    height: 24px;
+    width: 24px;
+
+    line-height: 24px;
+  }
+
+  &.large {
+    height: 48px;
+    width: 48px;
+
+    line-height: 48px;
+  }
+
+  &.medium {
+    height: 32px;
+    width: 32px;
+
+    line-height: 32px;
+  }
+
+  &.corner {
+    border-radius: 5px;
+  }
+
+  &.round {
+    border-radius: 50%;
+  }
+
+  &.white {
+    color: @color-white;
+  }
+
+}
+
+.avatar.corner,
+.avatar-large.corner,
+.avatar-small.corner {
+  border-radius: 5px;
+}
+
+.avatar.hollow {
+  border: 2px solid #eee;
+}
+
+.avatar-large {
+  height: 50px;
+  width: 50px;
+
+  line-height: 50px;
+
+  font-size: 20px;
+}

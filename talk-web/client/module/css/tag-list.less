@@ -1,0 +1,67 @@
+
+.tag-list {
+  display: inline-block;
+}
+
+.tag {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: @color-white;
+  border: 1px solid @color-gray-light;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 22px;
+  height: 24px;
+  color: @tag-color-default;
+  margin-right: 4px;
+  margin-bottom: 3px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: #CCC;
+    color: @color-blue-gray;
+  }
+
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: @tag-color-default;
+    flex: 0 0 auto;
+  }
+
+  .name {
+    margin-left: 8px;
+    flex: 0 1 auto;
+    word-break: break-all;
+  }
+}
+
+.tag .edit {
+  width: 20px;
+  text-align: center;
+
+  display: none;
+  opacity: .6;
+
+  transition: @transition-duration;
+}
+
+.tag .edit:hover {
+  opacity: 1;
+}
+
+.tag:hover .edit {
+  display: inline-block;
+}
+
+.tag:hover .close {
+  display: inline-block;
+}
+
+.tag {
+  cursor: pointer;
+}

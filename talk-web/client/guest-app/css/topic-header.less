@@ -1,0 +1,77 @@
+
+.topic-header {
+    padding: 0 20px;
+    position: relative;
+    height: 60px;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.5);
+    background-color: #393c40;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.topic-header .wrap {
+    display: inline-block;
+    cursor: default;
+    flex: 1;
+}
+
+.topic-header .wrap > .icon-chevron-down {
+    margin-left: 10px;
+}
+
+.topic-header .topic-name {
+    font-size: 18px;
+    cursor: default;
+    display: inline-block;
+
+    .name, .states {
+        vertical-align: middle;
+    }
+}
+
+.topic-header .topic-name .icon-sharp {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    vertical-align: middle;
+    background-color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.topic-header .topic-name .purpose {
+    font-size: 16px;
+}
+
+.topic-header .members {
+    cursor: pointer;
+    color: white;
+}
+
+.topic-header .members .icon-users-stroke {
+    font-size: 18px;
+}
+
+.topic-header .user-corner {
+}
+
+.topic-header .guest-entry {
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.topic-header > .divider {
+    display: inline-block;
+    height: 23px;
+    width: 2px;
+    background-color: hsla(0, 100%, 100%, 0.2);
+    margin: 0 16px;
+}
+
+/* special style in guest page, no target scope available */
+.lite-popover .roster-list .thin-scroll {
+    max-height: 40vh;
+}

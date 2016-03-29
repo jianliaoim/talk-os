@@ -1,0 +1,65 @@
+
+.contact-name {
+  cursor: pointer;
+  color: @font-level-1;
+  line-height: 24px;
+
+  &.hover {
+    background-color: @color-background-gray;
+  }
+
+  .avatar {
+    background-position: center center;
+    background-color: transparent;
+  }
+
+  .email {
+    display: inline-block;
+    color: @font-level-3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .guest {
+    color: @font-level-3;
+  }
+
+  .name + .icon {
+    display: inline-block;
+    margin-top: -2px;
+    margin-left: 10px;
+    color: @font-level-3;
+  }
+
+  .left {
+    margin-left: 5px;
+    overflow: hidden;
+
+    color: @font-level-3;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .icon.icon-tick {
+    color: @color-red;
+  }
+
+  .icon.icon-talkai {
+    color: @color-gray-dark;
+  }
+
+  .name {
+    .flex(1, 1, auto);
+  }
+
+  .icon-unread {
+    .flex(0, 0, auto);
+  }
+
+  .hint {
+    font-size: 12px;
+    color: @font-level-3;
+  }
+}

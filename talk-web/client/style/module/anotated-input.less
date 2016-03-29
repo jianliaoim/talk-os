@@ -1,0 +1,21 @@
+
+.anotated-input {
+  position: relative;
+
+  > input {
+    border-color: @border-level-1;
+    box-shadow: none;
+    color: @font-level-2;
+
+    &:focus, &:active {
+      border-color: @border-level-2;
+      box-shadow: none !important;
+    }
+  }
+
+  .link-icon {
+    position: absolute;
+    right: 12px;
+    top: 7px;
+  }
+}

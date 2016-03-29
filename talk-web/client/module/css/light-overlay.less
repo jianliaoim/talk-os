@@ -1,0 +1,27 @@
+.light-overlay {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: black;
+  z-index: @z-index-overlay;
+  overflow: auto;
+
+  img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    cursor: zoom-out;
+    cursor: -webkit-zoom-out;
+  }
+
+  img.is-large {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

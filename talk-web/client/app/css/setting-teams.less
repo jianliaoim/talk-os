@@ -1,0 +1,74 @@
+.setting-teams {
+
+  .teams {
+
+    max-height: 335px;
+
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+    overflow-y: auto;
+
+    border-bottom: 1px solid #EEE;
+
+    .team {
+      display: flex;
+      align-items: center;
+
+      .team-icon {
+        flex: 0 0 auto;
+        position: relative;
+
+        background: @color-red;
+        color: @color-white;
+
+        font-size: 16px;
+
+        .team-icon-small {
+          position: absolute;
+          float: none;
+
+          right: 0;
+          bottom: 0;
+
+          height: 16px;
+          width: 16px;
+
+          margin: 0;
+          padding: 0;
+
+          background-color: #383838;
+          color: #FFF;
+
+          font-size: 12px;
+          line-height: 16px;
+        }
+      }
+
+      & > .name {
+        flex: 1 1 auto;
+        color: #6E6E6E;
+
+        font-size: 16px;
+        line-height: 40px;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        word-wrap: break-word;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .create-team {
+    .icon {
+      background-color: #4FC3F7;
+    }
+  }
+
+  .sync-team {
+    .icon {
+      background-color: #9CCC65;
+    }
+  }
+
+}

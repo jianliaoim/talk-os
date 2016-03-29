@@ -1,0 +1,75 @@
+
+.inte-email {
+  position: fixed;
+  top: 60px;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  z-index: 230;
+  background-color: #f7f7f7;
+  padding-bottom: 160px;
+  cursor: default;
+}
+
+.inte-email .inte-board {
+  margin-top: 40px;
+  height: auto;
+  padding-bottom: 200px;
+  max-height: 100%;
+
+  > .header {
+    border-bottom: 1px solid #eee;
+
+    .inte-title .muted {
+      display: inline-block;
+    }
+
+    .inte-title .IFTTT-link {
+      margin-left: 10px;
+    }
+  }
+}
+
+.inte-email .icon-url {
+  width: 50px;
+  height: 50px;
+}
+
+.inte-email .settings {
+  padding: 10px 40px;
+}
+
+.inte-email .tip-guide {
+  display: block;
+  font-size: 16px;
+}
+
+.inte-email .muted {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.inte-email .copyarea {
+  background-color: #fff;
+}
+
+.inte-email .settings {
+
+  .topic {
+    margin-top: 30px;
+    .display(flex);
+  }
+
+  .description {
+    width: 200px;
+    padding-right: 100px;
+    .flex(1, 0, auto);
+  }
+
+  .lite-dropdown.is-for-topic-selector, .copyarea.form-control {
+    width: 500px;
+    height: 40px;
+    .flex(0, 0, auto)
+  }
+}

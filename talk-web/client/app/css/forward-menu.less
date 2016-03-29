@@ -1,0 +1,37 @@
+.forward-menu {
+  .team-hint {
+    padding: 8px 24px;
+  }
+
+  .search-list {
+    margin-top: 0;
+  }
+}
+
+.forward-team {
+  .list {
+    padding: 16px 0;
+    overflow: auto;
+
+    .team-wrap {
+      flex: 0 0 auto;
+      line-height: 40px;
+      padding: 0 32px;
+      font-size: 14px;
+      cursor: pointer;
+
+      > .team-name {
+        flex: 1 1 auto;
+        overflow: hidden;
+
+        .name {
+          font-weight: normal;
+        }
+      }
+
+      &:hover {
+        background-color: @color-background-gray;
+      }
+    }
+  }
+}

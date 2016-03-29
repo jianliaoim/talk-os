@@ -1,0 +1,139 @@
+.lite-modal.is-slim-modal {
+
+  .wrapper {
+    position: relative;
+  }
+
+  .wrapper .box {
+    width: 400px;
+
+    > div {
+      max-height: 600px;
+    }
+  }
+
+}
+
+.slim-modal {
+  overflow: hidden;
+
+  .ModalColor( @colorDefault, @colorDark ) {
+    color: @color-white;
+    background-color: @colorDefault;
+
+    &.is-disabaled, &:hover {
+      background-color: @colorDark;
+    }
+
+    &.is-link {
+      color: @colorDefault;
+      background-color: @color-white;
+      padding: 0;
+
+      &:hover {
+        color: @colorDark;
+        background-color: @color-white;
+      }
+    }
+  }
+
+  .form-control {
+    line-height: 40px;
+  }
+
+  input.form-control {
+    height: 40px;
+  }
+
+  textarea.is-static {
+    resize: none;
+  }
+
+  .button {
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 16px;
+    padding: 0 16px;
+    min-width: 0;
+
+    transition: @transition-duration;
+  }
+
+  .button {
+    .ModalColor(@color-red, @color-red-dark);
+  }
+
+  &-header {
+    height: 63px;
+    padding: 0 24px;
+    flex-shrink: 0;
+  }
+
+  &-header .navbar {
+    height: 100%;
+    padding: 0;
+    border-bottom: 1px solid @color-gray-light;
+
+    .title {
+      font-size: 18px;
+      flex-grow: 1;
+      .TextTruncate();
+    }
+
+    .title + .description {
+        margin-left: 8px;
+      }
+
+    .back {
+      color: @color-red;
+      cursor: pointer;
+
+      .icon {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        color: @color-red-dark;
+      }
+    }
+  }
+
+  &-body {
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+
+    > * {
+      width: 100%;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section {
+      margin-top: 12px;
+      padding: 0 24px 8px;
+      line-height: 32px;
+    }
+
+    .footer {
+      flex: 0 0 auto;
+      padding: 8px 24px 16px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    &.color-green .button {
+      .ModalColor(@color-green, @color-green-dark);
+    }
+
+    .search-list {
+      flex-shrink: 1;
+      overflow: hidden;
+      margin-top: 16px;
+    }
+  }
+}

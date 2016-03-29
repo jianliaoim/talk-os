@@ -1,0 +1,57 @@
+
+.light-checkbox {
+    width: 275px;
+    cursor: pointer;
+    line-height: 30px;
+    position: relative;
+}
+
+.light-checkbox .icon {
+    display: inline-block;
+    border: 1px solid #b3b3b3;
+    color: @font-level-3;
+    border-radius: 3px;
+    height: 20px;
+    width: 20px;
+    line-height: 18px;
+    font-size: 14px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.light-checkbox .icon.is-checked {}
+
+.light-checkbox .title {
+    position: absolute;
+    right: 104%; // for some margin
+    top: 5px;
+    background: white;
+    border: 1px solid rgb(226,226,226);
+    box-shadow: 0 7px 21px rgba(0,0,0,.1);
+    padding: 0.57em 1em;
+    width: 200px;
+    white-space: normal;
+    z-index: @z-index-modal;
+    background-color: white;
+    border-radius: 3px;
+    margin-right: 6px;
+    line-height: 1.6em;
+}
+
+.light-checkbox .title:before,
+.light-checkbox .title:after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    right: -6px;
+    top: 6px;
+    border-left: white solid 6px;
+    border-top: transparent solid 4px;
+    border-bottom: transparent solid 4px;
+    border-right: 0;
+}
+
+.light-checkbox .title:before {
+    border-left: #a8a8a8 solid 6px;
+    right: -7px;
+}

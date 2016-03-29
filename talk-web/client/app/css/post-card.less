@@ -1,0 +1,30 @@
+
+.post-card {
+  display: inline-block;
+  border: 1px solid @border-level-2;
+  vertical-align: top;
+  padding: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+  }
+
+  .post-image {
+    float: left;
+    margin-right: 15px;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .post-text {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
+    word-break: break-word;
+  }
+
+}

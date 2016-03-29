@@ -1,0 +1,29 @@
+.upload-circle {
+
+  position: relative;
+
+  .circle {
+    transform: rotate(-90deg);
+  }
+
+  .inner-background {
+    fill: none;
+    stroke: @color-gray-light;
+  }
+
+  .inner-progress {
+    fill: none;
+    stroke: @color-red;
+    stroke-dashoffset: 0;
+
+    transition: stroke-dasharray .5s ease;
+  }
+
+  .avatar, .btn-upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}

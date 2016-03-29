@@ -1,0 +1,68 @@
+.message-timeline {
+  padding: 0 0 24px 0;
+}
+
+.message-timeline.is-message-highlight {
+  .message-slim.is-selected,
+  .message-rich.is-selected {
+    background-color: hsla(43, 100%, 52%, 0.1);
+  }
+}
+
+.message-timeline > .message-slim {
+  margin-top: 10px;
+  padding: 0 10px;
+}
+
+.message-timeline > .message-slim + .message-slim.is-duplicated {
+  border-top: none;
+  margin-top: 0;
+}
+
+.message-timeline > .message-slim:not(.is-duplicated) {
+  margin-top: 20px;
+  padding-top: 10px;
+  .actions {
+    top: 10px;
+  }
+}
+
+.message-timeline > .message-system {
+  margin-top: 24px;
+}
+
+.message-timeline > .message-system + .message-system {
+  margin-top: 8px;
+}
+
+.message-timeline > .is-duplicated + .message-slim:not(.is-duplicated) {
+  margin-top: 10px;
+}
+
+.message-timeline > .message-rich {
+  padding-right: 16px;
+}
+
+.message-timeline > .message-rich + .message-system {
+  margin-top: 24px;
+}
+
+.message-timeline > .message-rich:not(.is-duplicated) {
+  margin-top: 24px;
+}
+
+.message-timeline > .message-system {
+  margin-top: 8px;
+}
+
+.message-timeline > .message-rich + .message-system {
+  margin-top: 24px;
+}
+
+.message-timeline .time-divider, .message-timeline .unread-divider {
+  margin: 14px 8px 0;
+  + .message-rich,
+  + .message-system {
+    margin-top: 14px;
+  }
+}

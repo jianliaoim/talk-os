@@ -1,0 +1,22 @@
+
+.mutetip {
+  position: relative;
+  min-width: 20px;
+  text-align: center;
+  height: 34px;
+
+  .icon {
+    color: rgba(255, 255, 255, 0.8)
+  }
+}
+
+.mutetip .unread:after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: @notice-level-1;
+}

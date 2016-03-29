@@ -1,0 +1,77 @@
+
+.simpletip {
+  position: relative;
+}
+
+.simpletip:before {
+  content: '';
+  display: none;
+  border: 6px solid transparent;
+  position: absolute;
+  z-index: 1002;
+}
+
+.simpletip.is-right:before {
+  border-right-color: white;
+  left: 100%;
+  top: 50%;
+  margin-top: -3px;
+}
+
+.simpletip.is-above:before {
+  border-top-color: white;
+  left: 50%;
+  bottom: 100%;
+  margin-bottom: 0;
+  margin-left: -6px;
+}
+
+.simpletip.is-below:before {
+  border-bottom-color: white;
+  left: 50%;
+  top: 100%;
+  margin-bottom: 0;
+  margin-left: -6px;
+}
+
+.simpletip:after {
+  display: none;
+  content: attr(data-tip);
+  background-color: white;
+  .box-shadow(0 7px 21px rgba(0,0,0,.1));
+  white-space: nowrap;
+  position: absolute;
+  padding: 0 10px;
+  border-radius: 2px;
+  text-align: center;
+  color: @font-level-2;
+  z-index: 1001;
+}
+
+.simpletip:hover:before,
+.simpletip:hover:after {
+  display: block;
+}
+
+.simpletip.is-right:after {
+  left: 100%;
+  margin-left: 12px;
+}
+
+.simpletip.is-above:after {
+  margin-bottom: 12px;
+  line-height: 40px;
+  bottom: 100%;
+  width: 100px;
+  margin-left: -50px;
+  left: 50%;
+}
+
+.simpletip.is-below:after {
+  top: 100%;
+  margin-top: 12px;
+  width: 100px;
+  margin-left: -50px;
+  line-height: 40px;
+  left: 50%;
+}

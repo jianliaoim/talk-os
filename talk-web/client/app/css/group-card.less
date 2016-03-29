@@ -1,0 +1,47 @@
+.group-card {
+  border: 1px solid @color-gray-light;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: @transition-duration;
+  background-color: @color-white;
+  margin-bottom: 8px;
+  padding: 14px 16px;
+  width: 344px;
+}
+
+.group-card:hover {
+  border-color: #CCC;
+}
+
+.group-card .title {
+  height: 24px;
+  line-height: 24px;
+}
+
+.group-card .title .actions {
+  opacity: 0;
+  transition: @transition-duration;
+}
+
+.group-card:hover .title .actions {
+  opacity: 1;
+}
+
+.group-card .title .actions .remove {
+  padding-left: 8px;
+}
+
+.group-card:hover .title .actions .remove:hover {
+  color: @color-red;
+}
+
+.group-card .members-row {
+  margin-left: 0;
+  height: 28px;
+  margin-top: 4px;
+  flex-wrap: nowrap;
+
+  .cell {
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,44 @@
+.drawer-story {
+  position: relative;
+
+  height: 100%;
+
+  overflow: hidden;
+
+  & > .header {
+    position: absolute;
+    top: 0;
+
+    height: @channel-header-height;
+    width: 100%;
+
+    padding: 16px 24px;
+  }
+
+  & > .body {
+    margin-top: @channel-header-height;
+
+    overflow: auto;
+  }
+
+  .header .btn {
+    .ti {
+      .ButtonRound();
+      .ButtonLight();
+    }
+
+    &.btn-done .ti {
+      color: @color-red;
+    }
+
+  }
+
+  .form-table {
+    background: @color-gray-lighter;
+  }
+
+  .members-row {
+    margin: 24px 20px;
+  }
+
+}

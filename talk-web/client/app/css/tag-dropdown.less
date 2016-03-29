@@ -1,0 +1,73 @@
+.lite-popover.is-tag-dropdown {
+  z-index: 230;
+
+  .tag-dropdown {
+    position: relative;
+    height: auto;
+    .header {
+      position: relative;
+      font-size: 13px;
+      border-bottom: 1px solid #eee;
+
+      .input {
+        width: 180px;
+        border: none;
+        margin-left: 10px;
+        font-size: 12px;
+      }
+
+      .add {
+        position: absolute;
+        right: 15px;
+        top: 2px;
+        cursor: pointer;
+      }
+    }
+
+    .thin-scroll {
+      width: 100%;
+      height: auto;
+      max-height: 238px; // 34 * 7
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .tags {
+      .item {
+        height: 34px;
+        .name {
+          max-width: 200px;
+          margin-left: 5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          vertical-align: middle;
+          .flex(1, 1, auto);
+
+          &:before {
+            display: inline-block;
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: red;
+            margin-right: 10px;
+            vertical-align: middle;
+          }
+        }
+
+        .icon-tick {
+          display: none;
+        }
+
+        .is-active.icon-tick {
+          display: inline-block;
+        }
+
+        &.is-selected {
+          background-color: #F8F8F8;
+        }
+      }
+    }
+  }
+}

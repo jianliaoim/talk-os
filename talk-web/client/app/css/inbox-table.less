@@ -1,0 +1,37 @@
+.inbox-table {
+  position: relative;
+
+  .inbox-searchbox {
+    padding: 16px 10px 15px;
+    border-bottom: 1px solid @color-gray-light;
+  }
+
+  .inbox-searchbox .search-box {
+    height: 32px;
+    width: 100%;
+
+    border: none;
+    border-color: @color-white;
+    border-radius: 16px;
+
+    input {
+      padding-left: 22px;
+    }
+
+    .ti {
+      color: @color-gray;
+    }
+
+  }
+
+  .loader {
+    padding: 10px;
+    color: fade(@color-black, 50%);
+    text-align: center;
+  }
+
+  .inbox-scroll {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}

@@ -1,0 +1,29 @@
+
+.msg-collection {
+  height: 34px;
+  line-height: 34px;
+
+  & > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  & > div + div {
+    margin-left: 10px;
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .text {
+    cursor: pointer;
+  }
+  .text:hover {
+    color: @font-special-blue;
+  }
+}

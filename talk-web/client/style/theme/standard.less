@@ -1,0 +1,51 @@
+@import '../util/for';
+
+#theme() {
+
+  @red: #FA6855;
+  @blue: #5BC3F1;
+  @green: #5FC596;
+  @purple: #965783;
+  @yellow: #FFCE2B;
+
+  @colors: red @red, blue @blue, green @green, purple @purple, yellow @yellow;
+
+  .for(@colors); .each(@value) {
+    @name: extract(@value, 1);
+    @color: extract(@value, 2);
+
+    .clr-btn {
+
+      &.@{name} {
+        border: 2px solid @color-gray-light;
+        color: @color;
+
+        &:hover, &.active {
+          border-color: @color;
+          background: @color;
+          color: #FFF;
+        }
+
+      }
+
+    }
+
+    .launch-fullscreen {
+
+      .btn-cell.@{name}.active {
+        border-bottom: 4px solid @color;
+      }
+
+    }
+
+  }
+
+}
+
+// Load standard theme into body.
+
+body {
+
+  #theme();
+
+}

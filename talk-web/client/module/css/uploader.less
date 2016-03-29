@@ -1,0 +1,24 @@
+.uploader {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+
+  .uploader-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: hsla(0, 0%, 50%, 0.4);
+  }
+
+  .placeholder {
+    height: 320px;
+    color: @color-gray;
+  }
+
+  &:hover .btn-upload {
+    color: @color-gray-dark;
+  }
+
+}

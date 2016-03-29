@@ -1,0 +1,44 @@
+
+.light-tip {
+    position: relative;
+    display: inline-block;
+}
+
+.post + .light-tip,
+.quote-message + .light-tip {
+  margin-top: 8px;
+}
+
+.light-tip .pop {
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    margin-left: -80px;
+    width: 160px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 3px 1px #ddd;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    color: @font-level-2;
+}
+
+.light-tip .pop::after,
+.light-tip .pop::before {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    left: 80px;
+    margin-left: -4px;
+    bottom: -6px;
+    border-top: white solid 6px;
+    border-right: transparent solid 4px;
+    border-left: transparent solid 4px;
+    border-bottom: 0px;
+}
+
+.light-tip .pop::before {
+    bottom: -7px;
+    border-top: #ddd solid 6px;
+}

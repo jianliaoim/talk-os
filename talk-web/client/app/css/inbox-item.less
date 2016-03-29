@@ -1,0 +1,113 @@
+.inbox-item {
+  display: flex;
+  max-width: 100%;
+  cursor: pointer;
+  height: 71px;
+
+  padding: 0 12px 0 16px;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  overflow: hidden;
+
+  border-bottom: 1px solid #F5F5F5;
+
+
+  .avatar {
+    align-self: flex-start;
+    margin-top: 16px;
+    margin-right: 16px;
+    flex-shrink: 0;
+  }
+
+  .body {
+    min-height: 1px;
+    min-width: 1px;
+
+    flex: 1;
+
+    & > span {
+      display: block;
+    }
+  }
+
+  &:hover {
+    background: @color-background-gray;
+  }
+
+  &.active {
+    background: #F7F7F7;
+  }
+
+  &.selected {
+    background: @color-gray-light;
+  }
+
+  &-cap {
+    line-height: 24px;
+
+    .title {
+      color: #515457;
+
+      font-size: 14px;
+      line-height: 24px;
+      font-weight: @font-weight-bold;
+      padding-right: 4px;
+    }
+
+    .tags .ti {
+      color: #CCC;
+      width: 24px;
+      text-align: center;
+
+      &.remove {
+        display: none;
+
+        &:hover {
+          color: @color-gray-dark;
+        }
+      }
+    }
+  }
+
+  &:hover .tags.show-remove {
+    .pin, .mute {
+      display: none;
+    }
+
+    .remove {
+      display: inline-block;
+    }
+  }
+
+  &-info {
+    line-height: 22px;
+    height: 22px;
+
+    .text {
+      color: #B3B3B3;
+
+      font-size: 13px;
+      line-height: 22px;
+      padding-right: 4px;
+    }
+
+    .emoji {
+      height: 20px;
+      width: 20px;
+    }
+
+    .unread {
+      width: 24px;
+      text-align: center;
+    }
+
+    .unread-badge {
+      display: inline-block;
+      font-size: 12px;
+      padding: 3px 5px;
+    }
+  }
+}

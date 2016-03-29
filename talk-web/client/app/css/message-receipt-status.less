@@ -1,0 +1,33 @@
+.message-read-status {
+  .icon-tick {
+    transition: @transition-duration;
+    padding: 0 4px;
+    &:hover {
+      color: @color-green;
+    }
+  }
+}
+
+.lite-popover.is-receipt-dropdown {
+  width: 240px;
+  .receipt-dropdown {
+    position: relative;
+    height: auto;
+    .header {
+      position: relative;
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+      padding: 0 16px 5px 16px;
+    }
+    .thin-scroll {
+      width: 100%;
+      height: auto;
+      max-height: 238px;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+  .icon-tick {
+    color: @color-green;
+  }
+}

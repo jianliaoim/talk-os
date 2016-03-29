@@ -1,0 +1,42 @@
+.message-area {
+  position: relative;
+
+  overflow: hidden;
+
+  .scroller {
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+
+    overflow: auto;
+  }
+
+}
+
+.message-area.is-preview {
+  padding-bottom: 40px;
+}
+
+.message-area .loading-indicator {
+  width: auto;
+
+  text-align: center;
+}
+
+.message-area .unread-tip {
+  position: absolute;
+  right: 22px;
+  bottom: 12px;
+
+  padding: 0 14px;
+
+  background: @notice-level-1;
+  border-radius: 4px;
+  color: @white;
+
+  font-size: 14px;
+  line-height: 34px;
+
+  cursor: pointer;
+}

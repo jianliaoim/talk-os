@@ -1,0 +1,26 @@
+
+.notify-upgrade {
+  position: fixed;
+  width: 600px;
+  top: 30px;
+  left: 50%;
+  margin-left: -300px;
+  z-index: @z-index-notify;
+  padding: 10px 20px;
+  font-size: 16px;
+  background: white;
+  border-radius: 3px;
+  border: 1px solid #upgrade5;
+  color: #dc584b;
+  .box-shadow(0 0px 3px rgba(0, 0, 0, 0.35));
+  line-height: 30px;
+
+  .actions {
+    float: right;
+    vertical-align: top;
+  }
+
+  .actions .button + .button {
+    margin-left: 1em;
+  }
+}

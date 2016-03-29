@@ -1,0 +1,81 @@
+.lite-popover.is-member-card {
+  border: 1px solid @border-color-gray;
+  box-shadow: none;
+}
+
+.member-card {
+  padding: 3px 8px;
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+}
+
+.member-card .avatar {
+  height: 88px;
+  width: 88px;
+  flex-shrink: 1;
+  border-radius: 4px;
+}
+
+.member-card .profile {
+  margin-left: 16px;
+  max-width: 270px;
+  flex: 1 1 auto;
+  line-height: 24px;
+
+  .profile-name {
+    .name {
+      max-width: 100px;
+      font-size: 14px;
+      line-height: 24px;
+
+      & + .icon {
+        float: none;
+        margin-left: 8px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .muted {
+      font-size: 13px;
+    }
+  }
+
+  .contacts {
+    flex-grow: 1;
+    line-height: 20px;
+  }
+}
+
+.member-card .email,
+.member-card .phone,
+.member-card .no-email {
+  max-width: 100%;
+  font-size: 13px;
+  color: @color-gray;
+}
+
+.member-card .no-email {
+  font-style: italic;
+}
+
+.member-card .member-description {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e2e2e2;
+}
+
+.member-card .profile .entrance {
+  color: @color-red;
+  align-self: baseline;
+  cursor: pointer;
+
+  i + span {
+    margin-left: 8px;
+  }
+
+  &:hover {
+    color: @color-red-dark;
+  }
+}

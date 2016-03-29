@@ -1,0 +1,4 @@
+body{margin:0}.app-view{position:absolute;width:100%;height:100%;background-color:#fff}.app-loading{width:600px;text-align:center;position:absolute;top:50%;left:50%;margin:-120px 0 0 -300px}.app-loading .precept{font-family:Ubuntu,Palatino,'Source Han Sans','Hiragino Sans GB','Microsoft Yahei',serif;font-size:14px;line-height:20px;margin-top:36px}
+@-webkit-keyframes path { 0%, 100% { stroke: #fa6855; } 50% { stroke: rgba(250, 104, 85, 0.5); } }
+@keyframes path { 0%, 100% { stroke: #fa6855; } 50% { stroke: rgba(250, 104, 85, 0.5); } }
+.path { -webkit-animation: 3s ease-in-out 0s infinite path; animation: 3s ease-in-out 0s infinite path; fill: transparent; stroke: #fa6855; stroke-width: 16px; stroke-linejoin: round; stroke-linecap: round; }

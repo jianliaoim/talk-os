@@ -1,0 +1,67 @@
+
+.member-item {
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > .avatar {
+    flex: 0 0 auto;
+    background-image: url('../../images/avatar-nobody@2x.png');
+    background-position: center;
+    background-size: cover;
+  }
+
+  .info {
+    flex: 1 1 auto;
+    overflow: hidden;
+  }
+
+  .bold {
+    display: flex;
+  }
+
+  .name {
+    color: @font-level-1;
+    flex: 0 1 auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    & + .icon {
+      vertical-align: top;
+      color: @font-level-3;
+    }
+  }
+
+  .description {
+    color: @font-level-3;
+  }
+
+  > .handlerset a {
+    margin-left: 8px;
+  }
+}
+
+.member-item + .member-item {
+  border-top: 1px solid @border-level-2;
+}
+
+.room-members-joined, .room-members-join {
+    flex: 0 0 auto;
+    right: 4px;
+    top: 19px;
+    width: 90px;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+}
+
+a.btn-link.room-members-joined {
+  color: @icon-level-1;
+  line-height: 33px;
+  text-align: center;
+  text-decoration: none;
+  cursor: default;
+}

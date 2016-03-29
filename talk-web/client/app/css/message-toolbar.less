@@ -1,0 +1,78 @@
+
+.message-toolbar {
+  display: inline-block;
+}
+
+.message-toolbar.is-inline {
+  .icon {
+    cursor: pointer;
+    color: #B3B3B3;
+    font-size: 16px;
+    margin-left: 12px;
+
+    &:hover {
+      color: #A6A6A6;
+    }
+  }
+
+  .icon-star.is-active {
+    color: @color-yellow;
+  }
+}
+
+.message-toolbar:not(.is-inline) {
+  height: 24px;
+
+  .is-tag ,.light-menu .hint {
+    height: 24px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #B3B3B3;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: @transition-duration;
+  }
+
+  .is-tag {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .message-read-status {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  .light-menu {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .light-menu .hint {
+    padding-left: 4px;
+
+    .icon {
+      color: #B3B3B3;
+      transition: @transition-duration;
+    }
+  }
+
+  .is-tag:hover,
+  .light-menu .hint:hover .icon {
+    color: @color-red;
+  }
+
+  .is-tag.is-active {
+    color: @color-red;
+  }
+
+  .light-menu.is-open .hint > .icon {
+    color: @color-red;
+  }
+
+  &.is-quit .is-tag {
+    color: @color-gray-light;
+    cursor: default;
+  }
+}

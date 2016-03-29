@@ -1,0 +1,71 @@
+.setting-sync-teams {
+    background-color: #FFF;
+
+    .team-list {
+      padding: 10px 40px;
+      width: 400px;
+      max-height: 380px;
+      overflow-y: auto;
+
+    .team {
+      display: flex;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+
+      .name {
+        flex: 1 1 auto;
+        text-align: left;
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .action {
+        flex: 0 0 auto;
+        width: auto;
+        min-width: 60px;
+      }
+
+      .action.syncone {
+        margin-right: 5px;
+        background-color: @bg-special-blue;
+      }
+
+      .goto {
+        position: absolute;
+        right: -20px;
+        margin-top: 20px;
+        width: 20px;
+        line-height: 20px;
+        background-color: #CECECE;
+        border-radius: 50%;
+        color: #FFF;
+        font-size: 12px;
+        cursor: pointer;
+        transition: @transition-duration;
+      }
+
+      .goto:hover {
+        background-color: @font-level-3;
+      }
+
+      .goto > .icon-arrow-left {
+        transform: rotate(180deg) scale(.8);
+      }
+    }
+  }
+
+  .tip-wrapper {
+    padding: 20px 60px;
+    color: @font-level-3;
+    max-width: 400px;
+    border-top: 1px solid #eee;
+  }
+
+  .placeholder {
+    padding: 40px;
+  }
+}

@@ -1,0 +1,61 @@
+.notify-center {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 0;
+  text-align: center;
+  z-index: @z-index-notify;
+  .notify-container {
+    display: inline-flex;
+    flex-direction: column;
+    .item {
+      display: flex;
+      margin: 5px auto;
+      padding: 15px;
+      background: white;
+      color: @font-level-1;
+      border-radius: 3px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      width: auto;
+      .content {
+        font-size: 16px;
+        margin-left: 10px;
+        .flex(1);
+      }
+      .icon {
+        font-size: 20px;
+        min-width: 20px;
+      }
+    }
+  }
+}
+
+.notify-center .item.is-success .icon {
+  color: #9CCC65;
+}
+
+.notify-center .item.is-error .icon {
+  color: #dc584b;
+}
+
+.notify-center .item.is-info .icon {
+  color: #38a2d7;
+}
+
+.notify-center .item.is-warn .icon {
+  color: #c09853;
+}
+
+.notify-center .item .icon.icon-remove {
+  opacity: 0.6;
+  cursor: pointer;
+  font-size: 14px;
+  transition: opacity .3s;
+  color: @font-level-1;
+  margin-left: 10px;
+  text-align: right;
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,80 @@
+@black: #000000;
+@light-black: lighten(black, 22%);  // #383838
+
+.light-popover {
+    background: white;
+    position: fixed;
+    z-index: @z-index-popover;
+    box-shadow: 0 7px 21px rgba(0,0,0,.1);
+    min-width: 240px;
+    line-height: 30px;
+    border-radius: 3px;
+}
+
+// header
+
+.light-popover > .header {
+    text-align: center;
+    position: relative;
+    padding: 10px 0;
+    margin: 0 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .07);
+    color: @light-black;
+}
+
+.light-popover > .header .title {
+    font-size: 15px;
+}
+
+.light-popover > .ti-remove {
+    position: absolute;
+    font-size: 20px;
+    right: 19px;
+    top: 11px;
+    cursor: pointer;
+}
+
+// body
+
+.light-popover > .body {
+    color: #808080;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.light-popover > .body .item {
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.light-popover > .body .ti {
+    float: left;
+}
+
+.light-popover > .body [class*="icon-char"] {
+    margin: 3px 0 0 -4px;
+}
+
+.light-popover > .body .ti.is-big  {
+    margin-left: -4px;
+}
+
+.light-popover  .line > .ti + * {
+    margin-left: 15px;
+}
+
+.light-popover  .line > .icon-char + *,
+.light-popover  .line > .ti.is-big + * {
+    margin-left: 10px;
+}
+
+.light-popover > .body .item:hover {
+    background-color: #f7f7f7;
+}
+
+.light-popover > .body.is-member-menu {
+
+    .contact-name .name {
+        max-width: 180px;
+    }
+}

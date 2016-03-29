@@ -1,0 +1,32 @@
+@launch-button-height: 32px;
+
+.btn-launch {
+  height: @launch-button-height;
+  min-width: 120px;
+
+  margin: 0;
+  padding: 0 20px;
+
+  background-color: @color-red;
+  border: 0;
+  border-radius: 18px;
+  color: @color-white;
+  cursor: pointer;
+
+  font-size: 14px;
+
+  transition: background .2s ease;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:hover {
+    background: @color-red-dark;
+  }
+
+}

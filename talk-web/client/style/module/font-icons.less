@@ -1,0 +1,33 @@
+// Icon Handler
+.icon {
+  a&{
+    color: @font-level-3;
+    .transition(color 218ms ease);
+
+    &:hover {
+      color: @blue;
+    }
+
+    &.icon-white {
+      color: @white;
+      .transition(text-shadow 218ms ease);
+
+      &:hover {
+        color: @white;
+        text-shadow: 0 0 3px rgba(255,255,255,0.7);
+      }
+    }
+  }
+
+  &.icon-white {
+    color: @white;
+  }
+
+  &.icon-font14{
+    font-size: 14px;
+  }
+
+  &.icon-font16{
+    font-size: 16px;
+  }
+}

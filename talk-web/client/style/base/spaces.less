@@ -1,0 +1,50 @@
+
+// create spaces between elements
+// by default, DOM should not leave any spaces there
+// if that's caused by doT, the rewrite with React!
+
+// add spaces between elements
+
+.line > * + *,
+.line > .icon + *,
+.static-line > * + * {
+  margin-left: 10px;
+}
+
+.icon-line > .icon:first-child {
+  margin-right: 10px;
+}
+
+.subline > * + * {
+  margin-left: 0.5em;
+}
+
+// make vertical spaces in forms
+.form-loose > div {
+  margin-bottom: 2em;
+}
+
+.row > * + * {
+  margin-left: 10px;
+}
+
+.row-large > * + * {
+  margin-left: 15px;
+}
+
+.row-small > * + *,
+.row.small > * + * {
+  margin-left: 5px;
+}
+
+.row {
+
+  & > * + * {
+    margin-left: 10px;
+  }
+
+  &.large > * + * {
+    margin-left: 13px;
+  }
+
+}

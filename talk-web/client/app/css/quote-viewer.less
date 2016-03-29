@@ -1,0 +1,128 @@
+
+.quote-viewer {}
+
+.lite-modal.is-for-quote-viewer .box {
+  width: 720px;
+}
+
+.quote-viewer .header {
+  height: 50px;
+  background-color: #eee;
+  padding: 0 20px;
+  line-height: 50px;
+  border-radius: 3px 3px 0 0;
+}
+
+.quote-viewer .header .light-tip {
+  line-height: 24px;
+  height: 24px;
+}
+
+.quote-viewer .header .star {
+  cursor: pointer;
+  color: hsl(0, 0%, 65%);
+  margin: 0 10px;
+}
+
+.quote-viewer .header .star.is-active {
+  color: hsl(199, 98%, 48%);
+}
+
+.quote-viewer .header .avatar {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+
+.quote-viewer .header .name {
+  display: inline-block;
+
+  max-width: 80%;
+
+  margin-right: 15px;
+
+  overflow: hidden;
+
+  color: @font-level-2;
+
+  font-size: 14px;
+  vertical-align: middle;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote-viewer .header .actions {
+  display: inline-block;
+}
+
+.quote-viewer .header .icon-remove {
+  float: right;
+}
+
+.quote-viewer .header .relative-time {
+  font-size: 12px;
+  color: #c1c1c1;
+}
+
+.quote-viewer .content-area {
+  padding: 20px;
+  overflow: auto;
+  width: 100%;
+}
+
+.quote-viewer .footer {
+  height: 40px;
+  border-top: 1px solid #D9D9D9;
+  padding: 0 15px;
+}
+
+.quote-viewer .footer .btn-link {
+  line-height: 40px;
+  float: right;
+}
+
+.quote-viewer .content-area.is-plaintext {
+  white-space: pre-wrap;
+}
+/*
+  for incoming webhook preview support
+  now include tables
+*/
+.quote-viewer .content-area {
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid @border-level-1;
+    text-align: center;
+
+    caption {
+      padding: 10px 0;
+      color: @font-level-1;
+      text-align: center;
+    }
+
+    thead {
+      background-color: @gray-bg-level-1;
+      color: @font-level-1;
+      vertical-align: bottom;
+    }
+
+    td,
+    th {
+      margin: 0;
+      padding: 10px;
+      overflow: visible;
+      border: 1px solid @border-level-1;
+      border-width: 0 0 1px 1px;
+
+      &:first-child {
+        border-left-width: 0;
+      }
+    }
+  }
+}

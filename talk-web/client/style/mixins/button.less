@@ -1,0 +1,49 @@
+
+.ButtonRound() {
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+  -user-select: none;
+
+  background-color: @color-gray;
+  color: @color-white;
+
+  cursor: pointer;
+
+  transition: background .1s ease, color .1s ease;
+
+  & > * {
+    vertical-align: baseline;
+  }
+}
+
+.ButtonDark() {
+  background-color: transparent;
+  color: #b3b3b3;
+
+  &:hover {
+    color: @color-white;
+  }
+
+  &.active {
+    color: @border-color-gray;
+    background-color: #2C2F33;
+  }
+}
+
+.ButtonLight() {
+  background: @color-background-gray;
+  color: #b3b3b3;
+
+  &:hover,
+  &:active {
+    background: #f5f5f5;
+    color: #7d7e80;
+  }
+}

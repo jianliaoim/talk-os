@@ -1,0 +1,31 @@
+.setting-page {
+  height: 100%;
+  width: 100%;
+
+  padding-bottom: 60px;
+
+  overflow-y: auto;
+
+  background-color: #F7F7F7;
+
+  text-align: center;
+
+  .site-logo {
+    height: 30px;
+    width: 90px;
+
+    margin: 40px auto;
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.is-en { background-image: url('../../images/logos/words-en-180x60@2x.png'); }
+    &.is-zh { background-image: url('../../images/logos/words-zh-180x60@2x.png'); }
+  }
+
+  & > .content {
+    display: inline-block;
+    min-width: 400px;
+  }
+}

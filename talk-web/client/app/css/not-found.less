@@ -1,0 +1,40 @@
+
+.not-found {
+  display: flex;
+  height: 100%;
+  overflow: auto;
+
+  &-wrapper {
+    margin: auto;
+  }
+
+  &-background {
+    background-image: url('../../images/not-found@2x.png');
+    background-size: 400px 260px;
+    width: 400px;
+    height: 260px;
+  }
+
+  &-tip {
+    margin: 24px 0;
+    font-size: 18px;
+  }
+
+  .links a {
+    color: @color-black;
+    font-size: 15px;
+    border-bottom: 1px solid @color-black;
+    cursor: pointer;
+    user-select: none;
+
+    &:first-child {
+      margin-right: 60px;
+    }
+
+    &:hover {
+      color: @color-red;
+      border-color: @color-red;
+    }
+  }
+
+}

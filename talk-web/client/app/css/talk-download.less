@@ -1,0 +1,53 @@
+.talk-download {
+
+  a {
+    color: @font-level-2;
+    &:hover {
+      color: @font-level-3;
+    }
+  }
+
+  .client {
+    color: @font-level-3;
+    width: 70px;
+    height: 64px;
+    padding-top: 4px;
+    text-align: center;
+    margin-right: 24px;
+
+    .logo {
+      height: 32px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    &.is-ios .logo {
+      background-image: url('../../images/ios-icon@2x.png');
+    }
+
+    &.is-android .logo {
+      background-image: url('../../images/android-icon@2x.png');
+    }
+
+    &.is-osx .logo {
+      background-image: url('../../images/osx-icon@2x.png');
+    }
+
+    &.is-windows .logo {
+      background-image: url('../../images/windows-icon@2x.png');
+    }
+
+    &.is-linux .logo {
+      background-image: url('../../images/linux-icon@2x.png');
+    }
+  }
+}
+
+.lite-modal {
+  .talk-download {
+    justify-content: space-around;
+    margin: 64px;
+  }
+}

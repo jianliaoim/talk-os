@@ -1,0 +1,48 @@
+.channel-list {
+
+  text-align: left;
+
+  & > * + * {
+    margin-top: 16px;
+  }
+
+  .filter {
+    padding: 4px;
+
+    border: 1px solid @color-gray;
+    border-radius: 5px;
+
+    & > * + * {
+      margin-left: 8px;
+    }
+
+    button {
+      padding: 6px 12px;
+
+      background: @color-gray;
+      border: 0;
+      border-radius: 5px;
+      color: @color-white;
+      outline: 0;
+
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    input[type=text] {
+      padding: 6px 0;
+
+      border: none;
+      color: @color-black;
+
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+  }
+
+  .list {
+    overflow: auto;
+  }
+
+}

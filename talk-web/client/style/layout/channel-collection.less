@@ -1,0 +1,73 @@
+.channel-collection {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: @color-background-gray;
+
+  .header {
+    display: flex;
+    height: 63px;
+    border-bottom: 1px solid @color-gray-lighter;
+    padding: 0 24px;
+
+    align-items: center;
+    flex-direction: row;
+    flex-shrink: 0;
+    justify-content: space-between;
+
+    background-color: #FFF;
+
+    .title {
+      margin: 0;
+      flex: 1;
+      font-size: 15px;
+      color: @color-gray-dark;
+      font-weight: normal;
+    }
+
+    .action {
+      margin-left: 56px;
+      flex-shrink: 0;
+    }
+
+    .ti {
+      .ButtonRound();
+      .ButtonLight();
+
+      vertical-align: middle;
+    }
+  }
+
+  .body {
+    padding: 16px 24px;
+    flex: 1 1 auto;
+    overflow: auto;
+
+    * + .group {
+      margin-top: 20px;
+    }
+
+    .group {
+      .title {
+        margin: 0;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid @color-gray-light;
+        color: @color-blue-gray;
+        font-weight: normal;
+      }
+
+      .more {
+        display: inline-block;
+        color: @color-gray;
+        line-height: 34px;
+        cursor: pointer;
+
+        &:hover {
+          color: @color-gray-dark;
+        }
+      }
+    }
+  }
+}

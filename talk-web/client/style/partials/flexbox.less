@@ -1,0 +1,83 @@
+// Main layout setup for flexbox,
+// you can use either of them to determine direction of flexbox.
+//
+// flex-horiz: horizontal direction
+// flex-vert: vertical direction
+
+.flex {
+  display: flex;
+}
+
+.flex-horiz {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.flex-vert {
+  display: flex;
+
+  flex-direction: column;
+}
+
+// Size determination for flexbox's children.
+//
+// flex-space: for auto grow to fulfill the space
+// flex-static: prevent element to shrink, remain its actual size
+
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.flex-space {
+  min-height: 1px;
+  min-width: 1px;
+
+  flex: 1;
+}
+
+.flex-static {
+  flex-shrink: 0;
+}
+
+// Align props for flexbox,
+// which place children into right position.
+//
+// flex-between: place children into two other side
+// flex-vcenter: make children align vertically center
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+.flex-stretch {
+  align-items: stretch;
+}
+
+.flex-vstart {
+  align-items: flex-start;
+}
+
+.flex-vend {
+  align-items: flex-end;
+}
+
+.flex-baseline{
+  align-items: baseline;
+}
+
+.flex-vcenter {
+  align-items: center;
+}

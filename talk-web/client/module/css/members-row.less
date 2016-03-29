@@ -1,0 +1,46 @@
+.members-row {
+  display: flex;
+  flex-wrap: wrap;
+
+  .plus, .cell {
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0 8px 8px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cell {
+    cursor: default;
+    flex-shrink: 0;
+
+    .icon {
+      opacity: 0;
+      transition: opacity .2s;
+      color: #FFF;
+      font-size: 12px;
+    }
+
+    &:hover .icon {
+      opacity: 1;
+    }
+  }
+
+  .plus {
+    color: #FF6551;
+    cursor: pointer;
+  }
+
+  &.is-editable {
+    .cell {
+      cursor: pointer;
+    }
+  }
+
+  .more {
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,271 @@
+.message-rich {
+  padding: 0 8px;
+  background-color: white;
+
+
+  a { // for mention, it has no href
+    cursor: pointer;
+  }
+
+  &.is-robot > .avatar {
+    cursor: default;
+  }
+
+  &.is-duplicated {
+    > .author,
+    > .container > .title {
+      display: none;
+    }
+
+    > .container {
+      padding-left: 72px;
+    }
+  }
+
+  &.is-read {
+    background-color: white;
+    transition: background-color 1s;
+  }
+
+  &.is-unread {
+    background-color: #F0FAF5;
+  }
+
+  > .author {
+    width: 72px;
+    height: 40px;
+    margin-top: 3px;
+    display: flex;
+
+    .upload-circle {
+      margin: auto;
+      margin-top: -4px;
+    }
+
+    .circle {
+      .inner-background {
+        stroke: #FFEDEB;
+      }
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      margin: auto;
+
+      background-image: url('../../images/talk-256.png');
+      background-position: center center;
+      background-color: @gray-bg-level-1;
+    }
+
+    .upload-circle .avatar {
+      cursor: pointer;
+    }
+
+    .upload-circle .avatar .quit {
+      position: absolute;
+      opacity: 0;
+      background-color: @color-red;
+      color: @color-white;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      line-height: 40px;
+      border-radius: 50%;
+      transition: @transition-duration;
+    }
+
+
+    .upload-circle:hover .avatar .quit {
+      opacity: .9;
+    }
+  }
+
+  .title {
+    align-items: middle;
+    overflow: hidden;
+
+    .name {
+      font-weight: @font-weight-bold;
+      line-height: 24px;
+      max-width: 100%;
+    }
+
+    .relative-time {
+      margin-left: 8px;
+      font-size: 13px;
+      line-height: 22px;
+    }
+  }
+
+  .container {
+    line-height: 24px;
+    max-width: 720px;
+    width: 100%;
+
+    > .body {
+      flex-wrap: wrap;
+      word-break: break-word; // for rtf and snippet
+
+      > .content {
+        flex: 1 1 100%;
+        overflow: hidden;
+
+        .lexer-bold {
+          margin: 0 4px;
+        }
+
+        // highlight operation links, this rule is special
+        .lexer-link {
+          color: #00B9F7;
+        }
+      }
+
+      .edit-time {
+        margin-left: 8px;
+        color: @color-gray;
+        font-size: 12px;
+      }
+
+      &.no-attachment {
+        flex-wrap: nowrap;
+
+        > .content {
+          flex: 0 1 auto;
+        }
+      }
+
+      .attachment-rtf, .attachment-quote, .attachment-message, .attachment-snippet {
+        flex: 1 1 100%;
+
+        &:nth-last-child(2) {
+          flex: 1 1 120px;
+        }
+      }
+
+      .attachment-image, .attachment-file, .attachment-speech {
+        flex: 0 1 100%;
+
+        &:nth-last-child(2) {
+          flex: 0 1 auto;
+        }
+
+        & + .toolbar > .message-toolbar {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &:hover {
+      .message-toolbar {
+        opacity: 1;
+      }
+    }
+
+  }
+
+  .emoji {
+    height: 20px;
+    width: 20px;
+  }
+
+  .toolbar {
+    display: flex;
+
+    .message-toolbar {
+      flex-shrink: 0;
+      opacity: 0;
+      margin-left: 8px;
+
+      transition: @transition-duration @transition-delay;
+    }
+
+    .message-toolbar.is-active {
+      opacity: 1;
+    }
+  }
+
+  &:not(.be-mine) {
+    .avatar, .title .name {
+      cursor: pointer;
+    }
+  }
+
+  .tag-list {
+    margin-top: 4px;
+  }
+
+  // talk-message-forms
+
+  .attachment-image {
+    margin-top: 0;
+    padding: 4px 0;
+  }
+
+  pre { // code snippet
+    white-space: pre-wrap;
+  }
+
+  .attachment-snippet:hover,
+  .attachment-message:hover {
+    opacity: .7;
+  }
+
+  .attachment-rtf, .attachment-quote {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 20px;
+
+    .title {
+      order: 1;
+      width: 100%;
+    }
+
+    .picture {
+      order: 2;
+      flex: 0 0 auto;
+      margin: 8px 8px 8px 0;
+    }
+
+    .content {
+      order: 3;
+      flex: 1 120px;
+      margin: 4px 0;
+    }
+  }
+
+  .attachment-message .message-rich {
+    padding: 16px;
+    align-items: flex-start;
+    margin: 0;
+
+    .author {
+      margin-top: 0;
+      margin-right: 16px;
+      width: 40px;
+    }
+
+    .avatar {
+      margin: 0;
+    }
+  }
+
+  .attachment-file {
+    width: auto;
+    padding: 4px 0 0;
+  }
+
+  .attachment-file a > .icon {
+    color: @iconColor;
+  }
+
+  // markdown
+
+  &.is-duplicated .markdown-body {
+     p, blockquote, ul, ol, dl, table, pre {
+      margin-top: 4px !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}

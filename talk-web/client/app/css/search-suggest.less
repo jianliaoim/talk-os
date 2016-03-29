@@ -1,0 +1,73 @@
+
+.search-suggest {
+  color: @font-level-1;
+  background-color: white;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+
+  .builtin {
+    color: @color-gray-dark;
+  }
+
+  & .contact-name:hover,
+  & .topic-name:hover,
+  & .story-name:hover,
+  & .story-name.is-active,
+  & > .spec > .builtin:hover,
+  & > .spec > .is-active {
+    background-color: @color-background-gray;
+  }
+
+  & > .spec > .builtin,
+  & .item {
+    padding: 0 20px;
+    height: 34px;
+    line-height: 34px;
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .text {
+      margin-left: 16px;
+    }
+  }
+
+  & > .group {
+    line-height: 24px;
+
+    .banner {
+      padding: 5px 15px;
+    }
+
+    .contact-name {
+      .name {
+        line-height: 24px;
+      }
+    }
+
+    .story-name .icon {
+      border-radius: 4px;
+    }
+  }
+
+  .item.placeholder {
+    cursor: default;
+    color: @font-level-3;
+
+    .clickable {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .slim-bar {
+    background-color: @color-background-gray;
+    text-align: center;
+    line-height: 22px;
+    font-size: 12px;
+    color: #A6A6A6;
+    cursor: pointer;
+  }
+}

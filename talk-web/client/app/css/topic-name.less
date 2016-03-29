@@ -1,0 +1,39 @@
+
+.topic-name {
+  position: relative;
+  cursor: pointer;
+  line-height: 24px;
+
+  &.hover {
+    background-color: @color-background-gray;
+  }
+
+  .icon-eye {
+    color: #fff;
+  }
+
+  .states {
+    display: inline-block;
+  }
+
+  .name {
+    .flex(1, 1, auto);
+  }
+
+  .icon-unread {
+    .flex(0, 0, auto);
+  }
+
+  .icon-tick {
+    color: @color-red;
+  }
+}
+
+.topic-name.is-active .icon-eye {
+  color: white;
+}
+
+.topic-name .hint {
+  font-size: 12px;
+  color: @font-level-3;
+}

@@ -1,0 +1,57 @@
+.snippet-editor {
+
+  .icon {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .header {
+    color: white;
+    padding: 0 15px;
+    font-size: 16px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 3px 3px 0 0;
+
+    .icon-remove {
+      cursor: pointer;
+      float: right;
+    }
+  }
+
+  .body {
+
+    .title > .input {
+      width: 100%;
+      font-size: 16px;
+      height: 50px;
+      line-height: 1.4;
+      padding:0 15px;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      border-radius: 0;
+    }
+
+    .CodeMirror {
+      min-height: 440px;
+    }
+
+  }
+
+  .footer {
+    border-top: 1px solid @border-level-2;
+    padding: 20px;
+    position: relative;
+
+    .lite-dropdown {
+      min-width: 200px;
+      max-width: 200px;
+    }
+
+    .buttons {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+  }
+}

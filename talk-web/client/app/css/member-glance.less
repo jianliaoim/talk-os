@@ -1,0 +1,40 @@
+
+.member-glance {
+  width: 286px;
+  height: 74px;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  border: 1px solid @border-level-1;
+  padding: 15px;
+  margin: 10px;
+  position: relative;
+}
+
+.member-glance .avatar {
+  float: left;
+  width: 44px;
+  height: 44px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+
+.member-glance .triangle {
+  position: absolute;
+  @size: 44px;
+  border: (@size / 2) solid white;
+  border-color: @border-special-ocean @border-special-ocean white white;
+  width: @size;
+  height: @size;
+  top: 0;
+  right: 0;
+}
+
+.member-glance .icon-tick {
+  font-size: 15px;
+  position: absolute;
+  right: 6px;
+  top: 3px;
+  color: white;
+}

@@ -1,0 +1,27 @@
+.channel-header {
+  min-height: @channel-header-height;
+  padding: 0 24px;
+  z-index: 1;
+  border-bottom: 1px solid @color-gray-light;
+
+  .channel-instant {
+
+    margin-left: 16px;
+
+    .action {
+      color: #ccc;
+      transition: color .1s ease;
+
+      .icon, .ti {
+        vertical-align: middle;
+      }
+
+      &:hover { color: #aaa; }
+      &.is-mute { color: #ffce2b; }
+      &.is-pin { color: #51c2f1; }
+
+    }
+
+  }
+
+}

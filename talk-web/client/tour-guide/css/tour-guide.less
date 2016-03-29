@@ -1,0 +1,311 @@
+@import '~tether-shepherd/dist/css/shepherd-theme-default.css';
+
+@keyframes team_sidebar {
+  from {
+    left: 24px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes message_editor {
+  from {
+    top: -24px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes launch_button {
+  from {
+    top: 24px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.shepherd-element {
+  max-width: none !important;
+}
+
+.shepherd-content {
+  background: transparent !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  max-width: 500px !important;
+
+  header {
+    display: none;
+  }
+
+  .shepherd-text {
+    background: #FFF !important;
+    border-radius: 5px 5px 0 0;
+    padding: 24px 12px !important;
+    overflow: hidden;
+
+    .left {
+      float: left;
+      margin-right: 16px;
+    }
+
+    .right {
+      margin-top: 16px;
+      overflow: hidden;
+      zoom: 1;
+    }
+
+    p {
+      margin: 0 !important;
+      line-height: 22px !important;
+    }
+
+    .image {
+      max-height: 100%;
+      max-width: 100%;
+    }
+
+    .title {
+      margin-bottom: 16px !important;
+      font-size: 22px;
+      color: #393C40;
+    }
+
+    .text {
+      font-size: 13px;
+      color: #7D7E80;
+    }
+  }
+
+  footer {
+    padding: 16px 24px !important;
+    border-radius: 0 0 5px 5px;
+
+    .shepherd-button {
+      height: 32px !important;
+      padding: 0 18px !important;
+      border-radius: 32px !important;
+      color: #FFF !important;
+      font-size: 14px !important;
+      line-height: 32px !important;
+    }
+
+    .step {
+      float: left;
+      padding: 0 !important;
+      background: none !important;
+      font-size: 12px !important;
+      cursor: default !important;
+
+      > span {
+        display: inline-block;
+        height: 12px;
+        width: 12px;
+        border-radius: 100%;
+        letter-spacing: 0 !important;
+        line-height: 12px;
+        text-align: center;
+        user-select: none;
+
+        & + span {
+          margin-left: 8px;
+        }
+
+      }
+    }
+  }
+}
+
+.shepherd-step[data-id=start] {
+
+  .shepherd-content {
+    width: 400px;
+  }
+
+  .shepherd-text {
+    padding: 36px 58px !important;
+    text-align: center;
+
+    .image {
+      display: block;
+      margin: 0 auto 24px;
+      height: 228px;
+      width: 194px;
+    }
+  }
+
+  footer {
+    background: #FFF !important;
+
+    .cancel {
+      float: left;
+      background: #7D7E80 !important;
+
+      &:hover {
+        background: darken(#7D7E80, 5%) !important;
+      }
+    }
+
+    .start {
+      background: #E85B48 !important;
+
+      &:hover {
+        background: darken(#E85B48, 5%) !important;
+      }
+    }
+  }
+}
+
+.shepherd-step[data-id=team-sidebar] {
+
+  margin-left: 24px;
+  animation: 1s ease team_sidebar;
+
+  .shepherd-content {
+    &:before {
+      border-right-color: #FFF !important;
+    }
+  }
+
+  .shepherd-text {
+    .image {
+      height: 150px;
+      width: 225px;
+    }
+  }
+
+  footer {
+    background: #67C395 !important;
+
+    .next {
+      background: #58B084 !important;
+
+      &:hover {
+        background: darken(#58B084, 5%) !important;
+      }
+    }
+
+    .step {
+      > span {
+        background: #58B084;
+        &.active {
+          background: darken(#58B084, 10%) !important;
+        }
+      }
+    }
+  }
+}
+
+.shepherd-step[data-id=message-editor] {
+
+  margin-top: -24px;
+  animation: 1s ease message_editor;
+
+  .shepherd-content {
+    &:before {
+      border-top-color: #63C7F2 !important;
+    }
+  }
+
+  .shepherd-text {
+    .image {
+      height: 150px;
+      width: 225px;
+    }
+  }
+
+  footer {
+    background: #63C7F2 !important;
+
+    .next {
+      background: #55B7E0 !important;
+
+      &:hover {
+        background: darken(#55B7E0, 5%) !important;
+      }
+    }
+
+    .step {
+      > span {
+        background: #55B7E0;
+        &.active {
+          background: darken(#55B7E0, 10%) !important;
+        }
+      }
+    }
+  }
+}
+
+.shepherd-step[data-id=launch-button] {
+
+  margin-top: 24px;
+  animation: 1s ease launch_button;
+
+  .shepherd-content {
+    &:before {
+      border-bottom-color: #FFF !important;
+    }
+  }
+
+  .shepherd-text {
+    .image {
+      height: 150px;
+      width: 225px;
+    }
+  }
+
+  footer {
+    background: #FA6855 !important;
+
+    .next {
+      background: #E85B48 !important;
+
+      &:hover {
+        background: darken(#E85B48, 5%) !important;
+      }
+    }
+
+    .step {
+      > span {
+        background: #E85B48;
+        &.active {
+          background: darken(#E85B48, 10%) !important;
+        }
+      }
+    }
+  }
+}
+
+.shepherd-active {
+  .shepherd-step {
+    z-index: @z-index-shepherd-step;
+  }
+  .shepherd-target {
+    pointer-events: none;
+    &.shepherd-enabled {
+      z-index: @z-index-shepherd-target-enabled;
+    }
+  }
+  .shepherd-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: 0.8;
+    z-index: @z-index-shepherd-backdrop;
+  }
+}

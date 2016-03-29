@@ -1,0 +1,153 @@
+
+.msg-result {
+  color: #6e6e6e;
+
+  &:not(.header){
+    padding: 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: @border-level-2;
+    }
+  }
+
+  & > div {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 40px;
+  }
+
+  .content {
+    width: 45%;
+  }
+  .creator {
+    width: 20%;
+  }
+  .creator .contact-name {
+    padding: 0;
+    line-height: 40px;
+    cursor: default;
+  }
+
+  .channel {
+    width: 20%;
+    padding-right: 1%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .time {
+    width: 15%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.msg-result.is-file {
+  .content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .msg-file {
+    line-height: 40px;
+  }
+  .msg-file .preview {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.msg-result.is-post {
+
+  .post-card {
+    padding: 10px;
+    margin-top: 0;
+    max-height: 90px;
+    width: 280px;
+    background-color: rgba(128,128,128,0.05);
+    border: none;
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .post-card .post-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .post-card .post-text {
+    max-height: 60px;
+    overflow: hidden;
+    font-size: 14px;
+    line-height: 20px;
+    text-overflow: ellipsis;
+  }
+}
+
+.msg-result.is-link {
+
+  .link-box {
+    background-color: rgba(128,128,128,0.05);
+    width: 280px;
+    line-height: 24px;
+    cursor: pointer;
+  }
+
+  .title {
+    .display(flex);
+    .flex-direction(row);
+    height: 40px;
+    line-height: 30px;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    color: @font-level-1;
+  }
+
+  .title-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .flex(1);
+  }
+
+  .title .icon {
+    color: @font-level-3;
+    width: auto;
+    margin-left: 10px;
+  }
+
+  .text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: -10px;
+    padding: 5px 15px;
+    color: @font-level-2;
+  }
+}
+
+.msg-result.is-snippet {
+
+  .channel {
+
+  }
+
+  .snippet-card {
+    margin-top: 0;
+    width: 280px;
+    line-height: 20px;
+    background: transparent;
+    overflow: hidden;
+
+    .title {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+}

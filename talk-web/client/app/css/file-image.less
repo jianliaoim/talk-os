@@ -1,0 +1,136 @@
+/*
+ * WARNING: flex-box will not be able to vertically center the image,
+ * this is because the image will not be able to get the parent width
+ * and height from a flex-box container.
+ *
+ * The following code is adpated from
+ * http://stackoverflow.com/questions/18516317/vertically-align-an-image-inside-a-div-with-responsive-height
+ */
+
+.file-image {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.file-image .image-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  font: 0/0 a;
+
+  // dirty fix, need to deal with image-loading module
+  .lite-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+
+    img {
+      margin: auto;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      background-color: white;
+    }
+
+    .cube1, .cube2 {
+      background-color: white;
+    }
+  }
+}
+
+.file-image .image-container:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.file-image img {
+  max-width: 100%;
+  max-height: 100%;
+  cursor: zoom-in;
+  cursor: -webkit-zoom-in;
+}
+
+.file-image .image-container .rotate-bar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -100px;
+  z-index: 1;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, .5);
+  transition: opacity .2s;
+}
+
+.file-image .image-container:hover .rotate-bar {
+  opacity: 1;
+}
+
+.file-image .image-container .rotate-bar > .line {
+  display: inline-block;
+  line-height: 30px;
+  color: #fff;
+  font-size: 14px;
+  width: auto;
+  padding: 0 16px;
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+  color: #EEE;
+  transition: color @transition-duration;
+  font-family: @font-family;
+
+  &:hover {
+    color: #FFF;
+  }
+}
+
+/*
+ 首先里面的img.is-full是inline的
+ 1.先水平剧中
+ 2.然后行高设置为整个视窗的高度，就把图片垂直剧中了
+ 如果img的大小超过这个div，自然就会有滚动条
+*/
+.is-for-file-image {
+  text-align: center;
+  line-height: 100vh;
+
+  img.is-full {
+    position: relative;
+    top: auto;
+    bottom: auto;
+    background-color: white;
+  }
+}
+
+.file-image .lite-image {
+  transition: transform .3s ease-in;
+}
+
+.loop(@counter) when (@counter < 5) {
+  @deg: 90 * @counter;
+  &.rotate-@{deg} .lite-image .image-layer {
+    transform: rotate(1deg * @deg);
+  }
+
+  .loop(@counter + 1);
+}
+
+.file-image {
+  .loop(0);
+}
+
+.file-image.animate .lite-image .image-layer {
+  transition: transform .3s ease-in;
+}

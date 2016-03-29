@@ -1,0 +1,38 @@
+.team-header {
+  position: relative;
+
+  padding: 0 12px;
+
+  background: @color-blue-gray;
+  color: #FFF;
+
+  .wrapper {
+    height: 100%;
+    width: 100%;
+
+    font-size: 16px;
+
+    > * + * {
+      margin-left: 16px;
+    }
+
+  }
+
+  .toggle-menu {
+    position: relative;
+
+    text-align: center;
+    display: inline-block;
+
+    user-select: none;
+
+    .ButtonRound();
+    .ButtonDark();
+  }
+
+  .unread-badge {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}

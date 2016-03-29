@@ -1,0 +1,62 @@
+
+.contact-banner {
+  padding: 0 20px;
+
+  .avatar {
+    float: left;
+  }
+
+  .box {
+
+    .name {
+      margin: 6px 0 10px;
+      line-height: 20px;
+    }
+
+    .about {
+      line-height: 25px;
+      color: @font-level-1;
+    }
+  }
+
+  .display-default {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    .display(flex);
+    .align-items(top);
+
+
+    .box {
+      margin-left: 20px;
+
+      .name {
+        font-size: 20px;
+      }
+
+      .about {
+        line-height: 25px;
+      }
+    }
+
+    .avatar {
+      .flex(0, 0, auto);
+      background-position: center;
+    }
+  }
+
+  .display-slim {
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    .box {
+
+      .name {
+        font-size: 18px;
+      }
+
+      .about {
+        line-height: 14px;
+      }
+    }
+  }
+}

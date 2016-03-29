@@ -1,0 +1,54 @@
+
+.room-item {
+  padding: 0 16px;
+  cursor: pointer;
+  font-size: 14px;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.room-item .avatar {
+  background-color: @color-blue;
+  color: #FFF;
+  font-size: 16px;
+}
+
+.room-item .content,
+.room-item .body {
+  overflow: hidden;
+}
+
+.room-item .name,
+.room-item .desc {
+  line-height: 24px;
+}
+
+.room-item .name {
+  font-weight: 600;
+}
+
+.room-item:hover {
+  background-color: @color-gray-lighter;
+  .action {
+    opacity: 1;
+  }
+}
+
+.room-item .content {
+  padding: 8px 0;
+  margin-left: 16px;
+}
+
+.room-item .archived-room-item-handlerset {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  background-color: @color-white;
+  opacity: 0;
+  transition: @transition-duration;
+}
+
+.room-item:hover .archived-room-item-handlerset {
+  opacity: 1;
+}

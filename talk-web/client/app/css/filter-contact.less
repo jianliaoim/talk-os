@@ -1,0 +1,46 @@
+
+.lite-dropdown.is-for-filter-contact {
+
+  input.query {
+    height: 36px;
+    line-height: 1;
+    padding: 0 10px;
+    outline: none;
+    margin: 15px 7% 10px;
+    width: 86%;
+  }
+
+  .dropdown {
+    max-height: 400px;
+  }
+
+  .scroll {
+    max-height: 200px;
+    overflow: auto;
+  }
+
+  .display {
+    padding: 0 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .item {
+    line-height: 40px;
+    padding: 0 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.is-active {
+      background-color: #eee;
+    }
+  }
+
+  .item:not(.is-quit):last-child {
+    margin-bottom: 5px;
+  }
+
+  .item:not(.is-quit) + .item.is-quit {
+    border-top: 1px solid @border-level-2;
+  }
+}

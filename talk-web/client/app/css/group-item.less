@@ -1,0 +1,32 @@
+.group-item {
+
+  &.is-clickable {
+    cursor: pointer;
+
+    &:hover, &.hover {
+      background-color: @color-gray-lighter;
+    }
+  }
+
+  > .group-icon {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+
+    color: @color-gray-dark;
+  }
+
+  > .body {
+    margin-left: 16px;
+  }
+
+   .member-count {
+    font-size: 12px;
+    color: @color-gray-dark;
+  }
+
+  .icon-tick {
+    color: @color-red;
+  }
+}

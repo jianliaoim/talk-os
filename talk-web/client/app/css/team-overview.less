@@ -1,0 +1,98 @@
+
+.team-overview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  .overview-header {
+    display: flex;
+    height: 48px;
+    align-items: strech;
+
+    .team-header {
+      width: 272px;
+      .wrapper {
+        height: 48px;
+      }
+    }
+    .team-toolbar {
+      flex: 1;
+    }
+  }
+
+  .team-content-wrapper {
+    padding-top: 56px;
+    padding-bottom: 60px;
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .section-header {
+    color: #393C40;
+    line-height: 30px;
+    font-size: 18px;
+    margin-bottom: 24px;
+  }
+
+  .team-content {
+    width: 1032px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  .card-placeholder {
+    width: 320px;
+  }
+
+  .activities-section {
+    width: 678px;
+  }
+
+  .section-guide {
+    padding: 20px 20px;
+  }
+
+  .team-card {
+    width: 298px;
+    margin-top: 54px;
+  }
+
+  .attachment-image {
+    margin-top: 8px;
+  }
+
+  .overview-loading {
+    text-align: center;
+    height: 32px;
+  }
+
+  .team-activity + .team-activity {
+    border-top: none;
+  }
+
+  .close-icon {
+    position: absolute;
+    top: 56px;
+    right: 56px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+    text-align: center;
+    font-size: 20px;
+    color: #AFB0B3;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #F5F5F5;
+    }
+  }
+
+}

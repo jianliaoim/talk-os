@@ -1,0 +1,122 @@
+
+.team-activity {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+  padding-bottom: 23px;
+  border-top: 1px solid #EDEDED;
+  border-bottom: 1px solid #EDEDED;
+  position: relative;
+
+  .activity-icon {
+    width: 32px;
+    height: 32px;
+    background-color: black;
+    line-height: 32px;
+    text-align: center;
+    color: white;
+  }
+
+  .activity-icon.is-idea {
+    background-color: #FFCB2B;
+  }
+  .activity-icon.is-link {
+    background-color: #67C395;
+  }
+  .activity-icon.is-file {
+    background-color: #A66A95;
+  }
+  .activity-icon.is-room {
+    background-color: #63C7F2;
+  }
+  .activity-icon.is-invitation {
+    background-color: #AFB0B3;
+  }
+
+  .activity-details {
+    line-height: 24px;
+    font-size: 14px;
+    flex: 1;
+  }
+
+  .activity-info {
+    color: #9D9FA1;
+  }
+
+  .relative-time {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    line-height: 24px;
+    font-size: 14px;
+  }
+
+  .inline-text {
+    display: inline-block;
+    color: #393C40;
+    font-weight: bold;
+    margin-top: 4px;
+  }
+
+  .detail-title {
+    margin-top: 4px;
+    color: #393C40;
+    font-weight: bold;
+    white-space: nowrap;
+    max-width: 520px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .detail-text {
+    margin-top: 4px;
+    color: #393C40;
+    max-height: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .detail-link {
+    color: #24719B;
+
+    &:hover {
+      color: blue;
+    }
+  }
+
+  .activity-remove {
+    position: absolute;
+    top: 48px;
+    right: 24px;
+    color: #AFB0B3;
+    display: none;
+
+    &:hover {
+      color: darken(#AFB0B3, 10%);
+    }
+  }
+
+}
+
+.team-activity:hover .activity-remove {
+  display: inline-block;
+}
+
+.team-activity.is-log {
+  .activity-info {
+    line-height: 32px;
+  }
+  .relative-time {
+    line-height: 32px;
+  }
+}
+
+
+.team-activity.is-entry {
+
+  &:hover {
+    background-color: #FAFAFA;
+    cursor: pointer;
+  }
+
+}

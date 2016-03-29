@@ -1,0 +1,131 @@
+.image-spinner {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.image-spinner .cube1, .image-spinner .cube2 {
+  background-color: #333;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  animation: sk-cubemove 2.8s infinite ease-in-out;
+}
+
+.image-spinner .cube2 {
+  animation-delay: -1.4s;
+}
+
+@keyframes sk-cubemove {
+  25% {
+    transform: translateX(20px) rotate(-90deg) scale(0.5);
+  } 50% {
+    transform: translateX(20px) translateY(20px) rotate(-179deg);
+  } 50.1% {
+    transform: translateX(20px) translateY(20px) rotate(-180deg);
+  } 75% {
+    transform: translateX(0px) translateY(20px) rotate(-270deg) scale(0.5);
+  } 100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+.light-image {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.light-image .loading-layer,
+.light-image .image-layer {
+  transition-duration: 300ms;
+  transition-property: opacity;
+  will-change: opacity;
+}
+
+/* error layer */
+
+.light-image .error-layer {
+  display: none;
+}
+
+.light-image .error-layer.is-active {
+  position: absolute;
+  left: 0;
+  right: 40px;
+  top: 0;
+  height: 100%;
+  background-color: hsla(0,0%,0%,0.1);
+  display: block;
+  background-image: url('../../images/broken.png');
+  background-repeat: no-repeat;
+}
+
+
+.light-image .image-reloader {
+  height: 22px;
+  width: 22px;
+  line-height: 22px;
+
+  position: absolute;
+  right: -40px;
+  bottom: 0;
+
+  background: hsl(14, 100%, 63%);
+  border-radius: 50%;
+  color: #fff;
+
+  font-size: 14px;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.light-image .image-reloader:hover {
+  background: hsl(14, 100%, 73%);
+}
+
+/* loading layer */
+
+.light-image .loading-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  background: hsla(0, 0%, 0%, 0.14);
+  min-height: 30px;
+  min-width: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.light-image .loading-layer.is-active {
+  opacity: 0.4;
+}
+
+/* image layer */
+
+.light-image .image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: -1;
+}
+
+.light-image .image-layer.is-active {
+  opacity: 1;
+  z-index: inherit;
+}

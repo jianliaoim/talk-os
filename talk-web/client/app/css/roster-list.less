@@ -1,0 +1,67 @@
+.roster-list {
+  display: flex;
+  flex-direction: column;
+
+  .empty-indicator {
+    padding: 5px 10px;
+    color: @color-gray;
+  }
+
+  .search {
+    margin: 10px;
+    flex-shrink: 0;
+
+    .input {
+      width: 100%;
+
+      margin: 0;
+      padding: 5px;
+
+      font-size: 14px;
+      line-height: 25px;
+    }
+  }
+
+  .title {
+    padding: 10px;
+    color: @color-gray;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .list {
+    flex: 1 1 auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .cell {
+      display: flex;
+
+      padding: 5px 10px;
+      height: 40px;
+
+      align-items: center;
+      flex-direction: row;
+
+      color: @color-black;
+
+      &:hover {
+        background: @color-gray-lighter;
+      }
+
+      .avatar {
+        margin-right: 10px;
+        flex-shrink: 0;
+      }
+
+      .name {
+        flex: 1;
+      }
+
+      .icon-talkai {
+        color: @color-gray-dark;
+      }
+    }
+  }
+
+}

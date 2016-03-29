@@ -1,0 +1,61 @@
+
+.contact-item {
+  padding: 8px 24px;
+  cursor: pointer;
+  font-size: 14px;
+
+  position: relative;
+}
+
+.contact-item .action {
+  position: absolute;
+  opacity: 0;
+  right: 29px;
+  top: 8px;
+  color: @color-gray-dark;
+  font-size: 13px;
+
+  transition: @transition-duration;
+  span:hover {
+    color: @color-black;
+  }
+}
+
+.contact-item .body {
+  overflow: hidden;
+}
+
+.contact-item .role {
+  font-size: 13px;
+
+  transition: @transition-duration;
+}
+
+.contact-item:hover {
+
+  .action {
+    opacity: 1;
+    padding-left: 8px;
+  }
+}
+
+.contact-item.is-clickable:hover {
+  background-color: @color-gray-lighter;
+}
+
+.contact-item .body {
+  margin-left: 16px;
+}
+
+.contact-item .button {
+  padding: 0;
+  min-width: 0;
+}
+
+.contact-item .icon-tick {
+  color: @color-red;
+}
+
+.contact-item .icon-talkai {
+  color: @color-gray-dark;
+}

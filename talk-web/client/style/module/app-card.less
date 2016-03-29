@@ -1,0 +1,30 @@
+
+.app-card {
+
+  width: 50%;
+  height: 200px;
+  display: inline-block;
+  text-align: center;
+
+  > .image {
+    width: 150px;
+    height: 130px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &.be-mac > .image {
+    background-image: url('../../images/app-mac@2x.png');
+    background-size: 109px 94px;
+  }
+
+  &.be-windows > .image {
+    background-image: url('../../images/app-windows@2x.png');
+    background-size: 135px 80px;
+  }
+
+  > .download {
+    min-width: 100px;
+  }
+}

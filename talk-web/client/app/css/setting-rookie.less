@@ -1,0 +1,39 @@
+.setting-rookie {
+
+  .data-avatar {
+    position: relative;
+
+    height: 80px;
+    width: 80px;
+
+    background-image: url('../../images/avatar-nobody@2x.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    border-radius: 100%;
+
+    cursor: pointer;
+
+    .icon {
+      position: absolute;
+      right: -1px;
+      bottom: -1px;
+
+      height: 20px;
+      width: 20px;
+
+      color: #4CBEF6;
+
+      font-size: 20px;
+      line-height: 20px;
+    }
+
+    &:hover .icon {
+      color: darken(#4CBEF6, 10%);
+    }
+  }
+
+  > .content .data-name {
+    margin-top: 30px;
+  }
+}

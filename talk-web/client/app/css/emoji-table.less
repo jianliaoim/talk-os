@@ -1,0 +1,83 @@
+.emoji-table {
+  width: 430px;
+
+  .switch-tabs {
+    background-color: #f2f2f2;
+    padding: 0 12px;
+  }
+
+  .switch-tabs > .entry {
+    position: relative;
+    padding: 6px 0 11px;
+    margin-top: 6px;
+    line-height: 16px;
+    background: none;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+    border-bottom: 1px solid transparent;
+
+    &.is-active {
+      background-color: #fff;
+    }
+  }
+
+  .emojis {
+    height: 160px;
+    margin: 15px 0;
+    padding: 0 0 0 15px;
+    overflow-y: scroll;
+
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  .emoji-container {
+    padding: 1px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    &:hover {
+      background-color: #f2f3f4;
+    }
+  }
+
+  .emoji {
+    width: 24px;
+    height: 24px;
+  }
+
+  .footer {
+    height: 70px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+  }
+
+  .emoji-preview {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    border-right: 1px solid #ddd;
+    max-width: 50%;
+    .emoji {
+      width: 42px;
+      height: 42px;
+    }
+    .word {
+      margin-left: 8px;
+      overflow-x: hidden;
+    }
+  }
+
+  .emoji-most-used {
+    flex: 1;
+    max-width: 50%;
+    padding: 0 0 0 8px;
+    display: flex;
+  }
+}
+
+.lite-popover > .body.is-emoji-table {
+  padding: 0;
+}

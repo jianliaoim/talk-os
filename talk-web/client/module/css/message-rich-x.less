@@ -1,0 +1,417 @@
+@boundary: 8;
+@lineHeight: 20px;
+
+#TalkMessageForms {
+
+  .BackgroundBoundary() {
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .BorderRadius(@value: 3px) {
+    border-radius: @value;
+  }
+
+  .Box() {
+    border: 1px solid @colorGray;
+  }
+
+  .BorderBox() {
+    padding: 14px 16px;
+    background-color: @colorGrayBackground;
+    border: 1px solid @colorGray;
+    .BorderRadius(4px);
+  }
+
+  .BoxModal(@value: 12px) {
+    padding: 4px 0 4px @value;
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 4px;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      background-color: @colorGray;
+    }
+  }
+
+  .BoxText() {
+    line-height: @lineHeight;
+  }
+
+  .Clickable() {
+    cursor: pointer;
+
+    &:hover {
+      background-color: @colorGrayBackground;
+    }
+  }
+
+  .FileClickable() {
+    cursor: pointer;
+
+    &:hover {
+      color: @colorFontDim;
+    }
+  }
+
+  .FontEmphasize() {
+    font-style: normal;
+    font-weight: bold;
+  }
+
+  .ImageClickable() {
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  .ParagraphOverflow(@value: 8) {
+    display: block;
+    display: -webkit-box;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    -webkit-line-clamp: @value;
+    -webkit-box-orient: vertical;
+  }
+
+  .TextOverflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+}
+
+.ContainerPrototype() {
+
+  div + div {
+    margin-top: 4px;
+  }
+
+  .title {
+
+    #TalkMessageForms .FontEmphasize();
+
+    font-size: 14px;
+    line-height: 24px;
+
+  }
+
+  .content {
+
+    #TalkMessageForms .ParagraphOverflow(@boundary);
+
+    max-height: @boundary * @lineHeight;
+
+    font-size: 14px;
+
+  }
+
+}
+
+.BoxPrototype() {
+  #TalkMessageForms .BoxModal();
+  #TalkMessageForms .BoxText();
+
+  .ContainerPrototype();
+
+}
+
+.BorderBoxPrototype() {
+  #TalkMessageForms .BorderBox();
+  #TalkMessageForms .BoxText();
+
+  .ContainerPrototype();
+}
+
+
+.attachment-file {
+  display: flex;
+  flex-direction: horizontal;
+  item-align: center;
+
+  padding: 6px 0;
+
+  &.is-clickable {
+    #TalkMessageForms .FileClickable();
+  }
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  > .file-type {
+    flex: 0 0 auto;
+
+    width: 32px;
+    height: 40px;
+
+    background-image: url('../../images/filetype@2x.png');
+    background-repeat: no-repeat;
+    background-size: 192px 360px;
+
+    color: @color-white;
+
+    line-height: 40px;
+
+    text-align: center;
+
+  }
+
+  > .file-details {
+    overflow: hidden;
+    padding: 0 8px;
+
+    > .file-name {
+
+      #TalkMessageForms .FontEmphasize();
+      #TalkMessageForms .TextOverflow();
+
+      position: relative;
+
+      line-height: 22px;
+
+      flex: 1 1 auto;
+    }
+
+    > .file-size {
+      font-size: 13px;
+      line-height: 20px;
+      color: #B3B3B3;
+    }
+  }
+
+  > .action {
+    flex: 0 0 auto;
+    padding: 0 8px;
+    font-size: 16px;
+    color: @iconColor;
+    transition: opacity .1s;
+
+    &:hover {
+      color: @iconColorHover;
+      background-color: inherit;
+    }
+
+  }
+
+  > .file-name > .progress {
+
+    opacity: 0.75;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+
+    -webkit-transition: width 500ms;
+    -moz-transition: width 500ms;
+    -ms-transition: width 500ms;
+    -o-transition: width 500ms;
+    transition: width 500ms;
+  }
+
+}
+
+
+.attachment-image {
+
+  .preview {
+    padding-bottom: 5px; // for progress bar
+    position: relative;
+  }
+
+  .preview {
+
+    #TalkMessageForms .ImageClickable();
+
+    img {
+
+      #TalkMessageForms .BorderRadius();
+      display: block;
+
+    }
+
+    .error {
+      #TalkMessageForms .BorderRadius();
+      #TalkMessageForms .Clickable();
+      #TalkMessageForms .BoxModal(10px 15px)
+    }
+
+  }
+
+}
+
+
+.attachment-rtf {
+
+  .BoxPrototype();
+  #TalkMessageForms .Clickable();
+
+  .picture {
+
+    #TalkMessageForms .BackgroundBoundary();
+    #TalkMessageForms .BorderRadius(2px);
+
+    display: block;
+
+    height: 100px;
+    width: 100px;
+
+  }
+
+}
+
+
+.attachment-snippet {
+  .BorderBoxPrototype();
+  #TalkMessageForms .Clickable();
+}
+
+
+.attachment-quote {
+
+  .BoxPrototype();
+
+  &.is-clickable {
+
+    #TalkMessageForms .Clickable();
+
+  }
+
+  .picture {
+
+    #TalkMessageForms .BackgroundBoundary();
+
+    display: block;
+
+    height: 64px;
+    width: 64px;
+
+  }
+
+  .content {
+    white-space: pre-wrap;
+  }
+
+  &.is-green:before {
+    background-color: #A1E1C1;
+  }
+  &.is-yellow:before {
+    background-color: #FFE28C;
+  }
+  &.is-red:before{
+    background-color: #FFD2CC;
+  }
+
+}
+
+
+.attachment-message {
+  .BorderBoxPrototype();
+
+  #TalkMessageForms .Clickable();
+
+  padding: 0 5px;
+
+  div + div {
+    margin-top: 0;
+  }
+
+  > div {
+    padding: 10px 10px 0;
+  }
+
+  .container {
+    margin-top: 0;
+  }
+}
+
+.attachment-speech {
+  @color: #E85B48;
+  display: inline-block;
+
+  audio {
+    display: none;
+    visibility: hidden;
+  }
+
+  .audio-player {
+    position: relative;
+    display: inline-block;
+    max-width: 360px;
+    min-width: 100px;
+    height: 32px;
+    line-height: 30px;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #B3B3B3;
+    vertical-align: middle;
+
+    .ti {
+      color: @color;
+    }
+  }
+
+  &:not(.slim) .audio-player {
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+
+    &:hover, &.is-playing {
+      color: @color;
+      border-color: #FFD2CC;
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 8px;
+    padding-right: 15px;
+  }
+
+  .audio-player .progress {
+    height: 30px;
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #FFEDEB;
+  }
+
+  .audio-player.is-playing .progress {
+    transition: width 200ms linear;
+  }
+
+  .audio-player .ti {
+    font-size: 16px;
+    z-index: 1;
+  }
+
+  .audio-player .time {
+    flex-grow: 1;
+    margin-left: 8px;
+    font-size: 13px;
+    z-index: 1;
+  }
+
+  .unread-dot {
+    width: 8px;
+    height: 8px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background-color: @color;
+  }
+}

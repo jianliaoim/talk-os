@@ -1,0 +1,21 @@
+.team-drawer {
+  position: absolute;
+  top: @header-height;
+  right: -392px;
+  bottom: 0;
+
+  z-index: 190;
+
+  width: 392px;
+
+  background: #FFF;
+
+  transition: right .2s ease;
+
+  &.is-open {
+    right: 0;
+
+    border-left: 1px solid @border-color-gray;
+  }
+
+}

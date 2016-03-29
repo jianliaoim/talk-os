@@ -1,0 +1,187 @@
+.form-table {
+
+  overflow: hidden;
+
+  border-radius: 3px;
+
+  &.is-dashed {
+    border: 2px dashed #E6E6E6;
+  }
+
+  [hidden] {
+    display: none;
+  }
+
+  fieldset {
+    padding: 24px;
+  }
+
+  fieldset .form-row + .form-row {
+    margin-top: 8px !important;
+  }
+
+  input, textarea {
+    display: block;
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    color: #393C40;
+    outline: none;
+    resize: none;
+
+    transition: none;
+
+    &[readonly] {
+      cursor: text;
+    }
+
+  }
+
+  .image-box {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &.is-favicon {
+      height: 24px;
+      width: 24px;
+
+      margin-right: 8px;
+
+      & + * {
+       width: 500px;
+      }
+
+    }
+
+    &.is-pic {
+      height: 72px;
+      width: 72px;
+
+      margin-right: 16px;
+
+      & + * {
+        width: 444px;
+      }
+
+    }
+
+  }
+
+  .textarea-row {
+    min-height: 72px;
+  }
+
+  .font-normal {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .font-large {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .file-view {
+    position: relative;
+    width: 100%;
+
+    &.is-clickable {
+      cursor: pointer;
+    }
+
+    &:hover .btn-group {
+      display: block;
+    }
+
+    .btn-group {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+
+      display: none;
+    }
+
+    .btn {
+      display: inline-block;
+
+      height: 36px;
+      width: 36px;
+
+      background: @color-white;
+      border-radius: 50%;
+      color: @color-gray-dark;
+
+      line-height: 36px;
+      text-align: center;
+
+      &:hover {
+        color: @color-red-dark;
+      }
+    }
+
+    * + .btn {
+      margin-left: 12px;
+    }
+
+    .preview {
+      height: 400px;
+      min-width: 100%;
+
+      background-color: @color-gray-dark;
+      background-position: center center;
+      background-repeat: no-repeat;
+
+      &.is-cover {
+        background-size: contain;
+      }
+    }
+
+    .extension {
+      position: relative;
+      height: 400px;
+
+      font-size: 36px;
+      line-height: 400px;
+      text-align: center;
+      text-transform: uppercase;
+      user-select: none;
+
+      .icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        z-index: 0;
+
+        color: @color-gray;
+
+        font-size: 240px;
+        line-height: 400px;
+        text-align: center;
+      }
+
+      span {
+        position: relative;
+        color: @color-white;
+      }
+    }
+
+  }
+
+  .loading-circle {
+    display: flex;
+    align-items: baseline;
+    min-width: 24px;
+    margin-right: 8px;
+  }
+
+}

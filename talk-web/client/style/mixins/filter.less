@@ -1,0 +1,12 @@
+
+// http://labs.voronianski.com/css3-grayscale/
+.grayscale {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  // http://www.karlhorky.com/2012/06/cross-browser-image-grayscale-with-css.html
+  filter: url('../../images/css3-grayscale.svg'); /* Firefox 10+, Firefox on Android */
+  filter: gray; /* IE 6-9 */
+}

@@ -1,0 +1,58 @@
+
+.favorites-collection {
+
+  .nav-right {
+    cursor: pointer;
+  }
+
+  .message-item .message-rich {
+    max-width: 100%;
+    padding: 15px 0 20px 20px;
+
+    .title {
+      padding: 0;
+      padding-right: 10px;
+    }
+
+    .relative-time {
+      display: none;
+    }
+  }
+
+  .message-item {
+    position: relative;
+
+    .message-rich .post-card, .message-rich .snippet-card, .message-rich > .body {
+      width: 200px;
+    }
+
+    .message-rich .snippet-card {
+      width: 200px;
+      background: transparent;
+    }
+
+    .toolbar {
+      color: @font-level-3;
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    &:hover {
+      .toolbar {
+        opacity: 1;
+        transition: opacity @transition-duration linear @transition-delay;
+      }
+    }
+  }
+
+  .message-rich .container > .body > .attachment > div {
+    width: 200px;
+  }
+
+  .attachment-image .preview img {
+    max-width: 200px;
+  }
+}

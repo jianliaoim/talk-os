@@ -1,0 +1,34 @@
+.banner {
+  display: block;
+  position: relative;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+
+  >.is-leading {
+    border-radius: 50%;
+    color: white;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 24px;
+    float: none;
+    background-color: #4fc3f7;
+    flex: 0 0 auto;
+  }
+
+  >.name {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &.full {
+      flex: 1 1 auto;
+    }
+  }
+}

@@ -1,0 +1,213 @@
+
+.inte-page {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F9F9F9;
+  color: black;
+  line-height: 1.6em;
+  overflow: hidden;
+  cursor: initial;
+  user-select: initial;
+  display: flex;
+  flex-direction: column;
+}
+
+.inte-page > .header .title {
+  font-size: 18px;
+}
+
+.inte-page > .body {
+  flex: 1;
+  padding: 30px 0 100px;
+  overflow: auto;
+  background-color: #f7f7f7;
+}
+
+.inte-page .view,
+.inte-page .inte-board {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.inte-page .inte-banner {
+  background-image: url('../../images/integration-banner@2x.png');
+  background-size: cover;
+  width: 960px;
+  height: 100px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 18px;
+  position: relative;
+}
+
+.inte-page .inte-banner .mask {
+  background-color: hsla(0, 0%, 0%, 0.3);
+  padding: 0 40px;
+  line-height: 100px;
+  height: 100%;
+}
+
+.inte-page .inte-banner .icon-remove {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  font-size: 14px;
+}
+
+.inte-page .lm-content {
+
+  .jinshujuUrl {
+    margin: 20px 40px 0;
+  }
+
+  .guide-area {
+    padding: 0 40px;
+  }
+
+  .table-pair {
+    margin: 0;
+    padding: 30px 40px;
+
+    .lite-dropdown .dropdown {
+      max-height: 200px;
+
+      &::-webkit-scrollbar {
+        width:7px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #a6a6a6;
+        border-left: 2px solid transparent;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #d9d9d9;
+        border-left: 2px solid transparent;
+      }
+    }
+
+    .title + .muted {
+      margin-top: 5px;
+    }
+  }
+
+  .table-pair + .div {
+    margin-top: 50px;
+  }
+}
+
+.inte-page .lm-content .header {
+  padding: 20px 40px;
+  margin-bottom: 0;
+  .display(flex);
+  .flex-direction(row);
+  .align-items(start);
+
+  .inte-title {
+    margin-left: 20px;
+    .flex(1);
+
+    .name {
+      display: block;
+      font-size: 18px;
+    }
+
+    & > .muted {
+      display: block;
+      max-width: 600px;
+      margin-top: 10px;
+    }
+  }
+}
+
+.inte-page .lm-content .header .more-details {
+  max-width: 600px;
+  margin-left: 60px;
+  color: @font-level-3;
+}
+
+.inte-page .page {
+  width: 640px;
+  background-color: white;
+}
+
+.inte-page .page .inte-manager {
+  padding: 0;
+  border-top: 1px solid @border-level-2;
+
+  .topic {
+    margin: 0;
+    padding: 24px 25px;
+    color: @black;
+  }
+
+  .inte-item {
+    margin: 0;
+    padding: 23px 25px;
+    border-top: 1px solid @border-level-2;
+
+    &:last-child {
+      border-bottom: 1px solid @border-level-2;
+    }
+  }
+}
+
+.inte-page .page > .switch-tabs > .entry {
+  width: 213px;
+
+  &:last-child {
+    width: 214px;
+  }
+}
+
+.inte-page .sidebar {
+  position: absolute;
+  right: 0;
+  top: 0px;
+  width: 290px;
+  margin-left: 30px;
+}
+
+.inte-page .sidebar a {
+  display: block;
+  color: #393C40;
+  border: 1px solid #393C40;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 3px;
+  user-select: none;
+}
+
+.inte-page .sidebar .about {
+  font-size: 14px;
+}
+
+.inte-page .page > .inte-list,
+.inte-page .page > .inte-custom {
+  padding: 0;
+}
+
+.inte-page .view .copy-area {
+  margin-top: 15px;
+  background-color: @white;
+}
+
+.inte-page .sidebar .tip-guide {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.inte-page .sidebar .feedback-survey  {
+  padding: 20px;
+  background-color: @white;
+}
+/* need to refine */
+.inte-page .btn-link.return .icon + .text {
+  margin-left: 5px;
+}

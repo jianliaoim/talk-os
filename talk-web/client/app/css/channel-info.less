@@ -1,0 +1,46 @@
+.channel-info {
+  overflow: hidden;
+
+  .preview {
+    height: 40px;
+    width: 56px;
+
+    margin-right: 12px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+  }
+
+  .title {
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: @font-weight-bold;
+
+    &.is-clickable {
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+
+  .archived {
+    margin-left: 12px;
+  }
+
+  .url {
+    margin-left: 12px;
+
+    color: @color-link;
+
+    font-size: 14px;
+    line-height: 32px;
+    text-decoration: underline;
+
+    &:hover {
+      color: @color-link-hover;
+    }
+
+  }
+
+}

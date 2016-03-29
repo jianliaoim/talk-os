@@ -1,0 +1,75 @@
+// Scroll Bars
+.vertical-scroll() {
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    border-left: 1px solid @font-level-3;
+    background: @grayLight;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: @font-level-3;
+  }
+}
+
+.horizontal-scroll() {
+  &::-webkit-scrollbar {
+    height: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: @grayLight;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: @font-level-3;
+  }
+}
+
+.thin-scroll() {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+}
+
+.transparent-scroll() {
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,.25);
+  }
+}
+
+// Scroll Bars
+// --------------------------------------
+.vertical-scroll {
+  .vertical-scroll();
+}
+
+.horizontal-scroll {
+  .horizontal-scroll();
+}
+
+.thin-scroll {
+  .thin-scroll();
+}
+
+.transparent-scroll {
+  .transparent-scroll();
+}

@@ -1,0 +1,31 @@
+.avatar-drawer {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-drawer .clip {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  border: 2px solid #fff;
+  background-color: #FFF;
+
+  z-index: 2;
+}
+
+.avatar-drawer .clip:first-of-type {
+  left: -16px;
+  top: -16px;
+  z-index: 3;
+}
+
+.avatar-drawer .clip:last-of-type {
+  left: 16px;
+  top: 16px;
+  z-index: 1;
+}

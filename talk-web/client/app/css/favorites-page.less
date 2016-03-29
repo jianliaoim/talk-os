@@ -1,0 +1,41 @@
+
+.favorites-page {
+
+  .timeline .wrap {
+    position: relative;
+    height: auto;
+    top: 20px;
+
+    > .group,
+    > .toolbar {
+      transition: opacity @transition-duration linear @transition-delay;
+    }
+
+    &:hover {
+      .group {
+        opacity: 0;
+      }
+
+      .toolbar {
+        opacity: 1;
+      }
+    }
+  }
+
+  .timeline .wrap > .toolbar {
+    position: absolute;
+    right: 0;
+    top: 17px;
+    right: 24px;
+    color: @font-level-3;
+    opacity: 0;
+
+    .icon {
+      cursor: pointer;
+    }
+  }
+
+  .no-content {
+    margin-top: 30px;
+  }
+}

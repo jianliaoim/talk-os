@@ -1,0 +1,95 @@
+
+.team-name {
+  position: relative;
+  color: @font-level-1;
+
+  .icon {
+    background: @color-red;
+    color: @color-white;
+  }
+}
+
+.team-name > .source {
+    width: 22px;
+    height: 22px;
+    background-size: 22px 176px;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: url('../../images/third-party@2x.png');
+    background-position: 0 0;
+    margin-left: 10px;
+}
+
+.team-name > .source.is-elemeyg {
+    background-position: 0 -154px;
+}
+.team-name > .source.is-elemeyg:hover {
+    background-position: 0 -132px;
+}
+
+.team-name > .source.is-teambition {
+    background-position: 0 -110px;
+}
+.team-name > .source.is-teambition:hover {
+    background-position: 0 -88px;
+}
+
+.team-name > .source.is-github {
+    background-position: 0 -66px;
+}
+.team-name > .source.is-github:hover {
+    background-position: 0 -44px;
+}
+
+.team-name > .source.is-evernote {
+    background-position: 0 -22px;
+}
+.team-name > .source.is-evernote:hover {
+    background-position: 0 0px;
+}
+
+
+.team-name.is-large > .icon-unread {
+    background-color: @notice-level-1;
+    position: absolute;
+    box-shadow: 0 0 2px 2px white;
+    left: 30px;
+    top: 0px;
+    right: auto;
+}
+
+.team-name.is-large {
+    line-height: 40px;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+.team-name.is-large:hover > .icon {
+    box-shadow: 0 10px 30px rgba(0,0,0,.19);
+    -webkit-transform: translate(0,-2px);
+}
+
+.team-name.is-large > .name {
+    color: #6B757D;
+    font-weight: normal;
+}
+
+.team-name.is-large:hover .name {
+    color: @font-level-1;
+}
+
+.team-name.is-large > .icon {
+    @icon-size: 50px;
+    display: inline-block;
+    font-size: 28px;
+    border-radius: 50%;
+    width: @icon-size;
+    height: @icon-size;
+    line-height: @icon-size;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 20px;
+    -webkit-transition-duration: 200ms;
+    -webkit-timing-function: cubic-bezier(.4,0,.2,1);
+    -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,156 @@
+.launch-fullscreen {
+
+  @footer-height: 80px;
+
+  height: 100%;
+
+  overflow: auto;
+
+  background: @color-background-gray;
+
+  & > .header {
+
+    width: 100%;
+
+    background: #FFF;
+    border-bottom: 1px solid @color-gray-light;
+
+    .btn-cell {
+      padding: 48px 0 36px;
+
+      text-align: center;
+
+      .text {
+        margin-top: 16px;
+
+        color: #7D7E80;
+      }
+
+    }
+
+    .btn-cell + .btn-cell {
+      margin-left: 32px;
+    }
+
+  }
+
+
+
+  & > .body {
+    width: 100%;
+
+    margin: 0 auto;
+
+    .wrapper {
+      width: 600px;
+
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+
+  }
+
+  & > .footer {
+    position: absolute;
+    bottom: -@footer-height;
+
+    width: 100%;
+
+    background: fade(#FFF, 95%);
+
+    opacity: 0;
+
+    transition: opacity .3s ease;
+
+    &.is-show {
+      opacity: 1;
+      bottom: 0;
+    }
+
+    & > .wrapper {
+      height: @footer-height;
+      max-width: 600px;
+      width: 100%;
+
+      margin: 0 auto;
+    }
+
+    button {
+      height: 36px;
+
+      padding: 0 16px;
+
+      background: transparent;
+      border: none;
+      border-radius: 18px;
+      color: #B3B3B3;
+      outline: none;
+
+      &:hover {
+        color: #9A9A9A;
+      }
+
+      &.clean {
+        border: 2px solid #E6E6E6;
+      }
+
+      &.submit {
+        width: 120px;
+        background: #5FC596;
+        border: 2px solid #5FC596;
+
+        color: #FFF;
+
+        > * {
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        &:not(.is-disabled):hover {
+          color: fade(#FFF, 80%);
+        }
+
+      }
+
+      &.is-disabled {
+        color: fade(#FFF, 60%);
+        cursor: default;
+        pointer-events: none;
+      }
+
+      .ti {
+        margin-right: 8px;
+      }
+
+    }
+
+  }
+
+  .btn-close {
+    position: absolute;
+    top: 60px;
+    right: 60px;
+
+    color: #B3B3B3;
+
+    text-align: center;
+
+    .ti {
+      display: block;
+
+      height: 40px;
+      width: 40px;
+
+      background: @color-gray-lighter;
+      border-radius: 50%;
+
+      line-height: 40px;
+    }
+
+    &:hover {
+      color: #9A9A9A;
+    }
+
+  }
+
+}

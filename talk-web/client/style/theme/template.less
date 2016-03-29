@@ -1,0 +1,154 @@
+//               blueberry   grape     ink       mint       tea       ocean
+//   default      5c6bc0    883297    424242    009688     1976d2    399963
+//   dark         3E4880    591C63    222222    215853     308048    114D88
+//   darker I     47528F    70267D    343434    106A61     2F8B57    0E579F
+//   darker II    27326F    491053    000000    1A4B46     166D3C    093E72
+//   darker III   0E174E    26012D    474747    012F2A     0C552C    022E5A
+
+#colortheme(@default, @normal, @dark, @darker, @darkest) {
+  .team-home > .fake-header，
+  .app-home > .fake-header,
+  .post-editor .header,
+  .post-viewer .header,
+  .snippet-editor .header,
+  .snippet-viewer .header,
+  .app-home .header,
+  .switch-button.is-checked,
+  .inte-page > .pageview-header,
+  .team-batch-invite .invite-submit,
+  .lite-modal.is-for-settings-user .box,
+  .team-prefs-editor .light-checkbox .icon-tick,
+  .lite-popover.is-tag-dropdown .tag-dropdown .tags .item .name:before,
+  .lite-modal.is-for-forward-menu .wrapper > .box .button,
+  .profile-page .header {
+    background-color: @default;
+  }
+
+  a[href]:hover,
+  a.icon:hover,
+  a.icon.active,
+  .button.is-link:hover,
+  .collection-page .header .search-box .icon,
+  .collection-page .tabs > .tab:hover,
+  .collection-page .tabs > .tab.is-active,
+  .channel-collection .more:hover,
+  .file-info .footer .toolbar .icon:hover,
+  .button-close:hover,
+  .message-slim .slim-post-text:hover,
+  .message-slim .quote:hover *,
+  .channel-page.is-collection-show .collection-toggler .icon-collection,
+  .channel-page.is-favorites-show .favorites-toggler .icon-star,
+  .channel-page.is-tag-show .tag-toggler .icon-tag-reverse,
+  .channel-page.is-favorites-show .nav-right,
+  .channel-page.is-tag-show .nav-right,
+  .msg-collection .text:hover,
+  .tag-page .tag-select + .toolbar:hover,
+  .favorites-page > .header .icon-star,
+  .tag-page > .header .icon-tag-reverse,
+  .inte-email .inte-title > .muted > a,
+  .message-rich .attachment-file a > .icon:hover {
+    color: @default;
+  }
+
+  .team-menu .create-team,
+  .message-rich .is-active .star,
+  .message-slim .is-active .star,
+  .message-slim .file-glance .filename,
+  .message-slim .filename,
+  .message-controls .icon-rich-text.is-drafting,
+  .message-controls .icon-pre.is-drafting,
+  .channel-collection .more,
+  .link-icon,
+  .finder-page > .header .icon-remove:hover,
+  .post-viewer .footer .message-toolbar .icon.is-active,
+  .channel-header .toggler:hover .icon,
+  .search-suggest .item.placeholder .clickable,
+  .tag-page .tag-shelf > .tags .tag.is-active > .name,
+  .tag-page .tag-shelf > .tags .tag:hover .name,
+  .tag-shelf .create-btn:hover,
+  .tag-shelf > .toolbar:hover {
+    color: @default;
+  }
+
+  .button.is-primary {
+    background-color: @default;
+    color: white;
+    &.is-disabled {
+      background-color: fade(@default, 70%);
+    }
+    &:hover {
+      background-color: darken(@default, 5%);
+    }
+  }
+
+  .button.is-disabled,
+  .button.is-disabled:hover {
+    background-color: fade(@default, 70%);
+    cursor: default;
+  }
+
+  .inte-page {
+
+    .sidebar .button,
+    .button.return:hover {
+      color: @default;
+      border-color: @default;
+    }
+
+    .table-pair .attr .is-link {
+      color: @default;
+    }
+  }
+
+  .link-viewer .link {
+    color: @default;
+  }
+
+  .topic-menu .icon-char,
+  .member-menu .invite-members .icon {
+    background-color: @default;
+  }
+
+  // force set color
+  .button-close.is-white:hover {
+    color: white;
+  }
+
+  // dirty
+  a.rich-hint {
+    color: @default;
+
+    &:hover {
+      color: fade(@default, 85%);
+    }
+  }
+
+  // app-toolbar
+  .app-sidebar { background-color: @normal; }
+  .app-toolbar { background-color: @default; }
+
+  // story-action
+  .story-action > * { color: @default; }
+  .story-action > *:hover { color: lighten(@default, 10%); }
+
+  .story-header .button.is-pure { color: @default; background-color: transparent !important; }
+  .story-header .button.is-pure:hover { color: lighten(@default, 10%); }
+
+  .lite-modal.is-for-room-create .title { background-color: @default; }
+  .lite-modal.is-for-room-create .title > * { color: #FFF !important; }
+  .lite-modal.is-for-room-create .bottom > * {  color: @default !important; }
+
+  .lite-modal.is-for-story-invite .title { background-color: @default; }
+  .lite-modal.is-for-story-invite .title > * { color: #FFF !important; }
+  .lite-modal.is-for-story-invite .bottom > * {  color: @default !important; }
+
+  // buttons
+  .button-plain { color: @default; }
+  .button-plain:hover { color: @normal; }
+
+  .button-small { color: @default; }
+  .button-small:hover { background-color: @default; color: #FFF; }
+
+  //3.0
+  .app-sidebar { background-color: #FFF; }
+}
