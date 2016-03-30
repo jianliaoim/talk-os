@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/jianliaoim/talk-os/issues"
   },
-  "homepage": "https://github.com/jianliaoim/talk-os#readme"
+  "homepage": "https://github.com/jianliaoim/talk-os#readme",
+  "dependencies": {
+    "config": "^1.19.0",
+    "express": "^4.13.4",
+    "graceful-logger": "^0.4.3",
+    "lodash": "^4.6.1"
+  }
 }

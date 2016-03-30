@@ -19,3 +19,9 @@ echo 'Install packages of talk-account'
 cd $BASE_PATH/talk-account && npm i && npm run static
 
 [[ $? -ne 0 ]] && exit $?
+
+echo 'Install packages of talk-os'
+
+cd $BASE_PATH && npm i --production
+
+[[ $? -ne 0 ]] && exit $?

@@ -26,7 +26,6 @@ module.exports =
   # Connections
   mongo:
     address: 'mongodb://localhost:27017/talk_account'
-    authdb: 'admin'
   redis:
     host: 'localhost'
   # Client
