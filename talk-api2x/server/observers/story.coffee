@@ -47,16 +47,19 @@ StorySchema.post 'create', (story) ->
 
   $story.then (story) -> _broadcast story, 'story:create'
 
+  return # @osv
   # Index story search data
   story.indexSearch()
 
 StorySchema.post 'updated', (story) ->
   $story = story.getPopulatedAsync()
   $story.then (story) -> _broadcast story, 'story:update'
+  return # @osv
   # Index story search data
   story.indexSearch()
 
 StorySchema.post 'remove', (story) ->
   _broadcast story, 'story:remove'
+  return # @osv
   # unIndex story search data
   story.unIndexSearch()

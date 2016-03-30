@@ -215,6 +215,7 @@ MessageSchema.methods.getSearchIndex = ->
   "talk_messages_" + moment(message.createdAt).format('YYYYMM')
 
 MessageSchema.methods.index = (options = {}, callback = ->) ->
+  return # @osv
   if toString.call(options) is '[object Function]'
     callback = options
     options = {}
@@ -227,6 +228,7 @@ MessageSchema.methods.index = (options = {}, callback = ->) ->
   searchMessage.index options, callback
 
 MessageSchema.methods.unIndex = (options = {}, callback = ->) ->
+  return # @osv
   if toString.call(options) is '[object Function]'
     callback = options
     options = {}
@@ -483,4 +485,3 @@ MessageSchema.statics.findAllTags = (_userId, _teamId, options, callback) ->
     $query.execAsync()
 
   .nodeify callback
-

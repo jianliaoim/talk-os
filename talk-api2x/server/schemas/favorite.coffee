@@ -27,6 +27,7 @@ FavoriteSchema.virtual '_messageId'
 FavoriteSchema.methods.getPopulated = (callback) -> @populate POPULATE_FIELDS, callback
 
 FavoriteSchema.methods.index = (options = {}, callback = ->) ->
+  return # @osv
   if toString.call(options) is '[object Function]'
     callback = options
     options = {}
@@ -36,6 +37,7 @@ FavoriteSchema.methods.index = (options = {}, callback = ->) ->
   searchFavorite.index options, callback
 
 FavoriteSchema.methods.unIndex = (options = {}, callback = ->) ->
+  return # @osv
   if toString.call(options) is '[object Function]'
     callback = options
     options = {}
