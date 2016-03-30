@@ -64,16 +64,16 @@ module.exports = React.createClass
       if __GA__
         Tooltip template: lang.getText('activities'),
           a className: cx('btn-tool', 'active': @isActiveRoute 'overview'), onClick: @onRouteOverview,
-            Icon name: 'wave', size: 14
+            Icon name: 'activity', size: 18
       Tooltip template: lang.getText('mentioned-me'),
         a className: cx('btn-tool', 'active': @isActiveRoute 'mentions'), onClick: @onRouteMentions,
-          Icon name: 'at', size: 14
+          Icon name: 'at', size: 18
       Tooltip template: lang.getText('search'),
         a className: cx('btn-tool', 'active': @isActiveRoute 'collection'), onClick: @onRouteCollection,
-          Icon name: 'search', size: 14
+          Icon name: 'search', size: 18
       Tooltip template: lang.getText('tag'),
         a className: cx('btn-tool', 'active': @isActiveRoute 'tags'), onClick: @onRouteTags,
-          Icon name: 'tag', size: 14
+          Icon name: 'tag', size: 18
       Tooltip template: lang.getText('collection'),
         a className: cx('btn-tool', 'active': @isActiveRoute 'favorites'), onClick: @onRouteFavorites,
-          Icon name: 'star', size: 14
+          Icon name: 'star', size: 18

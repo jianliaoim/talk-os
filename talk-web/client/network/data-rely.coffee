@@ -1,7 +1,8 @@
+Q = require 'q'
 shortid = require 'shortid'
 recorder = require 'actions-recorder'
-
-schedule = require '../util/schedule'
+Immutable = require 'immutable'
+flattenDeep = require 'lodash.flattendeep'
 
 actions = require '../actions/index'
 tagActions = require '../actions/tag'
@@ -10,6 +11,7 @@ teamActions = require '../actions/team'
 roomActions = require '../actions/room'
 storyActions = require '../actions/story'
 groupActions = require '../actions/group'
+deviceActions = require '../actions/device'
 searchActions = require '../actions/search'
 accountActions = require '../actions/account'
 contactActions = require '../actions/contact'
@@ -271,17 +273,21 @@ exports.relyInteSettings = ->
   request: (resolve, reject) ->
     actions.inte.getSettings resolve, reject
 
-# final caller
+exports.relyTeamSubscribe = (_teamId) ->
+  store = recorder.getStore()
 
-exports.ensure = (deps, fn) ->
-  unmatchedDeps = deps.filter (dependency) ->
-    return false unless dependency? # might be undefined
-    not dependency.isSatisfied
-  depsKind = unmatchedDeps.map (dependency) -> dependency.kind
-  calls = unmatchedDeps.map (dependency) -> dependency.request
+  kind: 'team-subscribe'
+  isSatisfied: store.getIn ['teamSubscribe', _teamId]
+  request: (resolve, reject) ->
+    actions.team.teamSubscribe _teamId, resolve, reject
 
-  if calls.length > 0
-    schedule.all calls, (results) ->
-      fn results
-  else
-    fn calls
+exports.ensure = (deps) ->
+  deps = flattenDeep(deps)
+    .filter (d) ->
+      d and not d.isSatisfied
+    .map (d) ->
+      Q.Promise d.request
+
+  isSatisfied: deps.length is 0
+  request: ->
+    Q.all deps

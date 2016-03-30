@@ -25,7 +25,7 @@
   font: 0/0 a;
 
   // dirty fix, need to deal with image-loading module
-  .lite-image {
+  .light-image {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -78,7 +78,6 @@
 }
 
 .file-image .image-container .rotate-bar > .line {
-  display: inline-block;
   line-height: 30px;
   color: #fff;
   font-size: 14px;
@@ -114,13 +113,13 @@
   }
 }
 
-.file-image .lite-image {
+.file-image .light-image {
   transition: transform .3s ease-in;
 }
 
 .loop(@counter) when (@counter < 5) {
   @deg: 90 * @counter;
-  &.rotate-@{deg} .lite-image .image-layer {
+  &.rotate-@{deg} .light-image .image-layer {
     transform: rotate(1deg * @deg);
   }
 
@@ -131,6 +130,6 @@
   .loop(0);
 }
 
-.file-image.animate .lite-image .image-layer {
+.file-image.animate .light-image .image-layer {
   transition: transform .3s ease-in;
 }

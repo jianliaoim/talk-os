@@ -21,6 +21,9 @@
 
   & > .spec > .builtin,
   & .item {
+    display: flex;
+    flex-direction: horizontal;
+    align-items: center;
     padding: 0 20px;
     height: 34px;
     line-height: 34px;
@@ -30,7 +33,7 @@
     text-overflow: ellipsis;
 
     .text {
-      margin-left: 16px;
+      margin-left: 8px;
     }
   }
 
@@ -47,7 +50,7 @@
       }
     }
 
-    .story-name .icon {
+    .story-name .ti {
       border-radius: 4px;
     }
   }

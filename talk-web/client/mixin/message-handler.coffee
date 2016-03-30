@@ -13,9 +13,9 @@ type = require '../util/type'
 detect = require '../util/detect'
 analytics = require '../util/analytics'
 
-LiteModalBeta = React.createFactory require '../module/modal-beta'
-LiteModal   = React.createFactory require('react-lite-layered').Modal
-LitePopover = React.createFactory require('react-lite-layered').Popover
+LightModalBeta = React.createFactory require '../module/light-modal'
+LightModal   = React.createFactory require '../module/light-modal'
+LightPopover = React.createFactory require '../module/light-popover'
 
 favoriteActions = require '../actions/favorite'
 messageActions = require '../actions/message'
@@ -108,7 +108,7 @@ module.exports =
 
   renderMemberCard: ->
     showCard = @state.showProfile and @props.message.get('creator')?
-    LitePopover
+    LightPopover
       onPopoverClose: @onAuthorClose
       baseArea: if showCard then @getBaseArea() else {}
       showClose: false, positionAlgorithm: @positionAlgorithm
@@ -129,7 +129,7 @@ module.exports =
     @setState showPostViewer: false
 
   renderPostViewer: ->
-    LiteModal name: 'post-viewer', onCloseClick: @onPostViewerClose, showClose: true, show: @state.showPostViewer,
+    LightModal name: 'post-viewer', onCloseClick: @onPostViewerClose, showClose: true, show: @state.showPostViewer,
       PostViewer message: @props.message, onClose: @onPostViewerClose, isFavorite: @props.isFavorite, canEdit: @props.canEdit
 
   # quote
@@ -140,7 +140,7 @@ module.exports =
   onQuoteViewerClose: -> @setState showQuoteViewer: false
 
   renderQuoteViewer: ->
-    LiteModalBeta name: 'quote-viewer', onCloseClick: @onQuoteViewerClose, showClose: true, show: @state.showQuoteViewer,
+    LightModalBeta name: 'quote-viewer', onCloseClick: @onQuoteViewerClose, showClose: true, show: @state.showQuoteViewer,
       QuoteViewer message: @props.message, onClose: @onQuoteViewerClose, canEdit: @props.canEdit, isFavorite: @props.isFavorite
   # link
 
@@ -148,7 +148,7 @@ module.exports =
   onLinkViewerHide: -> @setState showLinkViewer: false
 
   renderLinkViewer: ->
-    LiteModalBeta name: 'link-viewer', onCloseClick: @onLinkViewerHide, showClose: true, show: @state.showLinkViewer,
+    LightModalBeta name: 'link-viewer', onCloseClick: @onLinkViewerHide, showClose: true, show: @state.showLinkViewer,
       LinkViewer message: @props.message, onClose: @onLinkViewerHide
 
   # snippet
@@ -161,5 +161,5 @@ module.exports =
     @setState showSnippetViewer: false
 
   renderSnippetViewer: ->
-    LiteModalBeta name: 'snippet-viewer', show: @state.showSnippetViewer, showClose: true, onCloseClick: @onSnippetViewerClose,
+    LightModalBeta name: 'snippet-viewer', show: @state.showSnippetViewer, showClose: true, onCloseClick: @onSnippetViewerClose,
       SnippetViewer isFavorite: @props.isFavorite, canEdit: @props.canEdit, message: @props.message, onClose: @onSnippetViewerClose

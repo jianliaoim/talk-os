@@ -20,7 +20,7 @@ exports.ensureCodeEditor = (cb) ->
   requireStartTime = (new Date).valueOf()
   require.ensure [], ->
     exports.define 'codemirror', require './codemirror'
-    exports.define 'code-editor', React.createFactory require 'react-lite-coder/lib/code-editor'
+    exports.define 'code-editor', React.createFactory require '../module/code-editor'
     exports.define 'snippet-selector', React.createFactory require '../app/snippet-selector'
     analytics.compareRequireCost requireStartTime, 'snippet-editor'
     cb?()

@@ -13,6 +13,8 @@ orders = require '../util/orders'
 analytics = require '../util/analytics'
 deviceActions = require '../actions/device'
 
+Icon = React.createFactory require '../module/icon'
+
 FileAudio = React.createFactory require '../app/file-audio'
 FileDefault = React.createFactory require '../app/file-default'
 FileImage = React.createFactory require '../app/file-image'
@@ -147,13 +149,13 @@ module.exports =
     leftClass = classnames 'side-column', 'is-active': @hasPrev()
     div className: leftClass, onClick: @onBackClick,
       div className: 'side-container', onClick: @onSwitchLeft,
-        span className: 'icon icon-chevron-left'
+        Icon name: 'chevron-left', size: 20
 
   renderRightCircle: ->
     rightClass = classnames 'side-column', 'is-active': @hasNext()
     div className: rightClass, onClick: @onBackClick,
       div className: 'side-container', onClick: @onSwitchRight,
-        span className: 'icon icon-chevron-right'
+        Icon name: 'chevron-right', size: 20
 
   renderFileTypes: ->
     file = @state.queue.getIn([@state.currentIndex, 'attachment', 'data'])
@@ -195,7 +197,7 @@ module.exports =
 
   renderQueue: ->
     div className: 'file-queue',
-      span className: 'button-close icon icon-remove', onClick: @onClose
+      Icon name: 'remove', className: 'button-close', size: 20, onClick: @onClose
       div className: 'body',
         @renderLeftCircle()
         @renderFileTypes()

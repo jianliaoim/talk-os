@@ -12,7 +12,7 @@ mixinSubscribe = require '../mixin/subscribe'
 
 lang = require '../locales/lang'
 
-LiteNewModal = React.createFactory require '../module/new-modal'
+Icon = React.createFactory require '../module/icon'
 
 a = React.createFactory 'a'
 i = React.createFactory 'i'
@@ -62,7 +62,7 @@ module.exports = React.createClass
 
     div className: 'setting-sync setting-wrapper',
       div className: 'header',
-        i className: 'icon icon-td-arrow-left to-back', onClick: @onBack
+        Icon name: 'arrow-left', size: 24, className: 'to-back', onClick: @onBack
         lang.getText 'setting-team-sync'
       if isTeambition
         @renderSync()

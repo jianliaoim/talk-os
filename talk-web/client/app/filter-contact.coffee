@@ -15,7 +15,7 @@ search = require '../util/search'
 orders = require '../util/orders'
 dom = require '../util/dom'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 UserAlias = React.createFactory require './user-alias'
 
 div   = React.createFactory 'div'
@@ -173,7 +173,7 @@ module.exports = React.createClass
   render: ->
     contact = query.requestContactsByOne(recorder.getState(), @props._teamId, @props._creatorId)
 
-    LiteDropdown
+    LightDropdown
       displayText: contact?.get('name') or undefined
       defaultText: lang.getText('all-members')
       name: 'filter-contact'

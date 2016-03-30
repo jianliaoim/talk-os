@@ -17,7 +17,7 @@ routerHandlers = require '../handlers/router'
 
 mixinSubscribe = require '../mixin/subscribe'
 
-LiteModal = React.createFactory require 'react-lite-layered/lib/modal'
+LightModal = React.createFactory require '../module/light-modal'
 
 div    = React.createFactory 'div'
 span   = React.createFactory 'span'
@@ -81,13 +81,13 @@ module.exports = React.createClass
   # renderers
 
   renderConfirmModal: ->
-    LiteModal
+    LightModal
       name:         'delete-topic'
       onCloseClick: @onCloseComfirm
       show:         @state.showComfirmModal
 
       div className: 'title', lang.getText('confirm-delete-topic')
-      div className: 'menu pull-right',
+      div className: 'menu',
         button className: 'button is-link',  onClick: @onCloseComfirm, lang.getText('cancel')
         button className: 'button is-danger confirm', onClick: @onDeleteClick, lang.getText('confirm')
 

@@ -12,8 +12,8 @@ mixinSubscribe = require '../mixin/subscribe'
 
 lang = require '../locales/lang'
 
-LiteNewModal = React.createFactory require '../module/new-modal'
-
+LightModal = React.createFactory require '../module/light-modal'
+Icon = React.createFactory require '../module/icon'
 
 i = React.createFactory 'i'
 div = React.createFactory 'div'
@@ -91,14 +91,15 @@ module.exports = React.createClass
         notifyActions.success lang.getText 'sync-fail'
 
   renderConfirmBox: ->
-    LiteNewModal
+    LightModal
+      name: 'sync-team'
       show: @state.showConfirmBox
       title: lang.getText 'sync-team'
       onCloseClick: @onConfirmBoxClose,
         div className: 'profile-wrapper',
           div className: 'warning',
             l('sync-team-warning').replace('%s', @state.targetTeam?.get('name'))
-          div className: 'button', onClick: @onTeamSyncone, lang.getText 'confirm'
+          button className: 'button is-primary', onClick: @onTeamSyncone, lang.getText 'confirm'
 
   renderTeamList: ->
     if @state.thirdPartyTeams.get(@state.refer).size is 0
@@ -121,7 +122,7 @@ module.exports = React.createClass
             gotoSyncedTeam = => @gotoSyncedTeam(_teamId)
 
             div className: 'goto', onClick: gotoSyncedTeam,
-              i className: 'icon icon-arrow-left'
+              i className: 'ti ti-arrow-left'
 
   renderTips: ->
     div className: 'tip-wrapper', l('teambition-sync-tip')
@@ -129,7 +130,7 @@ module.exports = React.createClass
   render: ->
     div className: 'setting-sync-teams setting-wrapper',
       div className: 'header',
-        i className: 'icon icon-td-arrow-left to-back', onClick: @onBack
+        Icon name: 'arrow-left', size: 24, className: 'to-back', onClick: @onBack
         lang.getText 'setting-team-sync'
       div className: 'team-list thin-scroll',
         @renderTeamList()

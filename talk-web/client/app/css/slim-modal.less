@@ -1,4 +1,4 @@
-.lite-modal.is-slim-modal {
+.light-modal.is-slim-modal {
 
   .wrapper {
     position: relative;
@@ -71,6 +71,9 @@
   }
 
   &-header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 100%;
     padding: 0;
     border-bottom: 1px solid @color-gray-light;
@@ -89,8 +92,9 @@
       color: @color-red;
       cursor: pointer;
 
-      .icon {
+      .ti {
         margin-right: 8px;
+        font-size: 18px;
       }
 
       &:hover {

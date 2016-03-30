@@ -146,11 +146,11 @@ module.exports = React.createClass
         orders.isTagActive a, b, tagIds
       .map (tag, index) =>
         onTagClick = => @onTagClick tag.get('_id'), index
-        className = cx 'item', 'rich-line', 'is-selected': index is @state.index
-        tagClassName = cx 'icon', 'icon-tick',
+        className = cx 'flex-horiz', 'item', 'rich-line', 'is-selected': index is @state.index
+        tagClassName = cx 'ti', 'ti-tick',
           'is-active': tagIds.contains(tag.get('_id'))
 
-        div className: className, key: tag.get('_id'), onClick: onTagClick,
+        div key: tag.get('_id'), className: className, onClick: onTagClick,
           span className: 'name', tag.get('name')
           span className: tagClassName
 

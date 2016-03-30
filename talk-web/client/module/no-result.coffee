@@ -9,10 +9,8 @@ module.exports = React.createClass
   displayName: 'no-result'
   mixins: [PureRenderMixin]
 
-  propTypes: {}
-
   render: ->
     div className: 'no-result no-favorite',
-      span className: "icon icon-circle-warning"
+      span className: "ti ti-alert-solid"
       div className: "message", lang.getText('no-results')
       div className: 'tip', lang.getText('no-results-need-keywords')

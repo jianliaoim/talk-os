@@ -31,8 +31,8 @@ module.exports = React.createClass
 
   render: ->
     iconClass = cx
-      icon: true
-      'icon-tick': @props.checked
+      ti: true
+      'ti-tick': @props.checked
 
     div className: 'light-checkbox line', onClick: @onClick, onMouseEnter: @onMouseEnter, onMouseLeave: @onMouseLeave,
       span className: iconClass

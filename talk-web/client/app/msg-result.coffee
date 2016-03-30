@@ -78,7 +78,7 @@ module.exports = React.createClass
       div className: 'title',
         span className: 'title-text', @getData().get('title')
         if @getData().get('redirectUrl')?
-          span className: 'icon icon-jump', onClick: @onIconClick
+          span className: 'ti ti-redirect', onClick: @onIconClick
       if @getData().get('text')
         div className: 'text',
           @getData().get('text')

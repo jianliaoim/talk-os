@@ -33,7 +33,7 @@ MentionMenu = React.createFactory require './mention-menu'
 
 Icon = React.createFactory require '../module/icon'
 
-LitePopover = React.createFactory require 'react-lite-layered/lib/popover'
+LightPopover = React.createFactory require '../module/light-popover'
 
 { a, li, ul, div, span, input, button } = React.DOM
 T = React.PropTypes
@@ -284,7 +284,7 @@ module.exports = React.createClass
   # renderers
 
   renderCustomMentionMenu: (hasMentionMenu) ->
-    LitePopover
+    LightPopover
       name: 'mention'
       showClose: false
       baseArea: if hasMentionMenu then @getMentionBaseArea() else {}
@@ -298,7 +298,7 @@ module.exports = React.createClass
         _teamId: @props._teamId
 
   renderCustomEmojiTable: ->
-    LitePopover
+    LightPopover
       name: 'emoji-table'
       showClose: false
       baseArea: if @state.showEmojiTable then @getEmojiTableBaseArea() else {}
@@ -326,13 +326,13 @@ module.exports = React.createClass
     ul {},
       li {},
         a className: 'toolbar-item toolbar-item-bold', onClick: @onEmojiTableClick,
-          Icon type: 'icon', name: 'emoji', size: 16
+          Icon name: 'emoji', size: 20
       li {},
         a className: 'toolbar-item toolbar-item-bold', onClick: @onCustomMentionClick,
-          Icon type: 'icon', name: 'at', size: 16
+          Icon name: 'at', size: 20
       li {},
         a className: 'toolbar-item toolbar-item-bold', onClick: @onFileClick,
-          Icon type: 'icon', name: 'image', size: 14
+          Icon name: 'image', size: 20
       li {},
         span className: 'separator'
 
@@ -348,7 +348,7 @@ module.exports = React.createClass
     div ref: 'root', className: 'post-editor',
       div className: 'header line',
         lang.getText 'rich-text-editor'
-        span className: 'icon icon-remove', onClick: @onClose
+        Icon name: 'remove', className: 'button-close', size: 20, onClick: @onClose
       @renderTitle()
       @renderEditable()
       div className: 'footer',

@@ -32,9 +32,9 @@ module.exports = React.createClass
       hover: @props.hover
 
     div className: cxBody, onClick: @onClick,
-      Icon name: 'members', size: 14, type: 'icon', className: 'flex-static group-icon'
+      Icon name: 'users', size: 18, className: 'flex-static group-icon'
       div className: 'body flex-fill',
         span className: 'name text-overflow flex-static', @props.group.get('name')
         span className: 'flex-static member-count', " (#{@props.group.get('_memberIds').size})"
       if @props.showSelect and @props.isSelected
-        Icon name: 'tick', size: 14, type: 'icon', className: 'flex-static'
+        Icon name: 'tick', size: 18, className: 'flex-static'

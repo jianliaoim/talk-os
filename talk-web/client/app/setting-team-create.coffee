@@ -9,6 +9,8 @@ lang = require '../locales/lang'
 keyboard = require '../util/keyboard'
 analytics = require '../util/analytics'
 
+Icon = React.createFactory require '../module/icon'
+
 div = React.createFactory 'div'
 i = React.createFactory 'i'
 input = React.createFactory 'input'
@@ -48,7 +50,7 @@ module.exports = React.createClass
 
     div className: 'setting-create-team setting-wrapper',
       div className: 'header',
-        i className: 'icon icon-td-arrow-left to-back', onClick: @onBack
+        Icon name: 'arrow-left', size: 24, className: 'to-back', onClick: @onBack
         lang.getText 'setting-team-create'
       div className: 'content',
         div className: 'data-team-name',

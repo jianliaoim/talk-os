@@ -1,4 +1,4 @@
-.lite-modal.is-for-post-editor > .wrapper > .box {
+.light-modal.is-post-editor > .wrapper > .box {
   width: 800px;
 }
 
@@ -15,6 +15,7 @@
     border-radius: 0;
   }
 }
+
 .post-editor .header {
   color: white;
   padding: 0 15px;
@@ -23,17 +24,16 @@
   line-height: 50px;
   border-radius: 3px 3px 0 0;
 }
-.post-editor .header .icon-help {
-  color:rgba(255,255,255,.6);
-}
-.post-editor .header .icon-help-stroke {
-  vertical-align: top;
-  cursor: pointer;
-}
 
-.post-editor .header .icon-remove {
-  cursor: pointer;
+.post-editor .header .button-close {
   float: right;
+  cursor: pointer;
+
+  color: white;
+
+  &:hover {
+    color: darken(white, 50%);
+  }
 }
 
 .post-editor .footer {
@@ -137,6 +137,10 @@
   vertical-align: middle;
   text-align: center;
   text-decoration: none;
+}
+
+.simditor .simditor-toolbar > .custom-toolbar > ul > li > .toolbar-item .ti {
+  line-height: 40px;
 }
 
 .simditor .simditor-toolbar .toolbar-menu:before {

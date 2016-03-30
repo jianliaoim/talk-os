@@ -55,6 +55,6 @@ describe 'storage', ->
       localStorage.clear()
       expect(@storage.get()).toEqualImmutable Immutable.Map()
 
-    it 'should return localStorage cannot be parsed', ->
-      localStorage.setItem 'jianliaoStoreV3' , '{'
-      expect(@storage.get()).toEqualImmutable Immutable.Map()
+    it 'should get data', ->
+      localStorage.setItem 'jianliaoStoreV3', JSON.stringify({a: 1})
+      expect(@storage.get()).toEqualImmutable Immutable.Map({a: 1})

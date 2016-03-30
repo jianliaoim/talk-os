@@ -21,11 +21,12 @@ module.exports = (info) ->
     vendor: [
       "webpack-dev-server/client?http://talk.bi:#{config.webpackDevPort}",
       'webpack/hot/dev-server'
+      './client/vendor/primus'
       'actions-recorder', 'base-64', 'classnames', 'cookie_js', 'debounce'
       'favico.js', 'fileapi', 'filesize', 'highlight.js/lib/highlight'
       'immutable', 'keycode', 'lodash.isequal', 'lodash.ismatch', 'lodash.uniq'
       'markdown-it', 'markdown-it-attrs', 'markdown-it-emoji', 'moment', 'object-assign'
-      'pinyin', 'primus-client', 'q', 'qrcode-generator', 'react'
+      'pinyin', 'q', 'qrcode-generator', 'react'
       'react-addons-css-transition-group', 'react-addons-linked-state-mixin'
       'react-addons-pure-render-mixin', 'react-addons-transition-group'
       'react-dom', 'react-textarea-autosize'

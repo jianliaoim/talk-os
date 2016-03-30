@@ -12,6 +12,7 @@ CopyArea = React.createFactory require('react-lite-misc').Copyarea
 TopicSelector = React.createFactory require '../app/topic-selector'
 mixinCreateTopic = require '../mixin/create-topic'
 mixinInteHandler = require '../mixin/inte-handler'
+mixinInteEvents = require '../mixin/inte-events'
 
 div  = React.createFactory 'div'
 span = React.createFactory 'span'
@@ -25,7 +26,7 @@ module.exports = React.createClass
   displayName: 'inte-email'
   mixins: [
     LinkedStateMixin
-    mixinCreateTopic, mixinInteHandler
+    mixinCreateTopic, mixinInteHandler, mixinInteEvents
     PureRenderMixin
   ]
 
@@ -38,14 +39,6 @@ module.exports = React.createClass
 
   renderBody: (topic) ->
     div className: 'settings',
-      div className: 'topic',
-        div className: 'description',
-          span className: 'line', l('inte-email-select-topic')
-          span className: 'lin muted', l('inte-email-select-topic-description')
-        TopicSelector
-          chosen: topic.get('_id')
-          onItemClick: @onTopicSelect,
-          _teamId: @props._teamId
       div className: 'topic',
         div className: 'description',
           span className: 'line', l('inte-email-address')
@@ -64,4 +57,6 @@ module.exports = React.createClass
     div className: 'inte-email',
       div className: 'inte-board lm-content',
         @renderInteHeader()
+        @renderTopicRow()
+        @renderTopicCreate()
         @renderBody topic

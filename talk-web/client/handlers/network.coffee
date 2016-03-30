@@ -1,4 +1,3 @@
-
 recorder = require 'actions-recorder'
 
 api = require '../network/api'
@@ -11,8 +10,6 @@ storyActions = require '../actions/story'
 messageActions = require '../actions/message'
 notificationActions = require '../actions/notification'
 accountActions = require '../actions/account'
-
-schedule = require '../util/schedule'
 
 exports.newConnection = ->
   api.users.subscribe.post()
@@ -28,22 +25,22 @@ exports.longReconnection = (cb) ->
   _toId = store.getIn ['router', 'data', '_toId']
   _storyId = store.getIn ['router', 'data', '_storyId']
 
-  fetchUser = (success, fail) -> userActions.userMe(success, fail)
-  fetchTeams = (success, fail) -> teamActions.teamsFetch(success, fail)
-  fetchTeamMembers = (success, fail) -> teamActions.teamMembers(_teamId, success, fail)
-  fetchTopics = (success, fail) -> teamActions.teamTopics(_teamId, success, fail)
-  fetchAccounts = (success, fail) -> accountActions.fetch(success, fail)
-  fetchInteSettings = (success, fail) -> actions.inte.getSettings(success, fail)
-  fetchNotifications = (success, fail) -> notificationActions.read(_teamId, {}, success, fail)
+  fetchUser = -> userActions.userMe()
+  fetchTeams = -> teamActions.teamsFetch()
+  fetchTeamMembers = -> teamActions.teamMembers(_teamId)
+  fetchTopics = -> teamActions.teamTopics(_teamId)
+  fetchAccounts = -> accountActions.fetch()
+  fetchInteSettings = -> actions.inte.getSettings()
+  fetchNotifications = -> notificationActions.read(_teamId, {})
 
   if _teamId?
-    subscribeTeam = (success, fail) -> teamActions.teamSubscribe(_teamId, success, fail)
+    subscribeTeam = -> teamActions.teamSubscribe(_teamId)
     if _roomId?
-      fetchChannel = (success, fail) -> roomActions.fetch(_roomId, success, fail)
+      fetchChannel = -> roomActions.fetch(_roomId)
     else if _toId?
-      fetchChannel = (success, fail) -> messageActions.messageReadChat(_teamId, _toId, success, fail)
+      fetchChannel = -> messageActions.messageReadChat(_teamId, _toId)
     else if _storyId?
-      fetchChannel = (success, fail) -> storyActions.read(_teamId, {}, success, fail)
+      fetchChannel = -> storyActions.read(_teamId, {})
 
     calls = [
       subscribeTeam, fetchUser, fetchAccounts, fetchTeams
@@ -52,5 +49,6 @@ exports.longReconnection = (cb) ->
   else
     calls = [fetchUser, fetchAccounts, fetchTeams, fetchInteSettings]
 
-  schedule.all calls, (results) ->
-    cb? results
+  # TODO: 这里需要报错处理
+  calls.forEach (fn) ->
+    fn()

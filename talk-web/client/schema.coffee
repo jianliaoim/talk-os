@@ -89,6 +89,8 @@ exports.database = Immutable.fromJS
   mentionedMessages: [] # [_teamId]
   loadingSentences: loadingSentences.list
 
+  teamSubscribe: {}
+
 exports.fakeEmptyMessage = Immutable.fromJS
   body: '2'
 

@@ -4,18 +4,21 @@
 }
 
 .message-toolbar.is-inline {
-  .icon {
+  .ti {
     cursor: pointer;
     color: #B3B3B3;
     font-size: 16px;
     margin-left: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
 
     &:hover {
       color: #A6A6A6;
     }
   }
 
-  .icon-star.is-active {
+  .is-star.is-active {
     color: @color-yellow;
   }
 }
@@ -26,10 +29,10 @@
   .is-tag ,.light-menu .hint {
     height: 24px;
     line-height: 24px;
-    font-size: 12px;
+    font-size: 16px;
     color: #B3B3B3;
     cursor: pointer;
-    padding: 0 4px;
+    padding: 0 2px;
     transition: @transition-duration;
   }
 
@@ -42,6 +45,7 @@
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
+    height: 24px;
   }
 
   .light-menu {
@@ -50,16 +54,16 @@
   }
 
   .light-menu .hint {
-    padding-left: 4px;
+    padding-left: 2px;
 
-    .icon {
+    .ti {
       color: #B3B3B3;
       transition: @transition-duration;
     }
   }
 
   .is-tag:hover,
-  .light-menu .hint:hover .icon {
+  .light-menu .hint:hover .ti {
     color: @color-red;
   }
 
@@ -67,9 +71,12 @@
     color: @color-red;
   }
 
-  .light-menu.is-open .hint > .icon {
-    color: @color-red;
+  .light-menu.is-open .hint  {
+    > .ti {
+      color: @color-red;
+    }
   }
+
 
   &.is-quit .is-tag {
     color: @color-gray-light;

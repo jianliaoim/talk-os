@@ -28,6 +28,8 @@ InteTrello = React.createFactory require './inte-trello'
 InteWebhook = React.createFactory require './inte-webhook'
 InteTeambition = React.createFactory require './inte-teambition'
 
+Icon  = React.createFactory require '../module/icon'
+
 LiteSwitchTabs = React.createFactory require('react-lite-misc').SwitchTabs
 LiteLoadingIndicator = React.createFactory require('react-lite-misc').LoadingIndicator
 
@@ -39,9 +41,9 @@ T = React.PropTypes
 
 tabs = ['add-service', 'custom-service', 'manage-service']
 tabIcons =
-  'add-service': 'triangle-down-bold',
-  'custom-service': 'pencil',
-  'manage-service': 'cog-bold'
+  'add-service': 'plus',
+  'custom-service': 'edit',
+  'manage-service': 'cog-solid'
 
 module.exports = React.createClass
   displayName: 'inte-page'
@@ -116,7 +118,7 @@ module.exports = React.createClass
   renderBanner: ->
     div className: 'inte-banner',
       div className: 'mask', lang.getText('integrations-banner')
-      span className: 'icon icon-remove', onClick: @onBannerHide
+      span className: 'ti ti-remove', onClick: @onBannerHide
 
   renderLists: ->
     onClick = ->
@@ -182,10 +184,10 @@ module.exports = React.createClass
     div className: 'inte-page',
       div className: 'header pageview-header',
         div className: 'name', @state.team.get('name')
-        div className: 'title line',
-          span className: 'icon icon-config'
+        div className: 'title line flex-horiz flex-vcenter',
+          span className: 'ti ti-square'
           lang.getText('integrations')
-        a className: 'button-close is-white icon icon-remove', onClick: @onClose
+        Icon name: 'remove', size: 24, className: 'button-close is-white', onClick: @onClose
       div className: 'body', style: bodyStyle,
         if @state.showInteBanner
           @renderBanner()

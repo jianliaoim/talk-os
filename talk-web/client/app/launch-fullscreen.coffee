@@ -19,8 +19,6 @@ LaunchTabpage = React.createFactory require './launch-tabpage'
 Icon = React.createFactory require '../module/icon'
 ButtonSingleAction = React.createFactory require '../module/button-single-action'
 
-TourGuide = require '../tour-guide'
-
 { a, li, ul, div, span, button, noscript } = React.DOM
 T = React.PropTypes
 
@@ -40,9 +38,9 @@ module.exports = React.createClass
     data: Immutable.Map()
     tabKey: DEFAULT_TYPE
     buttons: [
-      { key: 'room', color: 'blue', icon: 'shape', text: 'topic' }
+      { key: 'room', color: 'blue', icon: 'sharp', text: 'topic' }
       { key: 'chat', color: 'red', icon: 'private-chat', text: 'chat' }
-      { key: 'file', color: 'purple', icon: 'paperclip', text: 'file' }
+      { key: 'file', color: 'purple', icon: 'paperclip-lean', text: 'file' }
       { key: 'topic', color: 'yellow', icon: 'idea', text: 'idea' }
       { key: 'link', color: 'green', icon: 'chain', text: 'link' }
     ]
@@ -136,7 +134,7 @@ module.exports = React.createClass
 
         li key: index, className: (cx 'btn-cell', className),
           button className: (cx 'clr-btn round large', 'trans-surface', className), onClick: onClick,
-            Icon size: 24, name: item.icon
+            Icon size: 28, name: item.icon
           div className: 'text', lang.getText("type-#{item.text}")
 
   renderClose: ->

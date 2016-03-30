@@ -6,6 +6,7 @@ lang = require '../locales/lang'
 config = require '../config'
 handlers = require '../handlers'
 
+Icon  = React.createFactory require '../module/icon'
 CopyArea = React.createFactory require('react-lite-misc').Copyarea
 
 fieldsReader = require '../util/fields-reader'
@@ -87,7 +88,7 @@ module.exports =
         span className: 'name', settings.get('title')
         span className: 'muted', dangerouslySetInnerHTML: html
       div className: 'return button is-link', onClick: @onPageBack,
-        span className: 'icon icon-circle-left'
+        Icon name: 'arrow-left-circle-solid', size: 18
         span className: 'text', l('return-integrations-list')
 
   renderInteGuide: ->
@@ -97,12 +98,12 @@ module.exports =
     inteHelpMd = settings.get('manual').get(language)
     inteHelpMd = inteHelpMd.replace(/LOCALE_LINK/g, @state.webhookUrl)
 
-    iconClass = classnames 'icon',
-      'icon-chevron-down': not @state.showGuide,
-      'icon-chevron-up': @state.showGuide
+    iconClass = classnames 'ti',
+      'ti-chevron-down': not @state.showGuide,
+      'ti-chevron-up': @state.showGuide
 
     div className: 'guide-area',
-      div className: 'guide-toggler', onClick: @onGuideToggle,
+      span className: 'guide-toggler', onClick: @onGuideToggle,
         span className: 'inte-guide', l('inte-guide')
         span className: iconClass
       if @state.showGuide

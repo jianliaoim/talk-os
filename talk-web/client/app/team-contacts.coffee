@@ -23,7 +23,7 @@ TeamBatchInvite = React.createFactory require './team-batch-invite'
 Permission = require '../module/permission'
 PermissionMember = require '../module/permission-member'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 
 a = React.createFactory 'a'
 p = React.createFactory 'p'
@@ -126,7 +126,7 @@ module.exports = React.createClass
       text4
 
   renderPrefEditor: ->
-    LiteModal
+    LightModal
       name: 'team-prefs'
       title: lang.getText('team-prefs-edit')
       show: @state.showPrefEditor
@@ -169,7 +169,7 @@ module.exports = React.createClass
           invitation: invitation
 
   renderTeamBatchInvite: ->
-    LiteModal
+    LightModal
       name: 'team-batch-invite'
       title: lang.getText('team-contacts-batch-invite')
       show: @state.showTeamBatchInvite
@@ -183,7 +183,7 @@ module.exports = React.createClass
     div className: 'form-group',
       label null, lang.getText 'invite-people'
       a className: 'link-icon link-batch-invite', onClick: @onTeamBatchInviteShow,
-        span className: 'icon icon-users'
+        span className: 'ti ti-users'
         lang.getText('team-contacts-batch-invite-link')
       div className: 'anotated-input',
         input

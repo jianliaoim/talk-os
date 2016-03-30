@@ -48,7 +48,7 @@ module.exports = React.createClass
 
   renderRobotIcon: ->
     return null if not detect.isRobot(@props.contact)
-    span className: 'icon icon-talkai'
+    Icon name: 'bot', size: 18
 
   renderQuitHint: ->
     if @props.contact.get('isQuit')

@@ -139,7 +139,7 @@ module.exports = React.createClass
     fileType = @state.data.get 'fileType'
 
     div className: 'extension',
-      i className: 'icon icon-file'
+      i className: 'ti ti-file-holder'
       span {}, fileType
 
   render: ->

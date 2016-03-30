@@ -37,7 +37,7 @@ module.exports = React.createClass
   renderRobotIcon: ->
     contact = query.requestContactsByOne(recorder.getState(), @props._teamId, @props.member.get('_id'))
     if contact? and not detect.isTalkai(contact) and (contact? and contact.get('isRobot'))
-      span className: 'icon icon-talkai'
+      span className: 'ti ti-bot'
 
   render: ->
     if @props.isTopicCreator

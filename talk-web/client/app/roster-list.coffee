@@ -167,7 +167,7 @@ module.exports = React.createClass
           span className: 'muted', "(#{ quitText })"
         else noscript()
         if detect.isRobot(roster)
-          span className: 'muted icon icon-talkai'
+          span className: 'muted ti ti-bot'
         else noscript()
         if isSelectedRoster
           if isHighlightRoster

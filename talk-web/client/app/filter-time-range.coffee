@@ -4,7 +4,7 @@ PureRenderMixin = require 'react-addons-pure-render-mixin'
 
 lang = require '../locales/lang'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 div = React.createFactory 'div'
 
 'day, week, month, quarter'
@@ -51,7 +51,7 @@ module.exports = React.createClass
 
   render: ->
     defaultEntry = entries[3]
-    LiteDropdown
+    LightDropdown
       displayText: lang.getText(@props.type or defaultEntry)
       defaultText: lang.getText defaultEntry
       name: 'filter-time-range'

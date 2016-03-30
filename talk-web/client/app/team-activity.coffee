@@ -11,7 +11,7 @@ handlers = require '../handlers'
 
 Icon = React.createFactory require '../module/icon'
 Space = React.createFactory require 'react-lite-space'
-AttachImage = React.createFactory require './attach-image'
+MessageRichImage = React.createFactory require '../module/message-rich-image'
 RelativeTime = React.createFactory require '../module/relative-time'
 
 {div, pre, a} = React.DOM
@@ -81,7 +81,7 @@ module.exports = React.createClass
         info
       div className: 'detail-title',
         fileStory.get('title')
-      AttachImage
+      MessageRichImage
         attachment: fileStory
         heightBoundary: 312
         widthBoundary: 416
@@ -140,19 +140,19 @@ module.exports = React.createClass
         switch target.get('category')
           when 'topic'
             div className: 'activity-icon img-circle img-32 is-idea',
-              Icon size: 16, name: 'idea'
+              Icon size: 18, name: 'idea'
           when 'link'
             div className: 'activity-icon img-circle img-32 is-link',
-              Icon size: 16, name: 'chain'
+              Icon size: 18, name: 'chain'
           when 'file'
             div className: 'activity-icon img-circle img-32 is-file',
-              Icon size: 16, name: 'paperclip'
+              Icon size: 18, name: 'paperclip-lean'
       when 'room'
         div className: 'activity-icon img-circle img-32 is-room',
-          Icon size: 16, name: 'shape'
+          Icon size: 18, name: 'sharp'
       else # undefined refers to invitation
         div className: 'activity-icon img-circle img-32 is-invitation',
-          Icon size: 16, name: 'horn'
+          Icon size: 18, name: 'horn'
 
   render: ->
     _teamId = @props.activity.get('_teamId')

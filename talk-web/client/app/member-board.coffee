@@ -30,7 +30,7 @@ TeamInvite = React.createFactory require './team-invite'
 TeamInviteBatch = React.createFactory require './team-invite-batch'
 SearchBox = React.createFactory require('react-lite-misc').SearchBox
 SlimModal = React.createFactory require './slim-modal'
-LiteDialogBeta = React.createFactory require '../module/dialog-beta'
+LightDialog = React.createFactory require '../module/light-dialog'
 
 { a, div, span, input, textarea, noscript } = React.DOM
 
@@ -130,7 +130,7 @@ module.exports = React.createClass
   renderFooter: ->
     div className: 'footer member-invite flex-horiz flex-static',
       div className: 'button', onClick: @onInviteShow,
-        span className: 'icon icon-add-user'
+        Icon name: 'user-add', size: 18
         span className: 'text', lang.getText('invite-members')
 
   onInviteClose: ->
@@ -230,7 +230,7 @@ MemberItemHandlersetClass = React.createClass
     @setState showConfirm: false
 
   renderDeleter: ->
-    LiteDialogBeta
+    LightDialog
       flexible: true
       show: @state.showConfirm
       onCloseClick: @onCloseConfirm

@@ -13,6 +13,8 @@ p      = React.createFactory 'p'
 button = React.createFactory 'button'
 input  = React.createFactory 'input'
 
+Icon   = React.createFactory require '../module/icon'
+
 T = React.PropTypes
 cx = require 'classnames'
 
@@ -61,7 +63,7 @@ module.exports = React.createClass
             className: 'url form-control', onMouseEnter: @onUrlOver
             value: @props.topic.get('guestUrl'), onChange: (->)
           if @props.hasPermission
-            span className: 'muted icon icon-refresh', onClick: @onRegenerateClick
+            Icon name: 'refresh', className: 'muted btn-refresh', size: 20, onClick: @onRegenerateClick
           if @props.hasPermission
             button className: 'button is-danger', onClick: @onDisableClick,
               lang.getText('disable–guest-mode')
@@ -71,8 +73,8 @@ module.exports = React.createClass
             button className: 'button is-default', onClick: @onEnableClick,
               lang.getText('generate–guest-link')
       if @props.topic.get('guestUrl')?
-        spanClass = cx 'icon', 'history',
-          'icon-tick': @props.topic.get('isGuestVisible')
+        spanClass = cx 'ti', 'history',
+          'ti-tick': @props.topic.get('isGuestVisible')
           'is-disabled': not @props.hasPermission
         p className:'radio', onClick: @onVisibleClick,
           span className: spanClass

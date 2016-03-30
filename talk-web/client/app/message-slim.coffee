@@ -25,7 +25,7 @@ MessageInlineEditor = React.createFactory require './message-inline-editor'
 
 RelativeTime = React.createFactory require '../module/relative-time'
 
-LiteAudioSlim = React.createFactory require('react-lite-audio').liteAudioSlim
+MessageRichSpeech = React.createFactory require '../module/message-rich-speech'
 
 a = React.createFactory 'a'
 div = React.createFactory 'div'
@@ -100,7 +100,7 @@ module.exports = React.createClass
           when 'snippet'
             QuoteSlim key: index, quote: data, onClick: @onSnippetViewerShow
           when 'speech'
-            LiteAudioSlim
+            MessageRichSpeech
               key: index
               source: data.get('previewUrl')
               duration: data.get('duration')
@@ -146,7 +146,7 @@ module.exports = React.createClass
       if firstAttachment.get('category') is 'file'
         FileGlance file: firstAttachment.get('data'), onClick: => @props.onFileClick(firstAttachment)
       if @props.message.get('attachments')?.get(0).get('category') is 'speech'
-        LiteAudioSlim
+        MessageRichSpeech
           source: firstAttachment.getIn(['data', 'previewUrl'])
           isUnread: @props.isUnread
           duration: firstAttachment.getIn(['data', 'duration'])

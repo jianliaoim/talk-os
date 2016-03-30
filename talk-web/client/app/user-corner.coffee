@@ -16,8 +16,8 @@ AboutFeedback = React.createFactory require './about-feedback'
 
 Avatar = React.createFactory require '../module/avatar'
 
-LiteModal = React.createFactory require '../module/modal-beta'
-LitePopover = React.createFactory require '../module/popover-beta'
+LightModal = React.createFactory require '../module/light-modal'
+LightPopover = React.createFactory require '../module/light-popover'
 
 { a, div, span } = React.DOM
 T = React.PropTypes
@@ -76,7 +76,7 @@ module.exports = React.createClass
     userActions.userSignout()
 
   renderMenu: ->
-    LitePopover
+    LightPopover
       name: 'user-corner'
       show: @state.showMenu
       baseArea: if @state.showMenu then @getBaseArea() else {}
@@ -92,7 +92,7 @@ module.exports = React.createClass
         onFeedbackClick: @onFeedbackClick
 
   renderTalkInfo: ->
-    LiteModal
+    LightModal
       name: 'talk-download'
       show: @state.showDownload
       title: lang.getText 'download-apps'
@@ -100,7 +100,7 @@ module.exports = React.createClass
       TalkDownload()
 
   renderFeedback: ->
-    LiteModal
+    LightModal
       title: lang.getText('feedback')
       onCloseClick: @onFeedbackClose
       show: @state.showFeedback

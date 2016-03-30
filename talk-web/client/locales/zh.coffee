@@ -841,3 +841,4 @@ module.exports =
   'connect-to-trello': '绑定 Trello 账号'
   'loading-failure': '加载失败'
   'load-again': '尝试再次加载'
+  "help-center": "帮助中心"

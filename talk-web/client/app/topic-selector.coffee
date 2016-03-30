@@ -9,7 +9,7 @@ detect = require '../util/detect'
 
 mixinSubscribe = require '../mixin/subscribe'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 div = React.createFactory 'div'
 
 T = React.PropTypes
@@ -63,7 +63,7 @@ module.exports = React.createClass
       div key: topic.get('_id'), className: 'item', onClick: onClick, @getTopicName(topic)
 
   render: ->
-    LiteDropdown
+    LightDropdown
       displayText: if @props.chosen? then @getChosenName()
       defaultText: lang.getText('choose-a-topic')
       name: 'topic-selector'

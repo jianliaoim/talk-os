@@ -30,18 +30,16 @@ MessageInlineEditor = React.createFactory require './message-inline-editor'
 
 Tag = React.createFactory require './tag'
 Icon = React.createFactory require '../module/icon'
-AttachImage = React.createFactory require './attach-image'
 RelativeTime = React.createFactory require '../module/relative-time'
 SnippetAttachment = React.createFactory require './snippet-attachment'
 
-LiteAudio = React.createFactory require('react-lite-audio').liteAudio
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 
-MessageFormsFile = React.createFactory require 'talk-message-forms/lib/default/file'
-MessageFormsQuote = React.createFactory require 'talk-message-forms/lib/default/quote'
-MessageFormsRTF = React.createFactory require 'talk-message-forms/lib/default/rtf'
-MessageFormsSpeech = React.createFactory require 'talk-message-forms/lib/default/speech'
-MessageFormsMessage = React.createFactory require 'talk-message-forms/lib/default/message'
+MessageRichFile = React.createFactory require '../module/message-rich-file'
+MessageRichImage = React.createFactory require '../module/message-rich-image'
+MessageRichQuote = React.createFactory require '../module/message-rich-quote'
+MessageRichRTF = React.createFactory require '../module/message-rich-rtf'
+MessageRichSpeech = React.createFactory require '../module/message-rich-speech'
 MessageAttachment = React.createFactory require './message-attachment'
 UploadCircle = React.createFactory require '../module/upload-circle'
 
@@ -159,7 +157,7 @@ module.exports = React.createClass
           if detect.isImageWithPreview(attachment.get('data'))
             onClick = =>
               if attachment.get('isUploading') then ( -> ) else @props.onFileClick(attachment)
-            AttachImage
+            MessageRichImage
               key: index
               attachment: attachment
               onClick: onClick
@@ -167,7 +165,7 @@ module.exports = React.createClass
               widthBoundary: widthBoundary
           else
             color = colors.files[fileType] or colors.files['file']
-            MessageFormsFile
+            MessageRichFile
               key: index
               attachment: attachment.toJS()
               color: color
@@ -175,13 +173,13 @@ module.exports = React.createClass
         when 'quote'
           onQuoteClick = =>
             @onQuoteViewerShow()
-          MessageFormsQuote
+          MessageRichQuote
             key: index
             lang: lang.getLang()
             attachment: attachment.toJS()
             onClick: onQuoteClick
         when 'rtf'
-          MessageFormsRTF
+          MessageRichRTF
             key: index
             attachment: attachment.toJS()
             onClick: @onPostViewerShow
@@ -192,11 +190,11 @@ module.exports = React.createClass
             attachment: attachment.toJS()
             getCodeType: snippetUtil.getHighlightJS
         when 'speech'
-          div className: 'attachment-speech',
-            LiteAudio
-              duration: attachment.getIn ['data', 'duration']
-              isUnread: @props.isUnread
-              source: attachment.getIn ['data', 'previewUrl']
+          MessageRichSpeech
+            key: index
+            duration: attachment.getIn ['data', 'duration']
+            isUnread: @props.isUnread
+            source: attachment.getIn ['data', 'previewUrl']
         when 'message'
           _roomId = attachment.getIn(['data', 'room', '_id'])
           _messageId = attachment.getIn(['data', '_id'])
@@ -207,7 +205,8 @@ module.exports = React.createClass
               routerHandlers.room _teamId, _roomId, {search: _messageId}
             else
               notifyActions.info lang.getText('topic-not-exists')
-          MessageFormsMessage
+          div
+            className: 'attachment-message'
             key: index
             onClick: onClick
             MessageAttachment

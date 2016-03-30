@@ -18,7 +18,7 @@ Avatar = React.createFactory require '../module/avatar'
 GroupSettings = React.createFactory require './group-settings'
 GroupDetails = React.createFactory require './group-details'
 
-LiteDialogBeta = React.createFactory require '../module/dialog-beta'
+LightDialog = React.createFactory require '../module/light-dialog'
 SlimModal = React.createFactory require './slim-modal'
 
 { div, span, button } = React.DOM
@@ -127,7 +127,7 @@ GroupHandlersetClass = React.createClass
     groupActions.remove @props.group.get('_id')
 
   renderConfirm: ->
-    LiteDialogBeta
+    LightDialog
       flexible: true
       show: @state.showConfirm
       onCloseClick: @onConfirmClose

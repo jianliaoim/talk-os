@@ -18,7 +18,7 @@ LightCheckbox = React.createFactory require '../module/light-checkbox'
 
 isEqual = require 'lodash.isequal'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 
 div     = React.createFactory 'div'
 
@@ -159,7 +159,7 @@ module.exports = React.createClass
     selectedProject = @state.projects.find (project) =>
       project.get('_id') is @getProjectId()
 
-    LiteDropdown
+    LightDropdown
       displayText: selectedProject?.get('name') or undefined
       defaultText: lang.getText('select-project')
       name: 'inte-teambition'

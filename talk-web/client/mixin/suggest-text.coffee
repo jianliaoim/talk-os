@@ -14,7 +14,7 @@ lazyModules   = require '../util/lazy-modules'
 
 lang        = require '../locales/lang'
 
-LitePopover = React.createFactory require 'react-lite-layered/lib/popover'
+LightPopover = React.createFactory require '../module/light-popover'
 MentionMenu = React.createFactory require '../app/mention-menu'
 EmojiMenu   = React.createFactory require '../app/emoji-menu'
 
@@ -183,7 +183,7 @@ module.exports =
   # renderers
 
   renderMentionMenu: (hasMentionMenu) ->
-    LitePopover
+    LightPopover
       name: 'mention'
       showClose: false
       baseArea: @getMentionBaseArea()
@@ -197,7 +197,7 @@ module.exports =
         _teamId: @props._teamId
 
   renderEmojiMenu: (hasEmojiMenu) ->
-    LitePopover
+    LightPopover
       name: 'emoji'
       showClose: false
       baseArea: if hasEmojiMenu then @getEmojiBaseArea() else {}

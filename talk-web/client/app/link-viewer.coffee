@@ -4,6 +4,8 @@ PureRenderMixin = require 'react-addons-pure-render-mixin'
 
 lang = require '../locales/lang'
 
+Icon = React.createFactory require '../module/icon'
+
 TopicName   = React.createFactory require '../app/topic-name'
 StoryName = React.createFactory require '../app//story-name'
 ContactName = React.createFactory require '../app/contact-name'
@@ -40,10 +42,10 @@ module.exports = React.createClass
 
     div className: 'link-viewer',
       div className: 'header',
-        div className: 'category line',
-          span className: 'icon icon-link'
+        div className: 'category line flex-horiz flex-vcenter',
+          Icon name: 'chain', size: 20
           lang.getText('link')
-        span className: 'button-close icon icon-remove', onClick: @onClose
+        Icon name: 'remove', className: 'button-close', size: 20, onClick: @onClose
       div className: 'body',
         div className: 'content text-overflow',
           div className: 'title', quote.get('title')

@@ -69,14 +69,10 @@ module.exports = React.createClass
     analytics.enterChatFromRoom()
     routerHandlers.chat @props._teamId, @state.contact.get('_id')
 
-  renderRobotIcon: ->
-    if not detect.isTalkai(@state.contact) and @state.contact.get('isRobot')
-      span className: 'icon icon-talkai'
-
   renderEntrance: ->
     return null unless @isReachable()
     span className: 'entrance flex-horiz flex-vcenter', onClick: @onClick,
-      Icon size: 16, name: 'private-chat'
+      Icon size: 18, name: 'private-chat'
       lang.getText('member-card-entrance')
 
   renderName: ->
@@ -86,7 +82,7 @@ module.exports = React.createClass
         _userId: @state.contact.get('_id')
         defaultName: @state.contact.get('name')
       if not detect.isTalkai(@state.contact) and @state.contact.get('isRobot')
-        Icon size: 16, name: 'talkai', type: 'icon', className: 'muted flex-static'
+        Icon name: 'bot', className: 'muted flex-static'
       if @state.contact.get('isGuest')
         span className: 'muted flex-static', lang.getText('quote-guest')
       if @state.contact.get('isQuit')

@@ -56,4 +56,4 @@ module.exports = React.createClass
 
     div className: 'profile-avatar',
       div className: 'trigger', ref: 'trigger', style: avatarStyle, onClick: @onFileClick,
-        i className: 'icon icon-camera'
+        i className: 'ti ti-camera'

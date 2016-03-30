@@ -11,6 +11,6 @@ module.exports = React.createClass
 
   render: ->
     div className: 'no-favorite',
-      span className: "icon icon-star"
+      span className: "ti ti-star-solid"
       div className: "message", lang.getText('no-favorite')
       div className: 'tip', lang.getText('no-favorite-tip')

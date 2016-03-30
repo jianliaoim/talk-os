@@ -5,11 +5,11 @@
   padding: 15px;
 
   .info {
-    .display(flex);
+    display: flex;
     margin-bottom: 6px;
     .title {
-      .flex(1);
-      color: @font-reverse-1;
+      flex: 1;
+      color: white;
       word-wrap: break-word;
       word-break: break-all;
     }
@@ -18,7 +18,7 @@
   .content {
     color: @font-level-3;
     font-size: 13px;
-    .display(flex);
+    display: flex;
 
     .arrow-right {
       position: relative;
@@ -49,15 +49,16 @@
     margin-left: 0;
   }
 
-  .toolbar .icon {
-    font-size: 14px;
+  .toolbar .ti {
     margin-left: 16px;
     color: @icon-level-1;
     cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
   }
 
-  .toolbar .icon:hover,
-  .toolbar .icon.is-active {
-    color: @font-reverse-1;
+  .toolbar .ti:hover,
+  .toolbar .ti.is-active {
+    color: white;
   }
 }

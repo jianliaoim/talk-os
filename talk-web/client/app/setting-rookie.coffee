@@ -73,7 +73,7 @@ module.exports = React.createClass
       else
         {}
     div className: 'data-avatar', style: avatarStyle, onClick: @onFileClick,
-      i className: 'icon icon-camera'
+      i className: 'ti ti-camera'
 
   render: ->
     buttonClassName = cx

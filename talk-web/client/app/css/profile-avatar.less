@@ -1,6 +1,8 @@
 .profile-avatar {
-  text-align: center;
-  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 0;
 
   .trigger {
     position: relative;
@@ -17,21 +19,27 @@
     cursor: pointer;
   }
 
-  .icon {
+  .ti {
     position: absolute;
-    right: -1px;
-    bottom: -1px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
 
-    height: 20px;
-    width: 20px;
+    line-height: 80px;
 
-    color: #4CBEF6;
+    border-radius: 50%;
 
-    font-size: 20px;
-    line-height: 20px;
+    color: #FFF;
+
+    font-size: 36px;
+    opacity: 0;
+    transition: opacity @transition-duration;
+    background-color: rgba(57, 60, 65, .7)
   }
 
-  &:hover .icon {
-    color: darken(#4CBEF6, 10%);
+  &:hover .ti {
+    opacity: .7;
   }
 }

@@ -72,7 +72,7 @@ module.exports = React.createClass
           cxTab = cx 'tab', 'flex-fill', 'is-active': ( tab.tab is @state.tab )
 
           div className: cxTab, key: index, onClick: ( => @onTabClick tab.tab ), "#{lang.getText(tab.name)} #{@getNum(tab.tab)}"
-        Icon name: 'remove', size: 24, onClick: @closeTeamDrawer, className: 'flex-static muted'
+        Icon name: 'remove', size: 20, onClick: @closeTeamDrawer, className: 'flex-static muted'
 
   renderBody: ->
     div className: 'body flex-vert flex-fill',

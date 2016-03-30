@@ -176,30 +176,39 @@ module.exports = React.createClass
     settingsActions.updateEmojiCounts(emoji)
     newState = textareaUtil.makeCompleteState @state.text, @state.start, ':', ":#{emoji}: "
     newState.showEmojiMenu = false
-    @setState newState, @setSelection
+    @setState newState, =>
+      @setSelection()
+      @focusToBox()
 
   onMentionSelect: (data) ->
     prefs = query.contactPrefsBy(recorder.getState(), @props._teamId, data.get('_id'))
     name = prefs?.get('alias') or data.get('name')
     newState = textareaUtil.makeCompleteState @state.text, @state.start, '@', "@#{name} "
     newState.showMentionMenu = false
-    @setState newState, @setSelection
+    @setState newState, =>
+      @setSelection()
+      @focusToBox()
 
   onTopicSelect: (data) ->
     name = if data.get('isGeneral') then lang.getText('room-general') else data.get('topic')
     newState = textareaUtil.makeCompleteState @state.text, @state.start, '#', "##{name} "
     newState.showTopicMenu = false
-    @setState newState, @setSelection
+    @setState newState, =>
+      @setSelection()
+      @focusToBox()
 
   onCommandMenuSelect: (command) ->
     newState = textareaUtil.makeCompleteState @state.text, @state.start, '/', "#{command.get('trigger')} "
     newState.showCommandMenu = false
-    @setState newState, @setSelection
+    @setState newState, =>
+      @setSelection()
+      @focusToBox()
 
   onMentionClick: ->
     newState = textareaUtil.makeInsertState @state.text, @state.start, '@'
     @setState newState, =>
       @setSelection()
+      @focusToBox()
       setTimeout =>
         try
           @getTextareaEl()?.dispatchEvent (new window.Event 'input', bubbles: true)

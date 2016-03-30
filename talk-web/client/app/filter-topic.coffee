@@ -13,7 +13,7 @@ detect = require '../util/detect'
 dom = require '../util/dom'
 
 TopicCorrection = React.createFactory require './topic-correction'
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 
 hr = React.createFactory 'hr'
 div = React.createFactory 'div'
@@ -188,7 +188,7 @@ module.exports = React.createClass
     else
       name = topic?.get('topic')
 
-    LiteDropdown
+    LightDropdown
       displayText: name or undefined
       defaultText: defaultText
       name: 'filter-topic'

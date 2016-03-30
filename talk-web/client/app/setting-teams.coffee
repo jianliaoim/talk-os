@@ -18,6 +18,8 @@ i = React.createFactory 'i'
 p = React.createFactory 'p'
 span =React.createFactory 'span'
 
+Icon = React.createFactory require '../module/icon'
+
 module.exports = React.createClass
   displayName: 'setting-teams'
   mixins: [mixinSubscribe]
@@ -54,7 +56,7 @@ module.exports = React.createClass
             i className: 'team-icon',
               if team.get('source') is 'teambition'
                 span null, team.get('name')[0],
-                  i className: 'team-icon-small icon icon-t'
+                  Icon name: 'teambition-solid', size: 16, className: 'team-icon-small'
               else
                 span null, team.get('name')[0]
             span className: 'name', team.get('name')
@@ -67,10 +69,10 @@ module.exports = React.createClass
       div className: 'list-content',
         @renderTeams()
         div className: 'create-team list', onClick: @toCreateTeam,
-          i className: 'icon icon-plus'
+          Icon name: 'plus', size: 24
           p className: 'upper', lang.getText 'create-new-team'
           p null, lang.getText 'create-new-team-sub'
         div className: 'sync-team list', onClick: @toSyncTeambition,
-          i className: 'icon icon-building'
+          Icon name: 'loop', size: 24
           p className: 'upper', lang.getText 'sync-with-teambition'
           p null, lang.getText 'sync-with-teambition-sub'

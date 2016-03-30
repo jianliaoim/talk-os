@@ -1,4 +1,5 @@
 Immutable = require 'immutable'
+recorder = require 'actions-recorder'
 
 dispatcher = require '../dispatcher'
 
@@ -6,9 +7,11 @@ lang = require '../locales/lang'
 notifyActions = require '../actions/notify'
 api = require '../network/api'
 
-exports.teamSubscribe = (teamId, success, fail) ->
-  api.teams.subscribe.post(pathParams: id: teamId)
+exports.teamSubscribe = (_teamId, success, fail) ->
+  api.teams.subscribe.post(pathParams: id: _teamId)
     .then (resp) ->
+      recorder.dispatch 'team/subscribed',
+        _teamId: _teamId
       success? resp
     .catch (error) ->
       fail? error

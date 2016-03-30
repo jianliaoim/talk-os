@@ -1,9 +1,9 @@
+Q = require 'q'
 recorder = require 'actions-recorder'
 pathUtil = require 'router-view/lib/path'
 
 query = require '../query'
 routes = require '../routes'
-eventBus = require '../event-bus'
 
 lang = require '../locales/lang'
 
@@ -26,7 +26,85 @@ unreadHandlers = require '../handlers/unread'
 
 dataRely = require '../network/data-rely'
 
-exports.room = (_teamId, _roomId, urlQuery={}, cb) ->
+fetchBaseDataIfNeed = ->
+  [
+    dataRely.relyTeamsList()
+  ]
+
+fetchTeamDataIfNeed = (_teamId) ->
+  deviceActions.markTeam _teamId
+  settingsActions.teamFootprints _teamId
+  [
+    fetchBaseDataIfNeed()
+    dataRely.archivedTopics _teamId
+    dataRely.notifications _teamId
+    dataRely.stories _teamId
+    dataRely.relyGroups _teamId
+    dataRely.relyIntes _teamId
+    dataRely.relyLeftContacts _teamId
+    dataRely.relyTags _teamId
+    dataRely.relyTeamInvitaitons _teamId
+    dataRely.relyTeamMembers _teamId
+    dataRely.relyTeamSubscribe _teamId
+    dataRely.relyTeamTopics _teamId
+  ]
+
+exports.team = (_teamId, searchQuery = {}) ->
+  info =
+    type: 'team'
+    _teamId: _teamId
+
+  d1 = dataRely.ensure [
+    dataRely.notifications _teamId
+  ]
+  d2 = dataRely.ensure [
+    dataRely.relyTeamTopics _teamId
+  ]
+
+  if not d1.isSatisfied
+    deviceActions.networkLoading(info)
+  d1.request()
+    .then ->
+      deviceActions.markTeam _teamId
+      settingsActions.teamFootprints _teamId
+      prefsActions.prefsUpdate _latestTeamId: _teamId
+
+      store = recorder.getState()
+      notifications = store
+      .getIn(['notifications', _teamId])?.filterNot (notification) ->
+        notification.get('isMute') or notification.get('isHidden')
+      if notifications?.size > 0
+        firstUnreadIndex = notifications.findIndex (n) -> n.get('unreadNum') > 0
+        if firstUnreadIndex is -1
+          firstUnreadIndex = 0
+        notification = notifications.get(firstUnreadIndex)
+        type = switch notification.get('type')
+          when 'dms' then 'chat'
+          when 'room' then 'room'
+          when 'story' then 'story'
+        _targetId = notification.get('_targetId')
+        exports[type] _teamId, _targetId, {}, ->
+          deviceActions.networkLoaded(info)
+        Q.reject('skip')
+      else
+        if not d2.isSatisfied
+          deviceActions.networkLoading(info)
+        d2.request()
+    .then ->
+      store = recorder.getState()
+      generalRoom = store.getIn(['topics', _teamId]).find (room) -> room.get('isGeneral')
+      if generalRoom?
+        exports.room _teamId, generalRoom.get('_id'), {}, ->
+          deviceActions.networkLoaded(info)
+      else
+        exports.settingTeams()
+        deviceActions.networkLoaded(info)
+    .catch (err) ->
+      if err isnt 'skip'
+        throw new Error(err)
+    .done()
+
+fetchRoomDataIfNeed = (_teamId, _roomId, searchQuery = {}) ->
   store = recorder.getState()
 
   matchTopic = (topic) -> topic.get('_id') is _roomId
@@ -42,34 +120,22 @@ exports.room = (_teamId, _roomId, urlQuery={}, cb) ->
   messageSearchData =
     _teamId: _teamId
     _roomId: _roomId
-    _besideId: urlQuery.search
+    _besideId: searchQuery.search
 
   tagSearchData =
     _teamId: _teamId
     hasTag : true
 
-  deps = [
-    dataRely.relyTeamsList()
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyLeftContacts(_teamId)
-    dataRely.relyGroups(_teamId)
-    dataRely.archivedTopics(_teamId)
-    dataRely.relyTopicMessages(_teamId, _roomId)
-    dataRely.relyIntes(_teamId)
-    dataRely.relyTags(_teamId)
-    dataRely.relyMessageSearch(messageSearchData) if urlQuery.search?
-
-    # story dep.
-    dataRely.stories _teamId
-
-    # notification dep.
+  [
+    dataRely.relyMessageSearch(messageSearchData) if searchQuery.search?
+    dataRely.relyTopicMessages _teamId, _roomId
     if isTopicJoinded
       dataRely.notifications _teamId, _roomId, 'room'
     else
       dataRely.notifications _teamId
   ]
+
+exports.room = (_teamId, _roomId, searchQuery={}, cb) ->
   info =
     type: 'topic'
     _teamId: _teamId
@@ -77,30 +143,30 @@ exports.room = (_teamId, _roomId, urlQuery={}, cb) ->
     _channelId: _roomId
     _channelType: 'room'
 
-  deviceActions.networkLoading(info)
-  deviceActions.markTeam _teamId
-  settingsActions.teamFootprints _teamId
-  dataRely.ensure deps, ->
-    routerActions.room _teamId, _roomId, urlQuery
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchRoomDataIfNeed _teamId, _roomId, searchQuery
+  ]
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      analytics.countChannelMessages()
+      unreadHandlers.simulateRead(triggerEvent = false)
+      deviceActions.tuned true
+      deviceActions.markChannel id: _roomId, type: 'room'
+      routerActions.room _teamId, _roomId, searchQuery
+      deviceActions.networkLoaded(info)
+      cb?()
+    .done()
 
-    unreadHandlers.simulateRead(triggerEvent = false)
-
-    deviceActions.networkLoaded(info)
-    deviceActions.tuned true
-
-    deviceActions.markChannel id: _roomId, type: 'room'
-
-    analytics.countChannelMessages()
-
-    cb?()
-
-exports.chat = (_teamId, _toId, urlQuery={}, cb) ->
+fetchChatDataIfNeed = (_teamId, _toId, searchQuery = {}) ->
   store = recorder.getState()
   settings = query.settings(store)
 
   _userId = query.userId(store)
 
-  return if _userId is _toId
+  return [] if _userId is _toId
 
   _toIds = _creatorIds = [_userId, _toId]
   searchData = {_teamId, _creatorIds, _toIds, isDirectMessage: true, limit: 20}
@@ -109,30 +175,19 @@ exports.chat = (_teamId, _toId, urlQuery={}, cb) ->
   messageSearchData =
     _teamId: _teamId
     _toId: _toId
-    _besideId: urlQuery.search
+    _besideId: searchQuery.search
 
   tagSearchData =
     _teamId: _teamId
     hasTag : true
 
-  deps = [
-    dataRely.relyTeamsList()
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyLeftContacts(_teamId)
-    dataRely.relyGroups(_teamId)
-    dataRely.archivedTopics(_teamId)
-    dataRely.relyContactMessages(_teamId, _toId)
-    dataRely.relyTags(_teamId)
-    dataRely.relyMessageSearch(messageSearchData) if urlQuery.search?
-
-    # story dep.
-    dataRely.stories _teamId
-
-    # notification dep.
+  [
+    dataRely.relyMessageSearch(messageSearchData) if searchQuery.search?
+    dataRely.relyContactMessages _teamId, _toId
     dataRely.notifications _teamId, _toId, 'dms'
   ]
+
+exports.chat = (_teamId, _toId, searchQuery = {}, cb) ->
   info =
     type: 'contact'
     _toId: _toId
@@ -140,81 +195,22 @@ exports.chat = (_teamId, _toId, urlQuery={}, cb) ->
     _channelId: _toId
     _channelType: 'chat'
 
-  deviceActions.networkLoading(info)
-  deviceActions.markTeam _teamId
-  settingsActions.teamFootprints _teamId
-  dataRely.ensure deps, ->
-    routerActions.chat _teamId, _toId, urlQuery
-
-    unreadHandlers.simulateRead(triggerEvent = false)
-
-    settingsActions.unfoldContact _toId, _teamId
-    deviceActions.networkLoaded(info)
-    deviceActions.tuned true
-    deviceActions.markChannel id: _toId, type: 'chat'
-
-    analytics.countChannelMessages()
-
-    cb?()
-
-exports.team = (_teamId, urlQuery={}) ->
-  teamDeps = [
-    dataRely.relyTeamsList()
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyLeftContacts(_teamId)
-    dataRely.archivedTopics(_teamId)
-    dataRely.relyIntes(_teamId)
-    dataRely.relyTags(_teamId)
-
-    dataRely.relyGroups(_teamId)
-
-    # story dep.
-    dataRely.stories _teamId
-
-    # notification dep.
-    dataRely.notifications _teamId
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchChatDataIfNeed _teamId, _toId, searchQuery
   ]
-  # subscribe updates of current team
-  store = recorder.getState()
-
-  teamActions.teamSubscribe _teamId
-
-  info =
-    type: 'team'
-    _teamId: _teamId
-  deviceActions.networkLoading(info)
-  deviceActions.markTeam _teamId
-  settingsActions.teamFootprints _teamId
-  dataRely.ensure teamDeps, ->
-    prefsActions.prefsUpdate _latestTeamId: _teamId
-
-    store = recorder.getState()
-    notifications = store
-    .getIn(['notifications', _teamId])?.filterNot (notification) ->
-      notification.get('isMute') or notification.get('isHidden')
-    generalRoom = store.getIn(['topics', _teamId]).find (room) -> room.get('isGeneral')
-    if notifications?.size > 0
-      firstUnreadIndex = notifications.findIndex (n) -> n.get('unreadNum') > 0
-      if firstUnreadIndex is -1
-        firstUnreadIndex = 0
-      notification = notifications.get(firstUnreadIndex)
-      type = switch notification.get('type')
-        when 'dms' then 'chat'
-        when 'room' then 'room'
-        when 'story' then 'story'
-      _targetId = notification.get('_targetId')
-      exports[type] _teamId, _targetId, {}, ->
-        deviceActions.networkLoaded(info)
-    else if generalRoom?
-      exports.room _teamId, generalRoom.get('_id'), {}, ->
-        deviceActions.networkLoaded(info)
-    else
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      routerActions.chat _teamId, _toId, searchQuery
+      unreadHandlers.simulateRead(triggerEvent = false)
+      deviceActions.tuned true
+      deviceActions.markChannel id: _toId, type: 'chat'
+      analytics.countChannelMessages()
       deviceActions.networkLoaded(info)
-      exports.settingTeams()
-
-    analytics.countChannelMessages()
+      cb?()
+    .done()
 
 exports.changeChannel = (_teamId, _roomId, _toId, searchQuery = {}) ->
   if _roomId
@@ -224,7 +220,7 @@ exports.changeChannel = (_teamId, _roomId, _toId, searchQuery = {}) ->
   else
     exports.team _teamId
 
-exports.tags = (_teamId, urlQuery = {}) ->
+fetchTagsDataIfNeed = (_teamId, searchQuery = {}) ->
   store = recorder.getState()
   _userId = query.userId(store)
 
@@ -233,79 +229,54 @@ exports.tags = (_teamId, urlQuery = {}) ->
     page: 1
     hasTag: true
     sort: {updatedAt: {order: 'desc'}}
-  if urlQuery._roomId?
-    searchData._roomId = urlQuery._roomId
-  else if urlQuery._toId?
-    searchData._toIds = searchData._creatorIds = [urlQuery._toId, _userId]
+
+  if searchQuery._roomId?
+    searchData._roomId = searchQuery._roomId
+  else if searchQuery._toId?
+    searchData._toIds = searchData._creatorIds = [searchQuery._toId, _userId]
     searchData.isDirectMessage = true
-  if urlQuery._tagId?
-    searchData._tagId = urlQuery._tagId
+  if searchQuery._tagId?
+    searchData._tagId = searchQuery._tagId
 
-  deps = [
-    dataRely.relyTeamsList()
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyTags(_teamId)
-    dataRely.relyGroups(_teamId)
-    dataRely.relyLeftContacts(_teamId)
+  [
     dataRely.relyTaggedResults(searchData)
-
-    dataRely.notifications _teamId
   ]
 
+exports.tags = (_teamId, searchQuery = {}) ->
   info =
     type: 'tags'
     _teamId: _teamId
-  deviceActions.networkLoading(info)
-  dataRely.ensure deps, ->
-    routerActions.tags _teamId, urlQuery
-    deviceActions.networkLoaded(info)
+
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchTagsDataIfNeed _teamId, searchQuery
+  ]
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      routerActions.tags _teamId, searchQuery
+      deviceActions.networkLoaded(info)
+    .done()
 
 #
 # story router
 #
-exports.story = (_teamId, _storyId, urlQuery={}, cb) ->
-  store = recorder.getState()
 
-  # open from search results
+fetchStoryDataIfNeed = (_teamId, _storyId, searchQuery = {}) ->
   messageSearchData =
     _teamId: _teamId
     _storyId: _storyId
-    _besideId: urlQuery.search
+    _besideId: searchQuery.search
 
-  deps = [
-    # team
-    dataRely.relyTeamsList()
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-
-    # contact
-    dataRely.contacts _teamId
-    dataRely.relyLeftContacts _teamId
-
-    # topics
-    dataRely.archivedTopics _teamId
-
-    # message
-    dataRely.messages _teamId, _storyId, 'story'
-    dataRely.relyMessageSearch(messageSearchData) if urlQuery.search?
-
-    # notification
-    dataRely.notifications _teamId, _storyId, 'story'
-
-    # story
+  [
     dataRely.story _teamId, _storyId
-    dataRely.stories _teamId
-
-    # group
-    dataRely.relyGroups _teamId
-
-    #tags
-    dataRely.relyTags _teamId
+    dataRely.messages _teamId, _storyId, 'story'
+    dataRely.relyMessageSearch(messageSearchData) if searchQuery.search?
+    dataRely.notifications _teamId, _storyId, 'story'
   ]
 
+exports.story = (_teamId, _storyId, searchQuery = {}, cb) ->
   info =
     type: 'story'
     _teamId: _teamId
@@ -313,138 +284,117 @@ exports.story = (_teamId, _storyId, urlQuery={}, cb) ->
     _channelId: _storyId
     _channelType: 'story'
 
-  deviceActions.networkLoading info
-  deviceActions.markTeam _teamId
-  settingsActions.teamFootprints _teamId
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchStoryDataIfNeed _teamId, _storyId
+  ]
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      routerActions.story _teamId, _storyId, searchQuery
+      unreadHandlers.simulateRead(triggerEvent = false)
+      deviceActions.tuned true
+      deviceActions.markChannel id: _storyId, type: 'story'
+      analytics.countChannelMessages()
+      deviceActions.networkLoaded(info)
+      cb?()
+    .done()
 
-  dataRely.ensure deps, ->
-    routerActions.story _teamId, _storyId, urlQuery
 
-    unreadHandlers.simulateRead(triggerEvent = false)
-
-    deviceActions.networkLoaded info
-    deviceActions.tuned true
-    deviceActions.markChannel id: _storyId, type: 'story'
-
-    analytics.countChannelMessages()
-
-    cb?()
-
-exports.favorites = (_teamId, urlQuery) ->
-  store = recorder.getState()
-  _userId = query.userId(store)
-
+fetchFavoritesDataIfNeed = (_teamId) ->
   searchData =
     _teamId: _teamId
     page: 1
     sort: {favoritedAt: {order: 'desc'}}
 
-  searchData
-  deps = [
-    # team dep.
-    dataRely.relyGroups(_teamId)
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyTeamsList()
-    dataRely.relyLeftContacts _teamId
+  [
     dataRely.relyFavoriteResults searchData
-
-    # story dep.
-    dataRely.stories _teamId
-
-    # notification
-    dataRely.notifications _teamId
   ]
 
+exports.favorites = (_teamId, searchQuery) ->
   info =
     type: 'favorites'
     _teamId: _teamId
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.favorites _teamId, urlQuery
-    deviceActions.networkLoaded info
 
-exports.collection = (_teamId, urlQuery) ->
-  deps = [
-    # team dep.
-    dataRely.relyGroups(_teamId)
-    dataRely.relyTeamTopics(_teamId)
-    dataRely.relyTeamMembers(_teamId)
-    dataRely.relyTeamInvitaitons(_teamId)
-    dataRely.relyTeamsList()
-    # common dep.
-    dataRely.relyTags _teamId
-    dataRely.relyLeftContacts _teamId
-    dataRely.notifications _teamId
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchFavoritesDataIfNeed _teamId
   ]
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      routerActions.favorites _teamId, searchQuery
+      deviceActions.networkLoaded(info)
+    .done()
 
+fetchCollectionDataIfNeed = ->
+  []
+
+exports.collection = (_teamId, searchQuery = {}) ->
   info =
     type: 'search'
     _teamId: _teamId
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.collection _teamId, urlQuery
-    deviceActions.networkLoaded info
+
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchCollectionDataIfNeed()
+  ]
+  if not d.isSatisfied
+    deviceActions.networkLoading(info)
+  d.request()
+    .then ->
+      routerActions.collection _teamId, searchQuery
+      deviceActions.networkLoaded(info)
+    .done()
 
 exports.settingRookie = ->
   routerActions.settingRookie()
 
 exports.settingTeams = ->
-  deps = [
+  d = dataRely.ensure [
     dataRely.relyTeamsList()
   ]
-
-  info =
-    type: 'setting-teams'
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.settingTeams()
-    deviceActions.networkLoaded info
-  analytics.viewTeams()
+  d.request()
+    .then ->
+      routerActions.settingTeams()
+      analytics.viewTeams()
+    .done()
 
 exports.profile = ->
-  deps = [
+  d = dataRely.ensure [
     dataRely.accounts()
   ]
-
-  info =
-    type: 'setting-profile'
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.profile()
-    deviceActions.networkLoaded info
+  d.request()
+    .then ->
+      routerActions.profile()
+    .done()
 
 exports.teamCreate = ->
   routerActions.teamCreate()
 
 exports.teamSync = ->
-  deps = [
+  d = dataRely.ensure [
     dataRely.accounts()
   ]
-
-  info =
-    type: 'setting-sync'
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.teamSync()
-    deviceActions.networkLoaded info
+  d.request()
+    .then ->
+      routerActions.teamSync()
+    .done()
 
 exports.teamSyncList = ->
   refer = 'teambition'
 
-  deps = [
+  d = dataRely.ensure [
     dataRely.accounts()
     dataRely.relyThirdParties(refer)
     dataRely.relyTeamsList()
   ]
-
-  info =
-    type: 'setting-sync-team'
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.teamSyncList()
-    deviceActions.networkLoaded info
+  d.request()
+    .then ->
+      routerActions.teamSyncList()
+    .done()
 
 exports.settingHome = ->
   routerActions.settingHome()
@@ -463,30 +413,6 @@ exports.home = (cb) ->
   else
     exports.settingTeams()
   cb?()
-
-exports.onPopstate = (info) ->
-  _teamId = info.getIn(['data', '_teamId'])
-  _roomId = info.getIn(['data', '_roomId'])
-  _toId = info.getIn(['data', '_toId'])
-  _storyId = info.getIn(['data', '_storyId'])
-  urlQuery = info.get('query')?.toJS() or {}
-  switch info.get('name')
-    when 'home'
-      exports.home()
-    when 'team'
-      exports.team _teamId, urlQuery
-    when 'room'
-      exports.room _teamId, _roomId, urlQuery
-    when 'chat'
-      exports.chat _teamId, _toId, urlQuery
-    when 'story'
-      exports.story _teamId, _storyId, urlQuery
-    else
-      routerActions.go info.toJS()
-
-exports.goPath = (urlPath) ->
-  info = pathUtil.getCurrentInfo routes, urlPath
-  exports.onPopstate info
 
 exports.return = ->
   store = recorder.getState()
@@ -511,80 +437,77 @@ exports.return = ->
   else
     exports.home()
 
-exports.unreadTeam = ->
-  store = recorder.getStore()
+fetchCreateDataIfNeed = (_teamId) ->
+  []
 
-  currentTeamId = store.getIn ['router', 'data', '_teamId']
-  unreadTeam = store.get('teams').find (team) ->
-    return false if team.get('_id') is currentTeamId
-    return false if (team.get('unread') or 0) is 0
-    return true
-  if unreadTeam?
-    exports.team unreadTeam.get('_id')
+exports.create = (_teamId, searchQuery = {}) ->
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchCreateDataIfNeed()
+  ]
+  d.request()
+    .then ->
+      routerActions.create _teamId, searchQuery
+    .done()
 
-exports.create = ->
-  store = recorder.getStore()
-  currentTeamId = store.getIn ['router', 'data', '_teamId']
-  recorder.dispatch 'router/go', name: 'create', data: {_teamId: currentTeamId}, query: {}
-
-exports.integrations = (_teamId, _roomId) ->
-  store = recorder.getStore()
-
-  if _roomId?
-    queryObject = {_roomId}
-  else
-    queryObject = {}
-
-  deps = [
-    dataRely.relyTeamsList()
+fetchIntegrationsDataIfNeed = (_teamId) ->
+  [
     dataRely.relyInteSettings()
-    dataRely.relyIntes(_teamId)
+    dataRely.relyIntes _teamId
   ]
 
+exports.integrations = (_teamId, _roomId, searchQuery = {}) ->
   # strange but async load code first, async load settings second
   require.ensure [], ->
     intePage = require '../app/inte-page'
     lazyModules.define 'inte-page', intePage
 
-    dataRely.ensure deps, ->
-      recorder.dispatch 'router/go', name: 'integrations', data: {_teamId}, query: queryObject
+    d = dataRely.ensure [
+      fetchTeamDataIfNeed _teamId
+      fetchIntegrationsDataIfNeed _teamId
+    ]
+    d.request()
+      .then ->
+        queryObject =
+          if _roomId? or searchQuery._roomId
+            _roomId: _roomId or searchQuery._roomId
+          else
+            {}
+
+        routerActions.integrations(_teamId, searchQuery)
+      .done()
 
     if module.hot
       module.hot.accept '../app/inte-page', ->
         intePage = require '../app/inte-page'
         lazyModules.define 'inte-page', intePage
 
-exports.mentions = (params, searchQuery) ->
-  _teamId = params._teamId
-
-  deps = [
-    dataRely.relyGroups _teamId
-    dataRely.relyTeamTopics _teamId
-    dataRely.relyTeamMembers _teamId
-    dataRely.relyTeamInvitaitons _teamId
-    dataRely.relyTeamsList()
-    dataRely.relyLeftContacts _teamId
+fetchMentionsDataIfNeed = (params) ->
+  [
     dataRely.mentionedMessages params
-    dataRely.notifications _teamId
-    dataRely.stories _teamId
   ]
 
-  info =
-    type: 'mentions'
-  deviceActions.markTeam _teamId
-  deviceActions.networkLoading info
-  dataRely.ensure deps, ->
-    routerActions.mentions params, searchQuery
-    deviceActions.networkLoaded info
+exports.mentions = (params, searchQuery = {}) ->
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed params._teamId
+    fetchMentionsDataIfNeed params
+  ]
+  d.request()
+    .then ->
+      routerActions.mentions params, searchQuery
+    .done()
+
+fetchTeamOverviewDataIfNeed = (_teamId) ->
+  [
+    dataRely.relyTeamActivities _teamId
+  ]
 
 exports.teamOverview = (_teamId) ->
-  store = recorder.getStore()
-
-  deps = [
-    dataRely.relyTeamsList()
-    dataRely.relyTeamActivities _teamId
-    dataRely.relyTeamMembers _teamId
-    dataRely.relyTeamInvitaitons _teamId
+  d = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
+    fetchTeamOverviewDataIfNeed _teamId
   ]
-  dataRely.ensure deps, (resp) ->
-    recorder.dispatch 'router/go', name: 'overview', data: {_teamId: _teamId}, query: {}
+  d.request()
+    .then ->
+      routerActions.overview(_teamId)
+    .done()

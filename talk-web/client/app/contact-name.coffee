@@ -58,7 +58,7 @@ module.exports = React.createClass
 
   renderRobotIcon: ->
     if detect.isRobot(@props.contact)
-      span className: 'icon icon-talkai flex-static'
+      span className: 'ti ti-bot flex-static'
 
   renderIsQuit: ->
     if @props.isQuit
@@ -97,7 +97,7 @@ module.exports = React.createClass
 
   renderSelect: ->
     if @props.active
-      Icon name: 'tick', size: 14, type: 'icon', className: 'flex-static'
+      Icon name: 'tick', size: 18, className: 'flex-static'
 
   render: ->
     className = cx 'banner', 'contact-name', 'item', 'line',

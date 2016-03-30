@@ -1,7 +1,6 @@
 
-.lite-modal.is-file-queue,
-.lite-modal.is-for-file-queue,
-.lite-modal.is-story-viewer {
+.light-modal.is-file-queue,
+.light-modal.is-story-viewer {
   .wrapper {
     padding: 60px;
     height: 100%;
@@ -19,8 +18,8 @@
 .file-queue {
   height: 100%;
   position: relative;
-  .display(flex);
-  .flex-direction(column);
+  display: flex;
+  flex-direction: column;
 
   .button-close {
     position: absolute;
@@ -30,9 +29,9 @@
   }
 
   .side-column {
-    .display(flex);
-    .justify-content(center);
-    .align-items(center);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-width: 44px;
     opacity: 0;
 
@@ -41,35 +40,31 @@
 
       .side-container {
         cursor: pointer;
-        padding: 30px 15px;
-        .user-select(none);
-        .transition(color .3s);
+        padding: 30px 0;
+        user-select: none;
+        transition: color .3s;
         color: @font-level-3;
         z-index: 1;
 
         &:hover {
-          color: @font-reverse-1;
+          color: white;
         }
       }
     }
   }
 
   .body {
-    .flex(1);
-    .display(flex);
+    flex: 1;
+    display: flex;
     overflow: hidden;
   }
 
   .body .file-container {
-    .flex(1);
-    .display(flex);
-    .justify-content(center);
-    .align-items(center);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-  }
-
-  .body .placeholder {
-    color: @font-reverse-2;
   }
 
   .loading-indicator {

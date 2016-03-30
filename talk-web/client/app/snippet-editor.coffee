@@ -11,6 +11,8 @@ notifyActions = require '../actions/notify'
 lazyModules = require '../util/lazy-modules'
 snippetUtil = require '../util/snippet'
 
+Icon = React.createFactory require '../module/icon'
+
 PureRenderMixin = require 'react-addons-pure-render-mixin'
 { div, span, input, button } = React.DOM
 T = React.PropTypes
@@ -120,7 +122,7 @@ module.exports = React.createClass
     div className: 'snippet-editor', onClick: @onClick,
       div className: 'header line',
         lang.getText 'snippet-editor'
-        span className: 'icon icon-remove', onClick: @props.onClose
+        Icon name: 'remove', className: 'button-close', size: 20, onClick: @props.onClose
       div className: 'body',
         @renderTitle()
         @renderCodeEditor()

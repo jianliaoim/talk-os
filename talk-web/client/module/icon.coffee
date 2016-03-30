@@ -21,7 +21,7 @@ module.exports = React.createClass
     backgroundColor: T.string
 
   getDefaultProps: ->
-    size: 14
+    size: 16
     type: 'ti'
     onClick: (->)
     className: ''

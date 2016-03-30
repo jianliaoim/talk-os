@@ -13,5 +13,5 @@ module.exports = React.createClass
 
   render: ->
     div className: 'no-content',
-      span className: "icon icon-circle-warning"
+      span className: "ti ti-alert-solid"
       div className: "tip", @props.tip

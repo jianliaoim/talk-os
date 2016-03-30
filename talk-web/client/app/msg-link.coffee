@@ -38,5 +38,5 @@ module.exports = React.createClass
       div className: 'preview', style: imgStyle
       div className: 'text', title
       if quote.get('redirectUrl')
-        span className: 'icon icon-jump', onClick: @onIconClick
+        span className: 'ti ti-redirect-circle-solid', onClick: @onIconClick
       @renderLinkViewer()

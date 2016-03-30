@@ -25,7 +25,7 @@
     color: @font-level-3;
   }
 
-  .name + .icon {
+  .name + .ti {
     display: inline-block;
     margin-top: -2px;
     margin-left: 10px;
@@ -42,20 +42,21 @@
     white-space: nowrap;
   }
 
-  .icon.icon-tick {
+  .ti.ti-tick {
     color: @color-red;
   }
 
-  .icon.icon-talkai {
+  .ti-bot {
     color: @color-gray-dark;
+    font-size: 18px;
   }
 
   .name {
-    .flex(1, 1, auto);
+    flex: 1 1 auto;
   }
 
   .icon-unread {
-    .flex(0, 0, auto);
+    flex: 0 0 auto;
   }
 
   .hint {

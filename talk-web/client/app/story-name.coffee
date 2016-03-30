@@ -26,7 +26,7 @@ module.exports = React.createClass
 
     switch @props.category
       when 'file'
-        icon = 'paperclip'
+        icon = 'paperclip-lean'
       when 'link'
         icon = 'chain'
       when 'topic'

@@ -23,7 +23,7 @@ MsgLink    = React.createFactory require './msg-link'
 MsgSnippet = React.createFactory require './msg-snippet'
 
 Icon = React.createFactory require '../module/icon'
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModal = React.createFactory require '../module/light-modal'
 
 { a, h3, h4, div, span } = React.DOM
 T = React.PropTypes
@@ -202,7 +202,7 @@ module.exports = React.createClass
           lang.getText('show-more')
 
   renderFileQueue: ->
-    LiteModalBeta
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide
@@ -216,7 +216,7 @@ module.exports = React.createClass
       h3 className: 'title', lang.getText 'automatic-collection'
       div className: 'action',
         Icon
-          name: 'remove', size: 24
+          name: 'remove', size: 18
           onClick: @onCloseDrawer
           className: 'muted'
 

@@ -21,6 +21,7 @@ div   = React.createFactory 'div'
 span  = React.createFactory 'span'
 input = React.createFactory 'input'
 
+Icon = React.createFactory require '../module/icon'
 SearchSuggest = React.createFactory require './search-suggest'
 
 T = React.PropTypes
@@ -195,7 +196,7 @@ module.exports = React.createClass
 
   render: ->
     div ref: 'root', className: 'search-header',
-      div className: 'form-control',
+      div className: 'form-control flex-horiz flex-vcenter',
         input
           onKeyDown: @onKeyDown
           onChange: @onChange
@@ -205,6 +206,6 @@ module.exports = React.createClass
           className: 'input'
           placeholder: lang.getText('search-with-keywords')
           autoFocus: not detect.isIPad()
-        span className: 'icon icon-search'
+        Icon name: 'search', size: 18, className: 'flex-static'
       if (not @state.suggestClosed) and (@state.query.length > 0) and @state.focus
         @renderSuggest()

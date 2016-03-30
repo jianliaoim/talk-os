@@ -24,5 +24,5 @@ module.exports = React.createClass
 
   render: ->
     div className: 'btn-launch', onClick: @onClick,
-      Icon name: 'plus', size: 18
+      Icon name: 'pencil', size: 18
       span className: 'text', lang.getText 'launch-jianliao'

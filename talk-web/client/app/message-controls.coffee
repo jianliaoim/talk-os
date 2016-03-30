@@ -19,13 +19,12 @@ util = require '../util/util'
 analytics = require '../util/analytics'
 
 PostEditor = React.createFactory require './post-editor'
-GuideAnchor = React.createFactory require './guide-anchor'
 SnippetEditor = React.createFactory require './snippet-editor'
 
 Icon = React.createFactory require '../module/icon'
 Tooltip = React.createFactory require '../module/tooltip'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 
 PureRenderMixin = require 'react-addons-pure-render-mixin'
 { a, div, span } = React.DOM
@@ -183,7 +182,7 @@ module.exports = React.createClass
     clearInputText = if @state.showConvertToPost then @props.clearInputText else (->)
 
     showPost = @state.showNewPost or @state.showConvertToPost
-    LiteModal name: 'post-editor', show: showPost, onCloseClick: @onPostClose,
+    LightModal name: 'post-editor', show: showPost, onCloseClick: @onPostClose,
       PostEditor
         _teamId: @props._teamId
         _channelId: @props._channelId
@@ -243,7 +242,7 @@ module.exports = React.createClass
   # rendereres
 
   renderSnippetEditor: ->
-    LiteModal name: 'snippet-editor', show: @state.showSnippetEditor, onCloseClick: @onSnippetEditorClose,
+    LightModal name: 'snippet-editor', show: @state.showSnippetEditor, onCloseClick: @onSnippetEditorClose,
       SnippetEditor
         _toId: @props._toId
         _roomId: @props._roomId
@@ -257,7 +256,7 @@ module.exports = React.createClass
   renderAt: ->
     if @props.showAt
       a className: 'action', onClick: @onMentionClick,
-        Icon name: 'at', size: 18
+        Icon name: 'at', size: 20
 
   renderEmoji: ->
     if @props.showEmoji
@@ -286,7 +285,7 @@ module.exports = React.createClass
     if @props.showMarkdown
       Tooltip template: 'Markdown', options: {position: 'top center'},
         a className: cx('action', 'active': @props.activeMarkdown), onClick: @onMarkdownClick,
-          Icon name: 'markdown-solid', size: 22
+          Icon name: 'markdown', size: 20
 
   render: ->
     div ref: 'root', className: 'message-controls flex-horiz flex-vcenter',

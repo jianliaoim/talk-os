@@ -157,7 +157,7 @@ module.exports =
       command.get('trigger').slice(1).indexOf(name) is 0
 
     suggestCommands: commands
-    showCommandMenu: if __GA__ then commands.size > 0 else false
+    showCommandMenu: if __DEV__ then commands.size > 0 else false
 
   # renderers
 

@@ -16,8 +16,8 @@ UserMenu = React.createFactory require './user-menu'
 SettingsProfile = React.createFactory require './settings-profile'
 
 MemberCard  = React.createFactory require '../app/member-card'
-LitePopover = React.createFactory require 'react-lite-layered/lib/popover'
-LiteModal   = React.createFactory require 'react-lite-layered/lib/modal'
+LightPopover = React.createFactory require '../module/light-popover'
+LightModal   = React.createFactory require '../module/light-modal'
 
 div = React.createFactory 'div'
 hr  = React.createFactory 'hr'
@@ -69,7 +69,7 @@ module.exports = React.createClass
     userActions.userSignout()
 
   renderMenu: ->
-    LitePopover
+    LightPopover
       baseArea: if @state.showMenu then @getBaseArea() else {}
       onPopoverClose: @onPopoverClose
       showClose: false
@@ -82,7 +82,7 @@ module.exports = React.createClass
         onPopoverClose: @onPopoverClose
 
   renderSettings: ->
-    LiteModal
+    LightModal
       title: lang.getText('user-preferences')
       onCloseClick: @onSettingsClose
       show: @state.showSettings

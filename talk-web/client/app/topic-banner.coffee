@@ -24,7 +24,9 @@ TopicDetails = React.createFactory require './topic-details'
 RosterManagement = React.createFactory require './roster-management'
 TalkDownload = React.createFactory require './talk-download'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+Icon = React.createFactory require '../module/icon'
+LightModal = React.createFactory require '../module/light-modal'
+
 SlimModal = React.createFactory require './slim-modal'
 
 PureRenderMixin = require 'react-addons-pure-render-mixin'
@@ -107,6 +109,9 @@ module.exports = React.createClass
     accountActions.fetch()
     handlers.router.integrations @props.topic.get('_teamId'), @props.topic.get('_id')
 
+  onSupportClick: ->
+    window.open '/site/support', true
+
   # renderers
 
   renderGuideText: ->
@@ -123,17 +128,20 @@ module.exports = React.createClass
     div className: 'line',
       unless @props.topic.get('isGeneral')
         button className: 'button is-primary add-members', onClick: @onOpenModal,
-          span className: 'icon icon-add-user'
+          Icon name: 'user-add', size: 20
           lang.getText 'invite-friends'
       button className: 'button is-primary add-integrations', onClick: @onInteClick,
-        span className: 'icon icon-config'
+        Icon name: 'square', size: 20
         lang.getText 'add-integrations'
       button className: 'button is-primary guest-mode', onClick: @onGuestClick,
-        span className: 'icon icon-eye'
+        Icon name: 'eye', size: 20
         lang.getText 'guest-mode'
+      button className: 'button is-primary help-center', onClick: @onSupportClick,
+        Icon name: 'life-belt', size: 20
+        lang.getText 'help-center'
 
   renderTopicSettings: ->
-    LiteModal
+    LightModal
       name: 'topic-settings'
       show: @state.showTopicSettings
       title: lang.getText 'topic-details'

@@ -12,7 +12,7 @@ mixinInteEvents = require '../mixin/inte-events'
 mixinCreateTopic = require '../mixin/create-topic'
 mixinInteHandler = require '../mixin/inte-handler'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 
 { a, div, span } = React.DOM
 editableFields = Immutable.List ['config', '_roomId', '_teamId', 'title', 'description', 'iconUrl']
@@ -159,7 +159,7 @@ module.exports = React.createClass
     checkedTrelloBoardModelId = @state.checkedTrelloBoardModelId
     selectedBoard = @state.trelloBoards.find (v) -> v.get('modelId') is checkedTrelloBoardModelId
 
-    LiteDropdown
+    LightDropdown
       name: 'inte-trello'
       show: @state.showBoards
       onToggle: @onBoardsSelectorToggle

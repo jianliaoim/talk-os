@@ -23,7 +23,7 @@ StoryViewer = React.createFactory require './story-viewer'
 
 Icon = React.createFactory require '../module/icon'
 CreatorInfo = React.createFactory require '../module/creator-info'
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModalBeta = React.createFactory require '../module/light-modal'
 
 { a, div, noscript } = React.DOM
 T = React.PropTypes
@@ -104,7 +104,7 @@ module.exports = React.createClass
     @setState showStoryViewer: false
 
   renderStoryViewer: ->
-    LiteModalBeta
+    LightModalBeta
       name: 'story-viewer'
       show: @state.showStoryViewer
       onCloseClick: @onStoryViewerClose
@@ -158,6 +158,6 @@ EditClass = React.createClass
 
   render: ->
     a className: 'btn btn-edit', onClick: @props.onClick,
-      Icon name: 'pencil', size: 14
+      Icon name: 'edit', size: 18
 
 EditClassPermission = React.createFactory Permission.create EditClass, Permission.admin

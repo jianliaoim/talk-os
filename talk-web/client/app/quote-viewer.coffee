@@ -95,7 +95,7 @@ module.exports = React.createClass
           defaultName: @props.message.get('authorName') or @props.message.getIn(['creator', 'name'])
         unless @props.isFavorite
           MessageToolbar message: @props.message, hideMenu: true, showInline: true
-        a className: 'icon icon-remove', onClick: @onClose
+        span className: 'ti ti-remove', onClick: @onClose
       div className: contentClass, style: contentStyle, onClick: @onContentClick, dangerouslySetInnerHTML: __html: quote.get 'text'
       if quote.has 'redirectUrl'
         div className: 'footer',

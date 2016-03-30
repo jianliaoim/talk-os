@@ -841,3 +841,4 @@ module.exports =
   'connect-to-trello': 'Connect to Trello'
   'loading-failure': 'Failed to load'
   'load-again': 'Again'
+  "help-center": "Help Center"

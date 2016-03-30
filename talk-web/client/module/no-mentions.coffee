@@ -11,5 +11,5 @@ module.exports = React.createClass
 
   render: ->
     div className: 'no-mentions',
-      span className: 'icon icon-at'
+      span className: 'ti ti-at'
       div className: 'message', lang.getText 'no-mentions'

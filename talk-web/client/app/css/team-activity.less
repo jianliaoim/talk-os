@@ -9,6 +9,7 @@
   position: relative;
 
   .activity-icon {
+    flex: 0 0 auto;
     width: 32px;
     height: 32px;
     background-color: black;
@@ -54,14 +55,14 @@
   .inline-text {
     display: inline-block;
     color: #393C40;
-    font-weight: bold;
+    font-weight: @font-weight-bold;
     margin-top: 4px;
   }
 
   .detail-title {
     margin-top: 4px;
     color: #393C40;
-    font-weight: bold;
+    font-weight: @font-weight-bold;
     white-space: nowrap;
     max-width: 520px;
     overflow: hidden;

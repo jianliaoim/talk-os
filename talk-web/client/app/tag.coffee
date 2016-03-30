@@ -14,8 +14,10 @@ tagActions  = require '../actions/tag'
 notifyActions  = require '../actions/notify'
 
 mixinSubscribe = require '../mixin/subscribe'
-LiteModal = React.createFactory require 'react-lite-layered/lib/modal'
-LiteDialog = React.createFactory require 'react-lite-layered/lib/dialog'
+LightModal = React.createFactory require '../module/light-modal'
+LightDialog = React.createFactory require '../module/light-dialog'
+
+Icon = React.createFactory require '../module/icon'
 
 div = React.createFactory 'div'
 span = React.createFactory 'span'
@@ -97,7 +99,7 @@ module.exports = React.createClass
     @props.onTagClick @props.tag.get('_id')
 
   renderEditor: ->
-    LiteModal
+    LightModal
       name: 'tag-editor'
       title: l('edit-tag')
       onCloseClick: @onEditorClose
@@ -110,7 +112,7 @@ module.exports = React.createClass
           button className: 'button is-danger', onClick: @onDeleteClick, l('remove-tag')
 
   renderDeleter: ->
-    LiteDialog
+    LightDialog
       cancel: l('cancel')
       confirm: l('confirm')
       content: l('tag-deleter-message')
@@ -127,7 +129,7 @@ module.exports = React.createClass
         div className: className, onClick: @onTagClick,
           span className: 'dot'
           span className: 'name', tag.get('name')
-          span className: 'edit icon icon-pencil', onClick: @onEditClick
+          Icon name: 'edit', className: 'edit', size: 14, onClick: @onEditClick
           @renderEditor()
           @renderDeleter()
       else

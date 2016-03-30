@@ -1,6 +1,6 @@
 React = require 'react'
 
-LiteCodeViewer = React.createFactory require 'react-lite-coder/lib/code-viewer'
+CodeViewer = React.createFactory require '../module/code-viewer'
 
 snippetUtil = require '../util/snippet'
 
@@ -30,7 +30,7 @@ module.exports = React.createClass
   render: ->
     div className: 'snippet-card', onClick: @onClick,
       if @props.title.length then div className: 'title', @props.title else null
-      LiteCodeViewer
+      CodeViewer
         name: 'snippet-card'
         text: @props.text
         codeType: snippetUtil.getHighlightJS @props.codeType

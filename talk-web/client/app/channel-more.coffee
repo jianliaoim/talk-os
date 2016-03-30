@@ -14,7 +14,7 @@ TopicDetails = React.createFactory require './topic-details'
 
 Icon = React.createFactory require '../module/icon'
 
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModal = React.createFactory require '../module/light-modal'
 
 { a, div, noscript } = React.DOM
 T = React.PropTypes
@@ -49,7 +49,7 @@ module.exports = React.createClass
     @onOpenModal MODAL_TYPE[0]
 
   renderModal: ->
-    LiteModalBeta
+    LightModal
       name: 'channel-more'
       show: @state.showModal
       title: lang.getText @state.modalType
@@ -67,12 +67,12 @@ module.exports = React.createClass
       a
         className: 'action flex-horiz flex-vcenter'
         onClick: @onOpenTopicConfig
-        Icon name: 'pencil'
+        Icon name: 'cog', size: 18
         lang.getText 'topic-details'
       a
         className: 'action flex-horiz flex-vcenter'
         onClick: @onOpenIntePage
-        Icon name: 'config', type: 'icon'
+        Icon name: 'square', size: 18
         lang.getText 'integrations'
       @renderModal()
 
@@ -82,7 +82,7 @@ module.exports = React.createClass
         a
           className: 'action flex-horiz flex-vcenter'
           onClick: @onLeaveStory
-          Icon name: 'leave', type: 'icon'
+          Icon name: 'leave'
           lang.getText 'leave-story'
       else
         null

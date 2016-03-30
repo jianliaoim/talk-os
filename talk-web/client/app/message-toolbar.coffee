@@ -20,13 +20,14 @@ lookup = require '../util/lookup'
 detect = require '../util/detect'
 analytics = require '../util/analytics'
 
+Icon = React.createFactory require '../module/icon'
 LightMenu   = React.createFactory require '../module/light-menu'
 ForwardMenu = React.createFactory require './forward-menu'
 ForwardTeam = React.createFactory require './forward-team'
 
-LiteDialog = React.createFactory require('react-lite-layered').Dialog
-LiteModal  = React.createFactory require('react-lite-layered').Modal
-LitePopover = React.createFactory require('react-lite-layered').Popover
+LightDialog = React.createFactory require '../module/light-dialog'
+LightModal  = React.createFactory require '../module/light-modal'
+LightPopover = React.createFactory require '../module/light-popover'
 SlimModal  = React.createFactory require './slim-modal'
 
 MessageEditor = React.createFactory require '../app/message-editor'
@@ -309,52 +310,52 @@ module.exports = React.createClass
     LightMenu
       onMenuToggle: @onMenuToggle
       open: @state.showLightMenu
-      hint: a className: 'icon icon-more'
+      hint: Icon name: 'ellipsis-vertical', size: 16
       if not config.isGuest
         div className: 'item line', onClick: @onFavoriteClick,
-          span className: 'icon icon-star'
+          Icon name: 'star', size: 16
           if @isFavorited() then l('cancel-favorite') else l('favorite')
       if @isFile()
         url = @props.message.getIn(['attachments', @props.attachmentIndex, 'data', 'downloadUrl'])
         a className: 'item line', href: url, onClick: @onDownload,
-          span className: 'icon icon-download'
+          Icon name: 'download', size: 16
           l('download')
       if @isMessageEditable()
         div className: 'item line', onClick: @onEditMessage,
-          span className: 'icon icon-pencil'
+          Icon name: 'edit', size: 16
           l('edit')
       if not config.isGuest
         div className: 'item line', onClick: @onForwardClick,
-          span className: 'icon icon-share'
+          Icon name: 'share', size: 16
           l('forward')
       if @canDelete()
         div className: 'item line', onClick: @onDelete,
-          span className: 'icon icon-trash'
+          Icon name: 'trash', size: 16
           l('delete')
 
   renderActionsInline: ->
     isQuit = @getQuitContact()
-    tagClassName = cx 'icon', 'icon-tag-reverse', 'muted', 'is-active': @state.showTagDropdown
+    tagClassName = cx 'ti', 'ti-tag', 'muted', 'is-active': @state.showTagDropdown
 
-    cxStar = cx 'icon', 'icon-star', 'is-active': @isFavorited()
+    cxStar = cx 'is-star', 'is-active': @isFavorited()
 
     div className: 'toolbar',
       if @isFile()
         a className: 'line', href: @props.message.getIn(['attachments', @props.attachmentIndex, 'data', 'downloadUrl']),
-          span className: 'icon icon-download'
+          Icon name: 'download', size: 18
       if (not config.isGuest) and (not isQuit)
-        span className: tagClassName, ref: 'tag', onClick: @onTagClick
+        span ref: 'tag', className: tagClassName, onClick: @onTagClick
       if not config.isGuest
-        span className: cxStar, onClick: @onFavoriteClick
+        Icon name: (if @isFavorited() then 'star-solid' else 'star'), size: 18, className: cxStar, onClick: @onFavoriteClick
       if @isAttachmentEditable()
-        span className: 'icon icon-pencil', onClick: @onEditAttachment
+        Icon name: 'edit', size: 18, onClick: @onEditAttachment
       if not config.isGuest
-        span className: 'icon icon-share', onClick: @onForwardClick
+        Icon name: 'share', size: 18, onClick: @onForwardClick
       if @props.showTrash and @canDelete()
-        span className: 'icon icon-trash', onClick: @onDelete
+        Icon name: 'trash', size: 18, onClick: @onDelete
 
   renderDeleter: ->
-    LiteDialog
+    LightDialog
       name: 'message-delete'
       confirm: lang.getText('confirm')
       cancel: lang.getText('cancel')
@@ -365,7 +366,7 @@ module.exports = React.createClass
       show: @state.showDeleter
 
   renderMessageEditor: ->
-    LiteModal
+    LightModal
       name: 'message-editor'
       title: lang.getText('message-editor-title')
       onCloseClick: @onMessageEditorClose
@@ -387,7 +388,7 @@ module.exports = React.createClass
     return if not target.size
     rtf = target.getIn([0, 'data'])
 
-    LiteModal name: 'post-editor', onCloseClick: @onRTFEditorClose, showClose: false, show: @state.showRTFEditor,
+    LightModal name: 'post-editor', onCloseClick: @onRTFEditorClose, showClose: false, show: @state.showRTFEditor,
       PostEditor
         _channelId: lookup.getMessageChannelId(@props.message)
         _teamId: @props.message.get('_teamId')
@@ -403,7 +404,7 @@ module.exports = React.createClass
     return if not target.size
     snippet = target.getIn([0, 'data'])
 
-    LiteModal
+    LightModal
       name: 'snippet-editor'
       show: @state.showSnippetEditor
       showClose: false
@@ -418,7 +419,7 @@ module.exports = React.createClass
           attachment: snippet.toJS()
 
   renderTagDropdown: ->
-    LitePopover
+    LightPopover
       name: 'tag-dropdown'
       onPopoverClose: @onTagPopoverClose
       positionAlgorithm: @positionAlgorithm
@@ -470,15 +471,15 @@ module.exports = React.createClass
       'is-active': @state.showTagDropdown or @state.showLightMenu
       'is-quit': @getQuitContact()?
 
-    tagClassName = cx 'icon', 'icon-tag', 'is-tag', 'muted', 'is-active': @state.showTagDropdown
+    tagClassName = cx 'ti', 'ti-tag', 'is-tag', 'muted', 'is-active': @state.showTagDropdown
     div className: className,
       if not config.isGuest
         MessageReceiptStatus
           message: @props.message
       if (not config.isGuest) and (not @props.showInline) and (not @props.showForward)
-        span className: tagClassName, ref: 'tag', onClick: @onTagClick
+        span ref: 'tag', className: tagClassName, onClick: @onTagClick
       if (not config.isGuest) and @props.showForward and not @props.showInline
-        span className: 'icon icon-share', onClick: @onForwardClick
+        Icon name: 'share', size: 18, onClick: @onForwardClick
       if not @props.hideMenu
         @renderActions()
       if @props.showInline

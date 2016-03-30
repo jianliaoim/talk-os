@@ -3,24 +3,30 @@
 
   .header {
     background: none;
-    height: 91px;
     color: white;
     border-bottom: 1px solid #eee;
 
     .category {
-      height: 40px;
-      line-height: 40px;
+      height: 50px;
+      line-height: 50px;
       padding: 0 0 0 15px;
       color: white;
       position: relative;
 
-      .icon-remove {
+      .button-close {
         position:absolute;
         top: 0;
         right: 15px;
         cursor: pointer;
+
+        color: white;
+
+        &:hover {
+          color: darken(white, 50%);
+        }
       }
     }
+
     .title {
       height: 50px;
       line-height: 50px;
@@ -56,6 +62,6 @@
 
 }
 
-.lite-modal.is-for-rtf-viewer .box {
+.light-modal.is-rtf-viewer .box {
   width: 720px;
 }

@@ -90,7 +90,7 @@ GroupCreateClass = React.createClass
   render: ->
     div className: 'footer group-create flex-horiz flex-static',
       div className: 'button', onClick: @props.onCreateClick,
-        Icon size: 20, name: 'plus'
+        Icon size: 18, name: 'plus'
         span className: 'text', lang.getText('team-group-create')
 
 GroupCreatePermission = React.createFactory Permission.create(GroupCreateClass, Permission.admin)

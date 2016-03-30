@@ -9,6 +9,7 @@ input = React.createFactory 'input'
 lang = require '../locales/lang'
 
 detect = require '../util/detect'
+Icon = React.createFactory require '../module/icon'
 
 T = React.PropTypes
 
@@ -28,11 +29,11 @@ module.exports = React.createClass
 
   render: ->
     div className: 'search-header favorites-header',
-      div className: 'form-control',
+      div className: 'form-control flex-horiz flex-vcenter',
         input
           ref: 'input'
           className: 'input'
           placeholder: lang.getText('search-with-keywords')
           onChange: @debouncedChange
           autoFocus: not detect.isIPad()
-        span className: 'icon icon-search'
+        Icon name: 'search', size: 18

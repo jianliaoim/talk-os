@@ -128,8 +128,8 @@ module.exports = React.createClass
   renderUnreadTip: ->
     return null if @props.isClearingUnread or @props.unread is 0
     div onClick: @onUnreadClick,
-      span className: 'unread-tip line',
-        span className: 'icon icon-chevron-down'
+      span className: 'unread-tip line flex-horiz',
+        span className: 'ti ti-chevron-down'
         lang.getText('%s-new-messages').replace('%s', @props.unread)
 
   renderTimeline: ->

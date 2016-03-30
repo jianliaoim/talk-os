@@ -2,7 +2,7 @@ EventEmitter = require 'wolfy87-eventemitter'
 Immutable = require 'immutable'
 
 if typeof window isnt 'undefined'
-  Primus = require 'primus-client'
+  Primus = require '../vendor/primus'
 
 config = require '../config'
 

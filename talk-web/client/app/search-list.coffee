@@ -128,7 +128,7 @@ module.exports = React.createClass
 
   renderSearch: ->
     div className: 'search-input flex-horiz flex-vcenter',
-      Icon name: 'search', type: 'icon', size: 16, className: 'flex-static'
+      Icon name: 'search', size: 18, className: 'flex-static'
       input
         ref: 'input', type: 'text', className: 'input flex-fill', placeholder: @props.locale, value: @state.query,
         onChange: @onChange, onKeyDown: @onKeyDown, autoFocus: @props.autoFocus

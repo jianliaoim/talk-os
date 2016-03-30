@@ -10,7 +10,7 @@ mixinSubscribe = require '../mixin/subscribe'
 deviceActions = require '../actions/device'
 routerHandlers = require '../handlers/router'
 
-LiteModal   = React.createFactory require 'react-lite-layered/lib/modal'
+LightModal   = React.createFactory require '../module/light-modal'
 TimeDivider = React.createFactory require '../module/time-divider'
 
 MessageRich   = React.createFactory require '../app/message-rich'
@@ -119,7 +119,7 @@ module.exports = React.createClass
 
   renderFileQueue: ->
     messages = @props.messages.sort orders.imMsgByCreatedAtWithId
-    LiteModal
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide

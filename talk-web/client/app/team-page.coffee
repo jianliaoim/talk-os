@@ -10,8 +10,6 @@ routerHandlers = require '../handlers/router'
 
 mixinRouter = require '../mixin/router'
 
-TourGuide = require '../tour-guide/index'
-
 TeamDrawer = React.createFactory require './team-drawer'
 TeamHeader = React.createFactory require './team-header'
 TeamSidebar = React.createFactory require './team-sidebar'
@@ -26,18 +24,6 @@ T = React.PropTypes
 module.exports = React.createClass
   displayName: 'team-page'
   mixins: [mixinRouter, PureRenderMixin]
-
-  componentDidMount: ->
-    webData = @props.store.getIn(['user', 'preference', 'webData'])?.toJS()
-    router = @props.store.get('router')
-    if not webData?
-      if router.get('name') not in ['chat', 'room', 'story']
-        _teamId = router.getIn(['data', '_teamId'])
-        _latestTeamId = @props.store.getIn(['prefs', '_latestTeamId'])
-        routerHandlers.team _teamId or _latestTeamId
-        TourGuide.start webData
-      else
-        TourGuide.start webData
 
   getUserId: ->
     query.userId @props.store

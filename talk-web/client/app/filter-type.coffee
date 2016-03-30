@@ -5,7 +5,7 @@ PureRenderMixin = require 'react-addons-pure-render-mixin'
 lang = require '../locales/lang'
 keyboard = require '../util/keyboard'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 div = React.createFactory 'div'
 
 entries = ['all-types', 'type-file', 'type-rtf', 'type-url', 'type-snippet']
@@ -44,7 +44,7 @@ module.exports = React.createClass
       div key: item, className: className, onClick: onClick, lang.getText(item)
 
   render: ->
-    LiteDropdown
+    LightDropdown
       displayText: lang.getText(@props.type or entries[0])
       defaultText: lang.getText entries[0]
       name: 'filter-type'

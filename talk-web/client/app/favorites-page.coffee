@@ -25,7 +25,7 @@ FileQueueFavorite = React.createFactory require './file-queue-favorite'
 
 NoFavorite = React.createFactory require '../module/no-favorite'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 LiteWheeling = React.createFactory require('react-lite-misc').Wheeling
 LiteLoadingMore = React.createFactory require('react-lite-misc').LoadingMore
 
@@ -111,7 +111,7 @@ module.exports = React.createClass
     @setState newState, @sendSearchRequest
 
   renderFileQueue: ->
-    LiteModal
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide

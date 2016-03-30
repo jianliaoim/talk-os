@@ -110,8 +110,8 @@ module.exports = React.createClass
       div className: 'title',
         @renderSearchbox()
       if @state.query.trim().length isnt 0 and not @nameExsits()
-        div className: 'create-btn muted line', onClick: @onCreateTag,
-          span className: 'icon icon-create-tag'
+        div className: 'create-btn muted line flex-horiz', onClick: @onCreateTag,
+          span className: 'ti ti-plus-circle-solid'
           "#{l('add-tag')} \"#{@state.query.trim()}\""
       div className: 'current', onClick: @props.onAllTagsSelect,
         ReactCSSTransitionGroup

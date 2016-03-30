@@ -15,6 +15,13 @@
   .display-default {
     .button {
       color: white;
+      display: inline-flex;
+      flex-direction: horizontal;
+      align-items: center;
+
+      .ti {
+        margin-right: 8px;
+      }
 
       &.add-members {
         @color: #7986CB;
@@ -34,6 +41,14 @@
 
       &.guest-mode {
         @color: #9CCC65;
+        background-color: @color;
+        &:hover {
+          background-color: darken(@color, 10%)
+        }
+      }
+
+      &.help-center {
+        @color: @color-blue;
         background-color: @color;
         &:hover {
           background-color: darken(@color, 10%)

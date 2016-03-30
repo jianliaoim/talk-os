@@ -1,7 +1,7 @@
 xss = require 'xss'
 React = require 'react'
 
-LiteCodeViewer = React.createFactory require 'react-lite-coder/lib/code-viewer'
+CodeViewer = React.createFactory require '../module/code-viewer'
 
 div = React.createFactory 'div'
 
@@ -33,7 +33,7 @@ module.exports = React.createClass
     text = @props.attachment.data.text
 
     div className: 'content',
-      LiteCodeViewer
+      CodeViewer
         name: 'attachment-snippet'
         codeType: codeType,
         text: text

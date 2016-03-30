@@ -57,6 +57,7 @@ methods = {
   'team/topics': team.teamTopics
   'team/members': team.teamMembers
   'team/invitations': team.teamInvitations
+  'team/subscribed': team.subscribed
 
   'inte/fetch': inte.fetch
   'inte/create': inte.create

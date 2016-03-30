@@ -55,9 +55,21 @@ exports.favorites = (_teamId, searchQuery) ->
     data: {_teamId}
     query: searchQuery
 
+exports.create = (_teamId, searchQuery) ->
+  exports.go
+    name: 'create'
+    data: {_teamId}
+    query: searchQuery
+
 exports.tags = (_teamId, searchQuery) ->
   exports.go
     name: 'tags'
+    data: {_teamId}
+    query: searchQuery
+
+exports.integrations = (_teamId, searchQuery) ->
+  exports.go
+    name: 'integrations'
     data: {_teamId}
     query: searchQuery
 
@@ -133,3 +145,9 @@ exports.mentions = (params, searchQuery) ->
     name: 'mentions'
     data: params
     query: searchQuery
+
+exports.overview = (_teamId) ->
+  exports.go
+    name: 'overview'
+    data: {_teamId}
+    query: {}

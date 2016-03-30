@@ -11,7 +11,7 @@ lang = require '../locales/lang'
 search = require '../util/search'
 dom = require '../util/dom'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 
 hr = React.createFactory 'hr'
 div = React.createFactory 'div'
@@ -172,7 +172,7 @@ module.exports = React.createClass
     itemAllTagClass = classnames 'item',
       'is-active': (@state.query.length is 0) and (@state.index is 1)
 
-    LiteDropdown
+    LightDropdown
       displayText: tag?.get('name') or undefined
       defaultText: defaultText
       name: 'filter-tag'

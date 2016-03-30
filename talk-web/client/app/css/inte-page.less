@@ -6,7 +6,6 @@
   right: 0;
   bottom: 0;
   background-color: #F9F9F9;
-  color: black;
   line-height: 1.6em;
   overflow: hidden;
   cursor: initial;
@@ -40,7 +39,7 @@
   height: 100px;
   margin: 0 auto;
   margin-bottom: 30px;
-  color: white;
+  color: @color-white;
   font-size: 18px;
   position: relative;
 }
@@ -52,11 +51,12 @@
   height: 100%;
 }
 
-.inte-page .inte-banner .icon-remove {
+.inte-page .inte-banner .ti-remove {
   position: absolute;
   right: 40px;
   top: 40px;
-  font-size: 14px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 .inte-page .lm-content {
@@ -73,7 +73,7 @@
     margin: 0;
     padding: 30px 40px;
 
-    .lite-dropdown .dropdown {
+    .light-dropdown .dropdown {
       max-height: 200px;
 
       &::-webkit-scrollbar {
@@ -104,13 +104,13 @@
 .inte-page .lm-content .header {
   padding: 20px 40px;
   margin-bottom: 0;
-  .display(flex);
-  .flex-direction(row);
-  .align-items(start);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 
   .inte-title {
     margin-left: 20px;
-    .flex(1);
+    flex: 1;
 
     .name {
       display: block;
@@ -133,7 +133,7 @@
 
 .inte-page .page {
   width: 640px;
-  background-color: white;
+  background-color: @color-white;
 }
 
 .inte-page .page .inte-manager {
@@ -159,6 +159,13 @@
 
 .inte-page .page > .switch-tabs > .entry {
   width: 213px;
+  display: inline-flex;
+  flex-direction: horizontal;
+  justify-content: center;
+
+  .ti {
+    font-size: 18px;
+  }
 
   &:last-child {
     width: 214px;
@@ -181,6 +188,7 @@
   font-size: 14px;
   border-radius: 3px;
   user-select: none;
+  text-decoration: none;
 }
 
 .inte-page .sidebar .about {
@@ -192,9 +200,13 @@
   padding: 0;
 }
 
+.inte-page .search-box .ti-search {
+  font-size: 18px;
+}
+
 .inte-page .view .copy-area {
   margin-top: 15px;
-  background-color: @white;
+  background-color: @color-white;
 }
 
 .inte-page .sidebar .tip-guide {
@@ -205,9 +217,9 @@
 
 .inte-page .sidebar .feedback-survey  {
   padding: 20px;
-  background-color: @white;
+  background-color: @color-white;
 }
 /* need to refine */
-.inte-page .btn-link.return .icon + .text {
+.inte-page .btn-link.return .ti + .text {
   margin-left: 5px;
 }

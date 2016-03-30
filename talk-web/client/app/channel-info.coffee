@@ -11,9 +11,9 @@ lang = require '../locales/lang'
 
 StoryViewer = React.createFactory require './story-viewer'
 MemberCard = React.createFactory require './member-card'
-LitePopover = React.createFactory require('react-lite-layered').Popover
+LightPopover = React.createFactory require '../module/light-popover'
 
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModal = React.createFactory require '../module/light-modal'
 
 { a, div, span, noscript } = React.DOM
 T = React.PropTypes
@@ -86,7 +86,7 @@ module.exports = React.createClass
     a className: 'url text-overflow', onClick: @onOpenLink, @props.channel.getIn [ 'data', 'url' ]
 
   renderMemberCard: ->
-    LitePopover
+    LightPopover
       baseArea: if @state.showMemberCard then @getBaseArea() else {}
       onPopoverClose: @togglePopover
       positionAlgorithm: @positionAlgorithm
@@ -99,7 +99,7 @@ module.exports = React.createClass
         showEntrance: false
 
   renderStoryViewer: ->
-    LiteModalBeta
+    LightModal
       name: 'story-viewer'
       show: @state.showStoryViewer
       onCloseClick: @onStoryViewerClose

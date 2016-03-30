@@ -10,7 +10,7 @@ lang = require '../locales/lang'
 StoryViewer = React.createFactory require './story-viewer'
 RelativeTime = React.createFactory require '../module/relative-time'
 Avatar = React.createFactory require '../module/avatar'
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModalBeta = React.createFactory require '../module/light-modal'
 
 { div, span } = React.DOM
 
@@ -35,7 +35,7 @@ module.exports = React.createClass
     @setState showStoryViewer: false
 
   renderStoryViewer: ->
-    LiteModalBeta
+    LightModalBeta
       name: 'story-viewer'
       show: @state.showStoryViewer
       onCloseClick: @onStoryViewerClose
@@ -56,7 +56,7 @@ module.exports = React.createClass
       when 'link'
         className = cx cxAvatar, 'ti', 'ti-chain'
       when 'topic'
-        className = cx cxAvatar, 'ti', 'ti-shape'
+        className = cx cxAvatar, 'ti', 'ti-sharp'
 
     style =
       backgroundColor: colors['files'][data.get 'fileType'] or colors['story'][category]

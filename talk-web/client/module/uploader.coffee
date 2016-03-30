@@ -70,7 +70,7 @@ module.exports = React.createClass
       div className: 'placeholder flex-vert flex-center flex-vcenter',
         UploadCircle progress: @state.progress,
           span className: 'btn-upload flex-vert flex-center flex-vcenter',
-            Icon name: 'cloud-upload', size: 24
+            Icon name: 'cloud-upload', size: 30
 
   renderProgress: ->
     if @state.progress > 0 and @state.progress < 1

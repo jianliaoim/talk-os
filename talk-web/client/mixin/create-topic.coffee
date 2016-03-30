@@ -1,10 +1,9 @@
 React = require 'react'
 Immutable = require 'immutable'
 
-LiteModal = React.createFactory require 'react-lite-layered/lib/modal'
-
+SlimModal = React.createFactory require '../app/slim-modal'
+TopicProfile = React.createFactory require '../app/topic-profile'
 TopicSelector = React.createFactory require '../app/topic-selector'
-TopicConfigs  = React.createFactory require '../app/topic-configs'
 
 div = React.createFactory 'div'
 a   = React.createFactory 'a'
@@ -36,17 +35,16 @@ module.exports =
       @setState showTopicConfigs: false, _roomId: resp._id
 
   renderTopicCreate: ->
-    LiteModal
+    SlimModal
       name: 'topic-configs'
-      onCloseClick: @onTopicClose
       title: l('topic-create'),
+      onClose: @onTopicClose
       show: @state.showTopicConfigs
-      TopicConfigs
+      TopicProfile
         _teamId: @props._teamId
         topic: Immutable.fromJS({name: '', purpose: '', color: 'blue'})
         hasPermission: true
         saveConfigs: @onTopicSave
-        onCloseClick: @onTopicClose
 
   renderTopicRow: ->
     div className: 'table-pair',

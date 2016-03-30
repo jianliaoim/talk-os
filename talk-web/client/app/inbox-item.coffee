@@ -29,9 +29,9 @@ INBOX_COLOR =
   'topic': 'yellow'
 
 ICONS_MAP =
-  'file': 'paperclip'
+  'file': 'paperclip-lean'
   'link': 'chain'
-  'room': 'shape'
+  'room': 'sharp'
   'topic': 'idea'
 
 TEXT_REGEXP = /\{\{__([\w-]+)\}\}/g
@@ -83,7 +83,7 @@ module.exports = React.createClass
       src: src, size: 'small', shape: 'round'
       className: 'white', backgroundColor: colors[ INBOX_COLOR[ type ]]
       if iconName
-        Icon name: iconName, size: 12
+        Icon name: iconName, size: 14
 
   renderCap: ->
     div className: 'inbox-item-cap flex-horiz flex-vcenter',
@@ -163,9 +163,9 @@ module.exports = React.createClass
     cxTags = cx 'tags', 'flex-static', 'flex-horiz', 'flex-vcenter', 'show-remove': showRemove
     div className: cxTags,
       if @props.isPinned
-        Icon size: 14, name: 'pin', className: 'pin'
+        Icon size: 16, name: 'pin', className: 'pin'
       if @props.isMute
-        Icon size: 14, name: 'mute', className: 'mute'
+        Icon size: 16, name: 'mute', className: 'mute'
       if showRemove
         Icon size: 16, name: 'remove', className: 'remove', onClick: @handleClickOnButtonRemove
 

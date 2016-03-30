@@ -52,8 +52,7 @@ describe 'Handlers: network', ->
               _roomId: 'room id'
 
       it 'should get messages for current room', ->
-        expect(roomActions.fetch).toHaveBeenCalledWith store.router.data._roomId,
-          jasmine.any(Function), jasmine.any(Function)
+        expect(roomActions.fetch).toHaveBeenCalledWith store.router.data._roomId
         expect(messageActions.messageReadChat).not.toHaveBeenCalled()
 
     describe 'in chat', ->
@@ -67,6 +66,5 @@ describe 'Handlers: network', ->
       it 'should get messages for current chat', ->
         _teamId = store.router.data._teamId
         _toId = store.router.data._toId
-        expect(messageActions.messageReadChat).toHaveBeenCalledWith _teamId, _toId,
-          jasmine.any(Function), jasmine.any(Function)
+        expect(messageActions.messageReadChat).toHaveBeenCalledWith _teamId, _toId
         expect(roomActions.fetch).not.toHaveBeenCalled()

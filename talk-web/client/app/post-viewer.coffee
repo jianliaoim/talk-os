@@ -4,6 +4,8 @@ PureRenderMixin = require 'react-addons-pure-render-mixin'
 
 ViewerFooter = React.createFactory require './viewer-footer'
 
+Icon = React.createFactory require '../module/icon'
+
 lang = require '../locales/lang'
 
 {div, span} = React.DOM
@@ -37,7 +39,7 @@ module.exports = React.createClass
       div className: 'header',
         div className: 'category line',
           lang.getText('category-post')
-          span className: 'icon icon-remove', onClick: @onClose
+          Icon name: 'remove', className: 'button-close', size: 20, onClick: @onClose
         div className: 'title',
           span null, rtf.get('title')
       div className: 'content content-area rich-text editor-style', dangerouslySetInnerHTML: html

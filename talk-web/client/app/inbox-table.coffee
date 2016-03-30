@@ -199,6 +199,7 @@ module.exports = React.createClass
     @setState
       isSearching: event.target.value.trim().length > 0
       searchQuery: event.target.value
+      selectedNotyIndex: 0
 
   handleClickOnInbox: (event, noty) ->
     success = =>
@@ -347,7 +348,7 @@ module.exports = React.createClass
   renderSearchBar: (noties) ->
     div className: 'inbox-searchbox flex-static',
       div className: 'search-box',
-        Icon name: 'search', size: 16
+        Icon name: 'search', size: 18
         input
           ref: 'searchBox'
           type: 'text', className: 'input'

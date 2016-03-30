@@ -10,6 +10,7 @@ mixinSubscribe = require '../mixin/subscribe'
 
 RosterManagement = React.createFactory require './roster-management'
 
+Icon = React.createFactory require '../module/icon'
 Tooltip = React.createFactory require '../module/tooltip'
 SlimModal = React.createFactory require './slim-modal'
 
@@ -63,7 +64,6 @@ module.exports = React.createClass
         selectedContacts: @props._memberIds
 
   renderMember: (member) ->
-    classIcon = cx 'icon', 'icon-remove'
     classAvatar = cx 'cell', 'avatar-small', 'round'
     styleAvatar =
       if member.has('avatarUrl') and member.get('avatarUrl').length > 0
@@ -77,7 +77,7 @@ module.exports = React.createClass
     Tooltip key: member.get('_id'), template: member.get('name'),
       span className: 'cell avatar small round', style: styleAvatar,
         if @props.isEditable and not @isUser member.get '_id'
-          i className: classIcon, onClick: onClickAvatar
+          Icon name: 'remove', onClick: onClickAvatar
 
   renderMembers: ->
     _memberIds = if @beyondMaxNum() then @props._memberIds[..@props.maxNum - 2] else @props._memberIds
@@ -89,13 +89,13 @@ module.exports = React.createClass
 
   renderMore: ->
     if @beyondMaxNum()
-      span className: 'icon icon-more muted cell more'
+      Icon name: 'ellipsis', className: 'muted cell more'
 
   renderPlus: ->
     if @props.isEditable
       Tooltip template: lang.getText('invite-members'),
         span className: 'plus', onClick: @onClickPlus,
-          i className: 'icon icon-circle-cross'
+          Icon name: 'plus-circle-solid', size: 30
 
   render: ->
     classMembersRow = cx 'members-row', 'is-editable': @props.isEditable

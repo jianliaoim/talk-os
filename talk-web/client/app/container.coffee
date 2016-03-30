@@ -8,7 +8,7 @@ routes = require '../routes'
 
 deviceActions = require '../actions/device'
 
-routerHandlers = require '../handlers/router'
+initializeHandlers = require '../handlers/initialize'
 
 lang = require '../locales/lang'
 lazyModules = require '../util/lazy-modules'
@@ -66,7 +66,8 @@ module.exports = React.createClass
     deviceActions.detectFocus false
 
   onPopstate: (info) ->
-    routerHandlers.onPopstate info
+    preference = @props.core.getIn ['store', 'user', 'preference']
+    initializeHandlers.loadPage preference, info
 
   onPathChange: (path) ->
     @setState path: path

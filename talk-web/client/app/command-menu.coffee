@@ -69,7 +69,17 @@ COMMANDS = Immutable.OrderedMap
   'unflip': Immutable.fromJS {
     trigger: '/unflip'
     text: '┬─┬ノ( ゜-゜ノ)'
-    action:  replaceAction('unflip')
+    action: replaceAction('unflip')
+  }
+  'poop': Immutable.fromJS {
+    trigger: '/xiaowu'
+    text: 'Surprise!'
+    action: (data) ->
+      result = assign data,
+        body: '### {.ti .ti-poop}'
+        displayType: 'markdown'
+      Q.when(result)
+
   }
 
 module.exports = React.createClass

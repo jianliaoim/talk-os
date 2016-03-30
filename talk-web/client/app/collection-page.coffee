@@ -28,7 +28,7 @@ FilterTimeRange = React.createFactory require './filter-time-range'
 FileQueueCollection = React.createFactory require './file-queue-collection'
 StoryResult = React.createFactory require './story-result'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 LiteWheeling = React.createFactory require('react-lite-misc').Wheeling
 LiteSearchBox = React.createFactory require('react-lite-misc').SearchBox
 LiteLoadingMore = React.createFactory require('react-lite-misc').LoadingMore
@@ -43,10 +43,10 @@ div = React.createFactory 'div'
 span = React.createFactory 'span'
 
 iconMap =
-  file: 'icon-paperclip'
-  post: 'icon-rich-text'
-  link: 'icon-link'
-  snippet: 'icon-pre'
+  file: 'ti-paperclip'
+  post: 'ti-rich-text'
+  link: 'ti-chain'
+  snippet: 'ti-pre'
 
 # local types is not the same with types used on server
 typeMap =
@@ -353,7 +353,7 @@ module.exports = React.createClass
           message: message, attachment: message.getIn(['attachments', 0])
 
   renderFileQueue: ->
-    LiteModal
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide
@@ -367,7 +367,7 @@ module.exports = React.createClass
         query: @makeQuery()
 
   renderFinderResults: ->
-    iconClass = cx 'icon', iconMap[@state.type]
+    iconClass = cx 'ti', iconMap[@state.type]
 
     div className: 'finder',
       div className: 'table',
@@ -375,11 +375,11 @@ module.exports = React.createClass
           div className: 'content',
             span className: iconClass
           div className: 'creator',
-            span className: 'icon icon-user'
+            span className: 'ti ti-user'
           div className: 'channel',
-            span className: 'icon icon-sharp'
+            span className: 'ti ti-sharp'
           div className: 'time',
-            span className: 'icon icon-calendar'
+            span className: 'ti ti-calendar'
         hr className: 'divider'
         div className: 'body',
           if @state.results.size is 0

@@ -10,6 +10,7 @@ lang = require '../locales/lang'
 
 div = React.createFactory 'div'
 input = React.createFactory 'input'
+button = React.createFactory 'button'
 
 T = React.PropTypes
 
@@ -37,6 +38,7 @@ module.exports = React.createClass
   render: ->
     buttonClassName = cx
       'button': true
+      'is-primary': true
       'is-disabled': @state.name.length is 0
 
     div className: 'profile-name profile-wrapper',
@@ -46,4 +48,4 @@ module.exports = React.createClass
           placeholder: lang.getText 'enter-name'
           defaultValue: @state.name
           onChange: @onChange
-      div className: buttonClassName, onClick: @onComplete, lang.getText 'complete'
+      button className: buttonClassName, onClick: @onComplete, lang.getText 'complete'

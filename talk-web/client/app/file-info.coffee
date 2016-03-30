@@ -14,6 +14,7 @@ handlers = require '../handlers'
 messageActions = require '../actions/message'
 favoriteActions = require '../actions/favorite'
 
+Icon = React.createFactory require '../module/icon'
 RelativeTime = React.createFactory require '../module/relative-time'
 
 MessageToolbar = React.createFactory require './message-toolbar'
@@ -101,10 +102,10 @@ module.exports = React.createClass
     byMe = @props.message.get('_creatorId') is _userId
     div className: 'toolbar',
       if byMe and not @props.isFavorite
-        span className: 'icon icon-upload', onClick: @onFileClick
+        Icon name: 'upload', size: 18, onClick: @onFileClick
       if @props.isFavorite
         a href: file.get('downloadUrl'),
-          span className: 'icon icon-download'
+          Icon name: 'download', size: 18
       else
         MessageToolbar
           message: @props.message

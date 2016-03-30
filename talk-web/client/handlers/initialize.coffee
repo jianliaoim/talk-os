@@ -5,7 +5,6 @@ lang = require '../locales/lang'
 query = require '../query'
 socket = require '../network/socket'
 handlers = require '../handlers'
-schedule = require '../util/schedule'
 analytics = require '../util/analytics'
 
 teamActions = require '../actions/team'
@@ -47,40 +46,42 @@ loadStory = (_teamId, _storyId, searchQuery) ->
   , ->
     routerHandlers.home()
 
-loadPage = (preference, defaultRouteInfo) ->
+exports.loadPage = loadPage = (preference, defaultRouteInfo) ->
   _toId = defaultRouteInfo.getIn(['data', '_toId'])
   _roomId = defaultRouteInfo.getIn(['data', '_roomId'])
   _teamId = defaultRouteInfo.getIn(['data', '_teamId']) or preference._latestTeamId
   _storyId = defaultRouteInfo.getIn(['data', '_storyId'])
-  searchQuery = defaultRouteInfo.get('query')
-
-  if _teamId
-    teamActions.teamSubscribe _teamId
+  searchQuery = defaultRouteInfo.get('query').toJS()
 
   switch defaultRouteInfo.get('name')
     # root handler
     when 'home', 'team', 'team404', '404'
-      loadTeam _teamId, _roomId, searchQuery.toJS()
+      loadTeam _teamId, _roomId, searchQuery
 
     # channel handler
     when 'chat'
-      loadChat _teamId, _toId, searchQuery.toJS()
+      loadChat _teamId, _toId, searchQuery
     when 'collection'
-      routerHandlers.collection _teamId, searchQuery.toJS()
+      routerHandlers.collection _teamId, searchQuery
     when 'favorites'
-      routerHandlers.favorites _teamId, searchQuery.toJS()
+      routerHandlers.favorites _teamId, searchQuery
     when 'room'
-      loadTeam _teamId, _roomId, searchQuery.toJS()
+      routerHandlers.room _teamId, _roomId, searchQuery
     when 'story'
-      loadStory _teamId, _storyId, searchQuery.toJS()
+      loadStory _teamId, _storyId, searchQuery
     when 'tags'
-      routerHandlers.tags _teamId, searchQuery.toJS()
+      routerHandlers.tags _teamId, searchQuery
+    when 'create'
+      routerHandlers.create _teamId, searchQuery
 
     when 'overview'
       handlers.router.teamOverview _teamId
 
     when 'mentions'
-      routerHandlers.mentions { _teamId }, searchQuery.toJS()
+      routerHandlers.mentions { _teamId }, searchQuery
+
+    when 'integrations'
+      routerHandlers.integrations _teamId, _roomId, searchQuery
 
     # profile handler
     when 'profile'

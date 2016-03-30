@@ -21,7 +21,7 @@ lang = require '../locales/lang'
 TopicCorrection = React.createFactory require './topic-correction'
 Avatar = React.createFactory require '../module/avatar'
 
-LiteDialog = React.createFactory require('react-lite-layered').Dialog
+LightDialog = React.createFactory require '../module/light-dialog'
 
 { div, span, button } = React.DOM
 
@@ -67,7 +67,7 @@ module.exports = React.createClass
     Avatar
       size: 'normal'
       shape: 'round'
-      className: 'ti ti-shape round flex-static'
+      className: 'ti ti-sharp round flex-static'
 
   renderBody: ->
     div className: 'body flex-vert flex-fill',
@@ -130,7 +130,7 @@ ArchivedRoomItemHandlersetClass = React.createClass
     @setState showConfirm: false
 
   renderConfirm: ->
-    LiteDialog
+    LightDialog
       flexible: true
       show: @state.showConfirm
       onCloseClick: @onCloseConfirm

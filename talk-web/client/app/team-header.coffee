@@ -23,8 +23,8 @@ TeamDetails = React.createFactory require './team-details'
 Icon = React.createFactory require '../module/icon'
 UnreadBadge = React.createFactory require '../module/unread-badge'
 
-LiteModalBeta = React.createFactory require '../module/modal-beta'
-LitePopoverBeta = React.createFactory require '../module/popover-beta'
+LightModalBeta = React.createFactory require '../module/light-modal'
+LightPopver = React.createFactory require '../module/light-popover'
 
 { a, i, div, span } = React.DOM
 T = React.PropTypes
@@ -98,7 +98,7 @@ module.exports = React.createClass
       showQRCode: false
 
   renderDetails: ->
-    LiteModalBeta
+    LightModalBeta
       name: 'team-details'
       show: @state.showDetails
       title: lang.getText('team-settings')
@@ -109,7 +109,7 @@ module.exports = React.createClass
         onClose: @onDetailsClose
 
   renderQRCode: ->
-    LiteModalBeta
+    LightModalBeta
       name: 'team-qrcode'
       show: @state.showQRCode
       title: lang.getText 'team-qrcode'
@@ -118,7 +118,7 @@ module.exports = React.createClass
         team: query.teamBy recorder.getState(), @props._teamId
 
   renderMenu: ->
-    LitePopoverBeta
+    LightPopver
       show: @state.showMenu
       title: lang.getText('team-menu')
       baseArea: if @state.showMenu then @getMenuArea() else {}
@@ -136,7 +136,7 @@ module.exports = React.createClass
     div className: 'team-header flex-static',
       div className: 'wrapper flex-horiz flex-static flex-vcenter',
         a ref: 'menu', className: cx('toggle-menu', 'active': @state.showMenu), onClick: @onToggleMenu,
-          Icon name: 'menu', size: 16
+          Icon name: 'menu', size: 22
           UnreadBadge round: true, number: @getUnread(), showNumber: false, size: 8
         span className: 'flex-fill text-overflow', @props.team.get 'name'
       @renderDetails()

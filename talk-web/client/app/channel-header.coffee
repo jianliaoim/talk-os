@@ -94,17 +94,17 @@ module.exports = React.createClass
     template = if isPinned then lang.getText('unpin') else lang.getText('pin')
     Tooltip template: template,
       a className: cx('action', 'is-pin': isPinned), onClick: @onPinClick,
-        Icon name: 'pin', size: 16
+        Icon name: 'pin', size: 18
 
   renderInstant: ->
     return noscript() if @isPreview()
     div className: 'channel-instant flex-horiz row',
       if @props.channel.get 'isPrivate'
         Tooltip template: lang.getText('private-topic'),
-          Icon type: 'icon', name: 'lock',
+          Icon name: 'lock', size: 18
       if @props.channel.get('guestToken')?
         Tooltip template: lang.getText('guest-mode'),
-          Icon type: 'icon', name: 'eye', size: 18
+          Icon name: 'eye', size: 18
       @renderMuteIcon()
       @renderPinIcon()
 

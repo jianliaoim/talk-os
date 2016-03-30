@@ -3,7 +3,7 @@ Immutable = require 'immutable'
 
 snippetUtil = require '../util/snippet'
 
-LiteDropdown = React.createFactory require 'react-lite-dropdown'
+LightDropdown = React.createFactory require '../module/light-dropdown'
 
 PureRenderMixin = require 'react-addons-pure-render-mixin'
 { div } = React.DOM
@@ -30,7 +30,7 @@ module.exports = React.createClass
     name = snippetUtil.getName @props.codeType
 
     div className: 'snippet-selector',
-      LiteDropdown
+      LightDropdown
         name: 'snippet-selector'
         show: @state.showSelector
         onToggle: @onToggle,

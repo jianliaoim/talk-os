@@ -8,6 +8,7 @@ PureRenderMixin = require 'react-addons-pure-render-mixin'
 query = require '../query'
 lang      = require '../locales/lang'
 
+Icon = React.createFactory require '../module/icon'
 RelativeTime = React.createFactory require '../module/relative-time'
 UserAlias =  React.createFactory require './user-alias'
 FileAudio = React.createFactory require './file-audio'
@@ -72,7 +73,7 @@ module.exports = React.createClass
 
   render: ->
     div className: 'file-queue story-viewer',
-      span className: 'button-close icon icon-remove', onClick: @props.onClose
+      Icon name: 'remove', className: 'button-close', size: 20, onClick: @props.onClose
       div className: 'body',
         @renderFileTypes()
       div className: 'file-info',

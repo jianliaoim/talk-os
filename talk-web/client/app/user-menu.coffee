@@ -5,6 +5,8 @@ lang  = require '../locales/lang'
 time  = require '../util/time'
 config = require '../config'
 
+Icon = React.createFactory require '../module/icon'
+
 { div, span, hr }  = React.DOM
 
 T = React.PropTypes
@@ -32,8 +34,8 @@ module.exports = React.createClass
     @props.onFeedbackClick()
     @props.onPopoverClose()
 
-  onHomePageClick: ->
-    window.open '/site', true
+  onSupportClick: ->
+    window.open '/site/support', true
     @props.onPopoverClose()
 
   onLogoutClick: ->
@@ -41,37 +43,20 @@ module.exports = React.createClass
       @props.onLogoutClick()
       @props.onPopoverClose()
 
-  renderDevButtons: ->
-    if __DEV__
-      [
-        div
-          key: 'tourguide'
-          className: 'item line'
-          onClick: =>
-            @props.onPopoverClose()
-            require('../tour-guide').start()
-          '开启用户引导'
-      ]
-
   render: ->
+    MenuItems = [
+      { icon: 'cog-solid', text: 'profile-page', onClick: @onSettingsClick }
+      { icon: 'download-solid', text: 'download-apps', onClick: @onDownloadClick }
+      { icon: 'feedback', text: 'feedback', onClick: @onFeedbackClick }
+      { icon: 'life-belt', text: 'help-center', onClick: @onSupportClick }
+      { icon: 'log-out', text: 'logout', onClick: @onLogoutClick }
+    ]
+
     div className: 'user-menu',
-      div className: 'item line', onClick: @onSettingsClick,
-        span className: 'icon icon-cog'
-        lang.getText 'profile-page'
-      div className: 'item line', onClick: @onDownloadClick,
-        span className: 'icon icon-download'
-        lang.getText 'download-apps'
-      div className: 'item line', onClick: @onHomePageClick,
-        span className: 'icon icon-link'
-        lang.getText 'talk-home-page'
-      div className: 'item line', onClick: @onFeedbackClick,
-        span className: 'icon icon-comments'
-        lang.getText 'feedback'
-      div
-        className: 'item line'
-        onClick: @onLogoutClick,
-        span className: 'icon icon-quit2'
-        lang.getText 'logout'
+      MenuItems.map (item, index) ->
+        div key: index, className: 'item line flex-horiz flex-vcenter', onClick: item.onClick,
+          Icon name: item.icon, size: 18
+          lang.getText item.text
       div className: 'item line is-version',
         span className: 'version',
           "v#{config.version}"

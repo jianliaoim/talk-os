@@ -35,6 +35,6 @@ module.exports = React.createClass
 
     div className: 'msg-snippet msg-collection', onClick: @onClick,
       div className: 'preview',
-        span className: 'icon icon-pre'
+        span className: 'ti ti-pre'
       div className: 'text', text
       @renderSnippetViewer()

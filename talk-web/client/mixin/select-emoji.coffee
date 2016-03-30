@@ -1,6 +1,6 @@
 React = require 'react'
 
-LitePopover = React.createFactory require 'react-lite-layered/lib/popover'
+LightPopover = React.createFactory require '../module/light-popover'
 
 EmojiTable = React.createFactory require '../app/emoji-table'
 
@@ -26,7 +26,7 @@ module.exports =
     @setState showEmojiTable: false
 
   renderEmojiTable: ->
-    LitePopover
+    LightPopover
       name: 'emoji-table'
       showClose: false
       baseArea: if @state.showEmojiTable then @getEmojiTableBaseArea() else {}

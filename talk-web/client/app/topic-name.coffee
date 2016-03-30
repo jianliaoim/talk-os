@@ -71,9 +71,9 @@ module.exports = React.createClass
 
     iconClass =
       if not isGeneral and isPrivate
-        'icon is-leading icon-lock2'
+        'ti is-leading ti-lock-solid'
       else
-        'icon is-leading icon-sharp'
+        'ti is-leading ti-sharp'
     style =
       if @props.colorizePlace is 'background'
         backgroundColor: colors.blue
@@ -94,7 +94,7 @@ module.exports = React.createClass
     unread = @props.topic.get('unread')
     if @props.showMute and @state.isMute
       div className: 'mutetip',
-        span className: cx 'icon', 'icon-mute', 'unread': unread
+        span className: cx 'ti', 'ti-mute', 'unread': unread
     else if @props.showUnread and unread and not @state.isMute
       span className: 'icon-unread', unread
 
@@ -104,7 +104,7 @@ module.exports = React.createClass
 
   renderSelect: ->
     if @props.active
-      Icon name: 'tick', size: 14, type: 'icon', className: 'flex-static'
+      Icon name: 'tick', size: 18, className: 'flex-static'
 
   render: ->
     className = cx 'banner', 'topic-name', 'item', 'line',

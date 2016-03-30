@@ -7,7 +7,6 @@ exports.unread = unread = require './unread'
 exports.account = account = require './account'
 exports.message = message = require './message'
 exports.network = network = require './network'
-exports.settings = settings = require './settings'
 exports.activities = activities = require './activities'
 exports.initialize = initialize = require './initialize'
 exports.notification = notification = require './notification'
@@ -26,8 +25,6 @@ exports.routerChat = router.chat
 exports.routerTeam = router.team
 exports.routerBack = router.back
 exports.routerHome = router.home
-exports.routerGoPath = router.goPath
-exports.routerOnPopstate = router.onPopstate
 exports.routerUnreadTeam = router.unreadTeam
 
 exports.messageRemove = message.remove

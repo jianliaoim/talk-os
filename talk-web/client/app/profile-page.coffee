@@ -23,11 +23,10 @@ api = require '../network/api'
 lang = require '../locales/lang'
 
 ProfileName = React.createFactory require './profile-name'
-ProfileEmail = React.createFactory require './profile-email'
 ProfileAvatar = React.createFactory require './profile-avatar'
-ProfileMobile = React.createFactory require './profile-mobile'
 
-LiteNewModal = React.createFactory require '../module/new-modal'
+Icon = React.createFactory require '../module/icon'
+LightModal = React.createFactory require '../module/light-modal'
 
 PureRenderMixin = require 'react-addons-pure-render-mixin'
 { a, i, div, img, span, input, label } = React.DOM
@@ -91,7 +90,7 @@ module.exports = React.createClass
     @onPrefsChange language: 'zh-tw', event
 
   renderModalAvatar: ->
-    LiteNewModal
+    LightModal
       name: 'edit-avatar'
       show: @state.showModalAvatar
       title: lang.getText 'edit-avatar'
@@ -100,7 +99,8 @@ module.exports = React.createClass
           avatarUrl: @state.user.get('avatarUrl')
 
   renderModalName: ->
-    LiteNewModal
+    LightModal
+      name: 'edit-name'
       show: @state.showModalName
       title: lang.getText 'edit-name'
       onCloseClick: (@onModalClose.bind null, 'showModalName'),
@@ -186,7 +186,7 @@ module.exports = React.createClass
   render: ->
     div className: 'profile-page',
       div className: 'header flex-horiz flex-vcenter',
-        i className: 'icon icon-td-arrow-left to-back', onClick: @onBack
+        Icon name: 'arrow-left', className: 'to-back', size: 24, onClick: @onBack
         span className: 'flex-fill title', lang.getText 'profile-page'
       div className: 'content thin-scroll',
         @renderProfileSection()

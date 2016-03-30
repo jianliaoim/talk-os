@@ -7,7 +7,7 @@ favoriteActions  = require '../actions/favorite'
 p                = React.createFactory 'p'
 div              = React.createFactory 'div'
 span             = React.createFactory 'span'
-LiteDialog      = React.createFactory require 'react-lite-layered/lib/dialog'
+LightDialog      = React.createFactory require '../module/light-dialog'
 
 l = lang.getText
 T = React.PropTypes
@@ -32,7 +32,7 @@ module.exports = React.createClass
     favoriteActions.removeFavorite @props._messageId
 
   renderDeleter: ->
-    LiteDialog
+    LightDialog
       flexible: true
       show: @state.showDeleter
       onCloseClick: @onDeleterClose
@@ -43,5 +43,5 @@ module.exports = React.createClass
 
   render: ->
     div className: 'favorite-deleter', onClick: @onDeleterShow,
-      span className: 'deleter icon icon-trash'
+      span className: 'ti ti-trash deleter'
       @renderDeleter()

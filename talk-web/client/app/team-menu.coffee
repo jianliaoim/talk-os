@@ -12,6 +12,7 @@ lang = require '../locales/lang'
 orders = require '../util/orders'
 analytics = require '../util/analytics'
 
+Icon = React.createFactory require '../module/icon'
 TeamName = React.createFactory require './team-name'
 
 { hr, div, span } = React.DOM
@@ -71,19 +72,20 @@ module.exports = React.createClass
         showSource: false, large: false
 
   render: ->
+    MenuItems = [
+      { icon: 'cog', text: 'team-settings', onClick: @onTeamDetailsClick }
+      { icon: 'square', text: 'integrations', onClick: @onIntegrationsClick }
+      { icon: 'qrcode', text: 'team-qrcode', onClick: @onQRCodeClick }
+    ]
+
     div className: 'team-menu',
-      div className: 'item line', onClick: @onTeamDetailsClick,
-        span className: 'icon icon-td-pencil2'
-        lang.getText 'team-settings'
-      div className: 'item line', onClick: @onIntegrationsClick,
-        span className: 'icon icon-config'
-        lang.getText 'integrations'
-      div className: 'item line', onClick: @onQRCodeClick,
-        span className: 'icon icon-qrcode'
-        lang.getText 'team-qrcode'
+      MenuItems.map (item, index) ->
+        div key: index, className: 'item line flex-horiz flex-vcenter', onClick: item.onClick,
+          Icon name: item.icon, size: 18
+          lang.getText item.text
       hr className: 'divider-thin'
       div className: 'embed',
         @renderTeams()
-      div className: 'item line', onClick: @onTeamSwitchClick,
-        span className: 'icon icon-more'
+      div className: 'item line flex-horiz flex-vcenter', onClick: @onTeamSwitchClick,
+        span className: 'ti ti-ellipsis'
         lang.getText 'switch-teams'

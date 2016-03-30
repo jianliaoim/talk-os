@@ -4,7 +4,7 @@ keycode = require 'keycode'
 
 lang = require '../locales/lang'
 
-LiteModalBeta = React.createFactory require '../module/modal-beta'
+LightModalBeta = React.createFactory require '../module/light-modal'
 
 { a, div, span, noscript } = React.DOM
 T = React.PropTypes
@@ -29,8 +29,8 @@ module.exports = React.createClass
       div className: 'navbar',
         if @props.onBack?
           div className: 'nav-left',
-            div className: 'button is-link', onClick: @props.onBack,
-              span className: 'icon icon-arrow-left'
+            div className: 'button is-link flex-horiz flex-vcenter back', onClick: @props.onBack,
+              span className: 'ti ti-arrow-left'
               lang.getText('return')
         else
           div className: 'nav-left',
@@ -44,7 +44,7 @@ module.exports = React.createClass
   render: ->
     cxBody = cx 'slim-modal-body', 'flex-fill', "color-#{ @props.color }"
 
-    LiteModalBeta
+    LightModalBeta
       name: 'slim-modal'
       show: @props.show
       onCloseClick: @props.onClose

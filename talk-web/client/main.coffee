@@ -1,3 +1,10 @@
+###
+#
+# 简聊前端, Talk Frontend (Feb 2014 - Apr 2016)
+# written by 陈涌，卢泰安，王艺霖，姚天宇, 陈博深，黄品章
+#
+###
+
 require './main.less'
 
 parse = require 'url-parse'
@@ -35,7 +42,6 @@ util = require './util/util'
 require './network/receiver'
 require './util/highlightjs'
 require './util/overload'
-require './tour-guide'
 
 Container = React.createFactory require './app/container'
 

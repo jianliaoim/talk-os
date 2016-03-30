@@ -1,30 +1,45 @@
-
-.lite-modal {
-  z-index: @z-index-modal;
-  background-color: rgba(57, 60, 64, .8);
+*, :after, :before {
+  box-sizing: border-box;
 }
 
-.lite-popover {
-  z-index: @z-index-popover;
+img {
+  vertical-align: middle;
+}
 
-  .icon-remove {
-    cursor: pointer;
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  background-image: none;
+}
+
+hr {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border: 0;
+  border-top: 1px solid #f5f5f5;
+}
+
+a {
+  text-decoration: none;
+  color: @color-link;
+  &:visited {
+    color: @color-link;
   }
 
-  .body {
-    overflow: hidden;
+  &:hover,
+  &:focus {
+    color: @color-link;
   }
-}
-
-.lite-overlay {
-  z-index: @z-index-overlay;
-}
-
-.lite-dialog {
-  z-index: @z-index-modal;
-  background-color: rgba(57, 60, 64, .8);
 }
 
 .search-box {
   align-items: center;
+}
+
+.img-circle {
+  border-radius: 50%;
 }

@@ -3,7 +3,9 @@ Immutable = require 'immutable'
 PureRenderMixin = require 'react-addons-pure-render-mixin'
 
 ViewerFooter = React.createFactory require './viewer-footer'
-LiteCodeViewer = React.createFactory require 'react-lite-coder/lib/code-viewer'
+CodeViewer = React.createFactory require '../module/code-viewer'
+
+Icon = React.createFactory require '../module/icon'
 
 snippetUtil = require '../util/snippet'
 lang = require '../locales/lang'
@@ -40,15 +42,15 @@ module.exports = React.createClass
 
     div className: 'snippet-viewer',
       div className: 'header',
-        div className: 'category line',
-          span className: 'icon icon-pre'
+        div className: 'category line flex-horiz flex-vcenter',
+          Icon name: 'pre', size: 20
           lang.getText('category-snippet')
-        span className: 'button-close icon icon-remove', onClick: @onClose
+        Icon name: 'remove', className: 'button-close', size: 20, onClick: @onClose
       div className: 'body',
         div className: 'info',
           div className: 'title', data.get 'title'
           div className: 'type', snippetUtil.getName data.get 'codeType'
-        LiteCodeViewer
+        CodeViewer
           name: 'snippet-viewer'
           text: data.get 'text'
           codeType: snippetUtil.getHighlightJS data.get 'codeType'

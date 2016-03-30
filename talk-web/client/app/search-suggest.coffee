@@ -8,6 +8,7 @@ lang = require '../locales/lang'
 colors = require '../util/colors'
 dom = require '../util/dom'
 
+Icon = React.createFactory require '../module/icon'
 TopicName = React.createFactory require '../app/topic-name'
 ContactName = React.createFactory require '../app/contact-name'
 
@@ -123,7 +124,7 @@ module.exports = React.createClass
       thumnailStyle =
         backgroundColor: storyColor[category]
       cxStoryName = cx 'banner', 'line', 'story-name', 'is-active': cursor is @props.cursor
-      cxAvatar = cx 'icon', "icon-#{ storyIcon[category] }", 'is-leading'
+      cxAvatar = cx 'ti', "ti-#{ storyIcon[category] }", 'is-leading'
 
       onClick = =>
         @triggerIndex cursor
@@ -143,10 +144,10 @@ module.exports = React.createClass
       if @props.searchMode
         div className: 'spec',
           div className: classAll, onClick: @onSearchAllClick,
-            span className: 'icon icon-search'
+            Icon name: 'search', size: 18
             span className: 'text muted', searchAll
           div className: classStory, onClick: @onSearchStoryClick,
-            span className: 'icon icon-search'
+            Icon name: 'search', size: 18
             span className: 'text muted', searchStory
       #contact
       if @props.contacts.size > 0

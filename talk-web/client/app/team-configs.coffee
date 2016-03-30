@@ -163,7 +163,7 @@ module.exports = React.createClass
             lang.getText 'team-shortname'
             if @state.isErrorShortName
               span className: 'error',
-                i className: 'icon icon-circle-warning'
+                i className: 'ti ti-info-solid'
                 lang.getText 'invalid-team-shortname'
             else noscript()
           div className: 'anotated-input',

@@ -25,7 +25,7 @@ SearchBox        = React.createFactory require('react-lite-misc').SearchBox
 NoResult         = React.createFactory require '../module/no-result'
 LoadingMore      = React.createFactory require('react-lite-misc').LoadingMore
 MessageRich      = React.createFactory require './message-rich'
-BodyModal        = React.createFactory require 'react-lite-layered/lib/modal'
+LightModal       = React.createFactory require '../module/light-modal'
 Wheeling         = React.createFactory require('react-lite-misc').Wheeling
 FileQueueTag     = React.createFactory require './file-queue-tag'
 
@@ -134,7 +134,7 @@ module.exports = React.createClass
     #no action yet
 
   renderFileQueue: ->
-    BodyModal
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide

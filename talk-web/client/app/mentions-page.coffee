@@ -24,7 +24,7 @@ Icon = React.createFactory require '../module/icon'
 UserName = React.createFactory require '../module/user-name'
 NoMentions = React.createFactory require '../module/no-mentions'
 
-LiteModal = React.createFactory require('react-lite-layered').Modal
+LightModal = React.createFactory require '../module/light-modal'
 LiteWheeling = React.createFactory require('react-lite-misc').Wheeling
 LiteLoadingMore = React.createFactory require('react-lite-misc').LoadingMore
 
@@ -76,7 +76,7 @@ module.exports = React.createClass
         isLoading: false
 
   renderFileQueue: ->
-    LiteModal
+    LightModal
       name: 'file-queue'
       show: @state.showFileQueue
       onCloseClick: @onFileQueueHide

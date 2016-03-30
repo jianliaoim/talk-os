@@ -190,3 +190,6 @@ exports.teamInvitations = (store, actionData) ->
 
   store
     .setIn ['invitations', _teamId], invitations
+
+exports.subscribed = (store, data) ->
+  store.setIn ['teamSubscribe', data.get('_teamId')], true

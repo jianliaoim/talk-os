@@ -26,7 +26,7 @@ ChannelMember = React.createFactory require './channel-member'
 Icon = React.createFactory require '../module/icon'
 
 LiteSwitcher = React.createFactory require('react-lite-misc').Switcher
-LitePopoverBeta = React.createFactory require '../module/popover-beta'
+LightPopover = React.createFactory require '../module/light-popover'
 Tooltip = React.createFactory require '../module/tooltip'
 
 ReactCSSTransitionGroup = React.createFactory require 'react-addons-css-transition-group'
@@ -104,7 +104,7 @@ module.exports = React.createClass
     if @state.popoutsType is POPOUTS_TYPE[0]
       title = "#{ title } (#{ @props.channel.get('_memberIds').size })"
 
-    LitePopoverBeta
+    LightPopover
       name: 'channel-action'
       show: @state.showPopouts
       title: title
@@ -134,33 +134,33 @@ module.exports = React.createClass
 
       Tooltip template: lang.getText('details'),
         a className: 'action', onClick: @onOpenDrawerStory,
-          Icon size: 16, name: 'open-drawer'
+          Icon size: 18, name: 'info'
 
     buttonCollection = =>
       Tooltip template: lang.getText('automatic-collection'),
         a className: 'action', onClick: @onOpenDrawerCollection,
-          Icon size: 16, type: 'icon', name: 'collection'
+          Icon size: 18, name: 'collection'
 
     buttonShortcut = =>
       return noscript() if not @isChannel 'story'
 
       name =
         switch @props.channel.getIn [ 'category' ]
-          when 'file' then 'arrow-down'
+          when 'file' then 'download'
 
       return noscript() if not name?
 
       onClick = (e) => window.open @props.channel.getIn [ 'data', 'downloadUrl' ]
       Tooltip template: lang.getText('download'),
         a className: 'action', title: 'Download', onClick: onClick,
-          Icon size: 16, name: name
+          Icon size: 18, name: name
 
     buttonMember = =>
       return noscript() if @isChannel 'chat'
 
       Tooltip template: lang.getText('member'),
         a ref: 'member', className: 'action', onClick: @onClickMember,
-          Icon size: 16, name: 'users'
+          Icon size: 18, name: 'users'
 
     buttonMore = =>
       return noscript() if (@isChannel 'chat') or @isQuitted()
@@ -213,6 +213,6 @@ MoreClass = React.createClass
 
   render: ->
     a className: 'action', onClick: @onClick,
-      Icon size: 18, name: 'cog'
+      Icon size: 18, name: 'ellipsis-vertical'
 
 MoreClassPermission = React.createFactory Permission.create MoreClass, Permission.member

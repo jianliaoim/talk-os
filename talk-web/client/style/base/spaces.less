@@ -6,12 +6,14 @@
 // add spaces between elements
 
 .line > * + *,
+.line > .ti + *,
 .line > .icon + *,
 .static-line > * + * {
   margin-left: 10px;
 }
 
-.icon-line > .icon:first-child {
+.icon-line > .icon:first-child,
+.icon-line > .ti:first-child {
   margin-right: 10px;
 }
 

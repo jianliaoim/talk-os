@@ -10,7 +10,11 @@ fontName = 'fonts/[name].[ext]'
 
 module.exports =
   entry: {
-    main: './test/pages/index'
+    main: [
+      './test/pages/index'
+      'webpack-dev-server/client?http://localhost:9000'
+      'webpack/hot/dev-server'
+    ]
   }
   debug: true
   errorDetails: true

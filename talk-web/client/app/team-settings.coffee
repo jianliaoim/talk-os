@@ -9,7 +9,7 @@ lang        = require '../locales/lang'
 teamActions = require '../actions/team'
 routerHandlers = require '../handlers/router'
 
-LiteDialog = React.createFactory require 'react-lite-layered/lib/dialog'
+LightDialog = React.createFactory require '../module/light-dialog'
 
 div    = React.createFactory 'div'
 p      = React.createFactory 'p'

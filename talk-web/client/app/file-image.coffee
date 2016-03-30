@@ -6,8 +6,9 @@ lang = require '../locales/lang'
 util = require '../util/util'
 analytics = require '../util/analytics'
 
-LiteOverlay  = React.createFactory require 'react-lite-layered/lib/overlay'
-LiteImage = React.createFactory require 'react-lite-image'
+LightOverlay  = React.createFactory require '../module/light-overlay'
+LightImage = React.createFactory require '../module/light-image'
+Icon = React.createFactory require '../module/icon'
 
 div = React.createFactory 'div'
 img = React.createFactory 'img'
@@ -88,12 +89,12 @@ module.exports = React.createClass
     onRotateLeft = => @onRotate(degs.length - 1, true)
     onRotateRight = => @onRotate(1, false)
 
-    div className: 'rotate-bar',
-      div className: 'line', onClick: onRotateLeft,
-        span className: 'icon icon-turn-left'
+    div className: 'rotate-bar flex-horiz flex-vcenter',
+      div className: 'line flex-horiz flex-vcenter', onClick: onRotateLeft,
+        Icon name: 'rotate-left', size: 20
         lang.getText('rotate-left')
-      div className: 'line', onClick: onRotateRight,
-        span className: 'icon icon-turn-right'
+      div className: 'line flex-horiz flex-vcenter', onClick: onRotateRight,
+        Icon name: 'rotate-right', size: 20
         lang.getText('rotate-right')
 
   render: ->
@@ -110,8 +111,8 @@ module.exports = React.createClass
     div className: className,
       div className: 'image-container', ref: 'container',
         @renderRotateBar()
-        LiteImage src: src, style: style, onClick: @onZoomIn
-        LiteOverlay show: @state.showLarge, name: 'file-image',
+        LightImage src: src, style: style, onClick: @onZoomIn
+        LightOverlay show: @state.showLarge, name: 'file-image',
           img
             className: imgClassName
             src: @props.file.get('downloadUrl'), onClick: @onZoomClose

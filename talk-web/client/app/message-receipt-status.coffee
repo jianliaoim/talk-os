@@ -9,7 +9,7 @@ orders = require '../util/orders'
 handlers = require '../handlers'
 lang     = require '../locales/lang'
 
-LitePopover = React.createFactory require('react-lite-layered').Popover
+LightPopover = React.createFactory require '../module/light-popover'
 Icon = React.createFactory require '../module/icon'
 
 ContactName = React.createFactory require '../app/contact-name'
@@ -55,7 +55,7 @@ module.exports = React.createClass
       top: area.bottom
 
   renderReceiptDropdown: ->
-    LitePopover
+    LightPopover
       name: 'receipt-dropdown'
       onPopoverClose: @onDropdownClose
       positionAlgorithm: @positionAlgorithm
@@ -111,9 +111,8 @@ module.exports = React.createClass
 
     span ref: 'root', className: 'message-read-status',
       Icon
-        size: 12
-        name: 'tick'
-        type: 'icon'
+        size: 16
+        name: 'tick-circle'
         className: 'muted'
         onClick: @onClick
       @renderReceiptDropdown()

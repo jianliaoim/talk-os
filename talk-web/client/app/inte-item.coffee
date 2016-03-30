@@ -9,6 +9,8 @@ span = React.createFactory 'span'
 a    = React.createFactory 'a'
 {code} = React.DOM
 
+Icon  = React.createFactory require '../module/icon'
+
 T = React.PropTypes
 l = lang.getText
 
@@ -60,7 +62,7 @@ module.exports = React.createClass
       div className: 'icon-col',
         div className: 'icon category', style: iconStyle
         if @props.data.get('errorInfo')?
-          span className: 'icon icon-circle-warning-intaglio warning'
+          span className: 'ti ti-alert-circle-solid warning'
       div className: 'service-col',
         div className: 'title line',
           div className: 'title-text',
@@ -84,6 +86,6 @@ module.exports = React.createClass
 
       div className: 'action-col',
         if @props.data.get('canEdit')
-          div className: 'edit button is-primary', onClick: @onClick,
-            span className: 'icon icon-pencil'
+          div className: 'edit button is-primary ', onClick: @onClick,
+            Icon name: 'edit', size: 16
             span className: 'text', l('edit')

@@ -22,7 +22,9 @@ notify = require '../util/notify'
 time = require '../util/time'
 lookup = require '../util/lookup'
 
+Icon = React.createFactory require '../module/icon'
 NotifyUpgrade = React.createFactory require '../app/notify-upgrade'
+
 Transition = require '../module/transition'
 
 div = React.createFactory 'div'
@@ -132,21 +134,20 @@ module.exports = React.createClass
     @setState noAutoUpgrade: true
 
   renderItem: (data) ->
-    iconClass =
+    iconName =
       switch data.get('type')
-        when 'success'  then 'icon icon-state-check'
-        when 'error'    then 'icon icon-circle-remove'
-        when 'info'     then 'icon icon-circle-info'
-        when 'warn'     then 'icon icon-circle-warning2'
-        else 'icon'
+        when 'success'  then 'tick-circle-solid'
+        when 'error'    then 'remove-circle-solid'
+        when 'info'     then 'info-solid'
+        when 'warn'     then 'alert-circle-solid'
 
     onRemove = => @onRemove(data)
 
     div className: "item is-#{data.get('type')}", key: data.get('_id'),
-      span className: iconClass
+      Icon name: iconName, size: 24
       span className: 'content', data.get('text')
       if data.getIn(['config', 'isSticky'])
-        span className: 'icon icon-remove', onClick: onRemove
+        span className: 'ti ti-remove', onClick: onRemove
 
   render: ->
 

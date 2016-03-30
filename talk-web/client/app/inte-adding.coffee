@@ -7,6 +7,8 @@ lang = require '../locales/lang'
 div   = React.createFactory 'div'
 span  = React.createFactory 'span'
 
+Icon  = React.createFactory require '../module/icon'
+
 T = React.PropTypes
 cx = require 'classnames'
 
@@ -41,5 +43,5 @@ module.exports = React.createClass
         div className: 'name', inte.get('title')
         div className: 'about muted', summary
       div className: 'button is-primary', onClick: @onAddingClick,
-        span className: 'icon icon-circle-cross'
+        Icon name: 'plus-circle', size: 18
         span className: 'text', addText

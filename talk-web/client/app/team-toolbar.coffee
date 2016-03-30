@@ -52,7 +52,7 @@ module.exports = React.createClass
 
   onOpen: (event) ->
     event.stopPropagation()
-    handlers.router.create()
+    handlers.router.create(@props._teamId)
     analytics.startTalk()
 
   toggleTeamDirectory: (event) ->
@@ -73,7 +73,7 @@ module.exports = React.createClass
         onClick: @onOpen
       div className: 'flex-horiz flex-vcenter flex-static',
         Tooltip template: lang.getText('contacts'),
-          Icon name: 'roster', size: 16, onClick: @toggleTeamDirectory, className: cxMember
+          Icon name: 'roster', size: 18, onClick: @toggleTeamDirectory, className: cxMember
         @renderDivider()
         TeamTools
           _teamId: @props._teamId

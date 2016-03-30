@@ -1,7 +1,7 @@
 React = require 'react'
 Immutable = require 'immutable'
 
-LitePopover = React.createFactory require 'react-lite-layered/lib/popover'
+LightPopover = React.createFactory require '../module/light-popover'
 
 TopicName   = React.createFactory require '../app/topic-name'
 RosterList = React.createFactory require '../app/roster-list'
@@ -69,7 +69,7 @@ module.exports = React.createClass
   # renderers
 
   renderMemberMenu: ->
-    LitePopover
+    LightPopover
       onPopoverClose: @onMembersClose
       baseArea: if @state.showMemberMenu then @getMembersArea() else {}
       showClose: false

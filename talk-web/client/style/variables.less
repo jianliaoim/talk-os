@@ -1,4 +1,3 @@
-
 // special colors are not recommanded to use
 @font-special-black: black;
 @font-special-white: white;
@@ -14,7 +13,7 @@
 
 // Z-indexes
 //swapped modal with popover
-@z-index-channel-header :180;
+@z-index-channel-header: 180;
 @z-index-notify-banner: 180;
 @z-index-search-inte-page: 200;
 //icon is above modal
@@ -39,8 +38,10 @@
 @transition-duration: .1s;
 @icon-initial-opacity: .8;
 
-//font-family:
-@font-family: @font-family-opensans; // from volubile-ui
+//font
+@font-family-coder: Menlo, "Ubuntu Mono", Consolas, "Courier New", monospace;
+@font-family-opensans: Open Sans,-apple-system,Helvetica Neue,Helvetica,Arial,PingFang SC,Microsoft Yahei,Hiragino Sans GB,sans-serif;
+@font-family: @font-family-opensans;
 @font-weight-bold: 600;
 
 // size property
@@ -68,8 +69,26 @@
 @color-green-dark: #5EB288;
 
 @color-link: #2C85AB;
-@color-link-hover: @color-blue;
 
 @color-background-gray: #FAFAFA;
 
 @tag-color-default: #7D7E80;
+
+// From volubile-ui
+@font-level-1: rgba(56, 56, 56, 1);
+@font-level-2: rgba(128, 128, 128, 1);
+@font-level-3: rgba(166, 166, 166, 1);
+@border-level-1: rgba(217, 217, 217, 1);
+@border-level-2: rgb(238, 238, 238);
+@notice-level-1: rgb(255, 112, 67);
+@icon-level-1: rgba(166, 166, 166, 1);
+@gray-bg-level-1: rgba(247, 247, 247, 1);
+@unread-bg-color: #ff7043;
+@yuhanBlue: #03a9f4; // 喻寒蓝, 留着做个纪念
+
+// From message-forms
+@colorGray: #E6E6E6;
+@colorGrayBackground: #FAFAFA;
+@colorFontDim: #7D7E80;
+@iconColor: #C7C7C7;
+@iconColorHover: #A8A8A8;

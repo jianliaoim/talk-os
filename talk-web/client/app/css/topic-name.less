@@ -4,11 +4,15 @@
   cursor: pointer;
   line-height: 24px;
 
+  .is-leading {
+    font-size: 14px;
+  }
+
   &.hover {
     background-color: @color-background-gray;
   }
 
-  .icon-eye {
+  .ti-eye {
     color: #fff;
   }
 
@@ -17,19 +21,19 @@
   }
 
   .name {
-    .flex(1, 1, auto);
+    flex: 1 1 auto;
   }
 
   .icon-unread {
-    .flex(0, 0, auto);
+    flex: 0 0 auto;
   }
 
-  .icon-tick {
+  .ti-tick {
     color: @color-red;
   }
 }
 
-.topic-name.is-active .icon-eye {
+.topic-name.is-active .ti-eye {
   color: white;
 }
 
