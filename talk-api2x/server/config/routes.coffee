@@ -7,7 +7,6 @@ config = require 'config'
 
 app = require '../server'
 auth = require '../middlewares/auth'
-authCms = require '../middlewares/auth-cms'
 authGuest = require '../middlewares/auth-guest'
 
 app.middlewares = [auth()] unless config.test
@@ -260,7 +259,7 @@ app.get '/versions/:version', (req, res) ->
   res.redirect 302, homeUrl
 
 # -------------- cms --------------
-app.middlewares = [auth(), authCms()] unless config.test
+app.middlewares = [auth()] unless config.test
 
 app.get '/cms/users/me', to: 'user#me'
 
