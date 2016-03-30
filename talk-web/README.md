@@ -1,17 +1,38 @@
-Talk.ai/Web
-------
+jianliao.com front-end
+-------------------------------
 
-* Node 0.12
+### Short History of Tech Stack
+Date | Event
+---- | -----
+* Jan 2014 | Backbone
+* Oct 2014 | React + Flux 
+* Jul 2015 | React + Immutable.js + Redux Clone
+
+### Contributors
+Orderd by starting date
+
+Name | github
+---- | ------
+寸志 | https://github.com/island205
+陈涌（题叶）| https://github.com/jiyinyiyong
+卢泰安 | https://github.com/vagusX
+王艺霖 | https://github.com/irinakk
+姚天宇 | https://github.com/xiaobuu
+黄品章 | https://github.com/bjmin
+陈博深 | https://github.com/Boshen
+
+### Node and npm
+* Node 4
 * Npm 2
 
-### 基本开发配置
+### Local Development
 
 ```bash
 npm i
 gulp dev
 ```
 
-### Gulp 使用
+### Gulp builds
 
 ```bash
 NODE_ENV=static gulp build # for static files
@@ -20,42 +41,38 @@ NODE_ENV=beta gulp build # for beta
 NODE_ENV=ga gulp build # for ga
 ```
 
-npm tasks
+Guest mode:
 
 ```bash
-npm run static # NODE_ENV=static gulp build
-npm run ws # NODE_ENV=ws gulp build
-```
-
-Guest mode 脚本:
-
-```bash
-APP=guest gulp dev # 开发模式
+APP=guest gulp dev # local development
 APP=guest NODE_ENV=static gulp build
 APP=guest NODE_ENV=ws gulp build # for ws
 APP=guest NODE_ENV=ga gulp build # for ga
 ```
 
-### 单元测试
+### Unit Test
 
 ```
 npm run test-dev
 ```
 
-## e2e测试
-安装
+## e2e Test
+Install
 ```
 npm install -g nightwatch selenium-standalone
 selenium-standalone install
 ```
-分别运行
+Run 
 ```
 selenium-standalone start
+```
+and
+```
 nightwatch
 ```
 
-## 界面测试
+## ui style test
 ```
 npm run ui-test
 ```
-访问`localhost:9000`
+Visit `localhost:9000`
