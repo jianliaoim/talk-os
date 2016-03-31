@@ -25,3 +25,7 @@ echo 'Install packages of talk-os'
 cd $BASE_PATH && npm i --production
 
 [[ $? -ne 0 ]] && exit $?
+
+cd $BASE_PATH/talk-snapper && npm i --production
+
+[[ $? -ne 0 ]] && exit $?
