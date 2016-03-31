@@ -10,7 +10,7 @@ webpackDev = require './webpack-dev'
 
 module.exports = (info) ->
   webpackConfig = webpackDev info
-  publicPath = if info.useCDN then "#{info.cdn}/" else '/build/'
+  publicPath = '/account/build/'
 
   entry:
     vendor: ['react', 'react-dom', 'immutable']

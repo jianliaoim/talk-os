@@ -13,7 +13,7 @@ app.middlewares = [auth()] unless config.test
 
 app.get '/t/:shortName', to: 'discover#toTeam'
 
-app.routePrefix = '/' + config.apiVersion
+app.routePrefix = '/'
 
 app.routeCallback = (req, res) -> res.response()
 

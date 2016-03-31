@@ -4,16 +4,16 @@ logger = require('graceful-logger').format 'medium'
 
 app = express()
 
-# accountApp = require './talk-account/server/server'
-# app.use '/account', accountApp
-# logger.info 'Account initialized'
+accountApp = require './talk-account/server/server'
+app.use '/account', accountApp
+logger.info 'Account initialized'
 #
-# # snapperApp = require './talk-snapper/server/server'
-# # app.use '/snapper', snapperApp
+# snapperApp = require './talk-snapper/server/server'
+# app.use '/snapper', snapperApp
 #
-# apiApp = require './talk-api2x/server/server'
-# app.use '/', apiApp
-# logger.info "Api initialized"
+apiApp = require './talk-api2x/server/server'
+app.use '/v2', apiApp
+logger.info "Api initialized"
 
 # Front-end assets
 app.use '/', express.static("#{__dirname}/talk-web/build")

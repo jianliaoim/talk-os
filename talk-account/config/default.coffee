@@ -3,7 +3,7 @@ countries = require './util/countries'
 module.exports =
   env: 'static'
   debug: true
-  cdn: 'https://dn-st.b0.upaiyun.com/talk-account'
+  cdn: '/account'
   isMinified: no
   webpackDevPort: 8011
   useCDN: no
@@ -19,7 +19,7 @@ module.exports =
   trelloLogin: "http://localhost:7001/account/union/trello?method=bind&next_url=#{encodeURIComponent 'http://localhost:7001/v2/trello/landing'}",
   teambitionLogin: "http://localhost:7001/account/union/teambition?method=bind&next_url=#{encodeURIComponent 'http://localhost:7001/v2/teambtion/landing'}",
   # Cookies
-  cookieDomain: '.localhost:7001'
+  cookieDomain: '.localhost'
   accountCookieId: 'aid'
   accountCookieSecret: 'Cookie secret of account'
   accountCookieExpires: 2592000

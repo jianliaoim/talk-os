@@ -14,7 +14,7 @@ module.exports =
   cookieDomain: '.localhost'
   pdfStaticHost: 'http://dn-static.oss.aliyuncs.com/pdf-viewer/v0.3.0/index.html',
   loginUrl: 'http://localhost:7001/account',
-  logoutUrl: 'http://localhost:7001/site',
+  logoutUrl: 'http://localhost:7001/account',
   weiboLogin: "http://localhost:7001/account/union/weibo?method=bind&next_url=#{encodeURIComponent 'http://localhost:7001/v2/union/weibo/landing'}",
   firimLogin: "http://localhost:7001/account/union/firim?method=bind&next_url=#{encodeURIComponent 'http://localhost:7001/v2/union/firim/landing'}",
   githubLogin: "http://localhost:7001/account/union/github?method=bind&service=talk&nologin=1&next_url=#{encodeURIComponent 'http://localhost:7001/v2/union/github/landing'}",
