@@ -36,7 +36,7 @@ reqwestErrorHandler = (err) ->
         notifyActions.error lang.getText('force-logout')
       delay = if firstTimeLogin then 0 else 3000
       time.delay delay, ->
-        window.location.replace config.logoutUrl
+        window.location.replace config.accountUrl
 
 
 prepareAjaxMethod = (url, method) ->

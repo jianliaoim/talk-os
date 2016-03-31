@@ -3,8 +3,6 @@ routerUtil = require 'router-view/lib/path'
 
 module.exports = routerUtil.expandRoutes [
   ['signin', '/account/signin']
-  ['signin', '/account/access']
-  ['signin', '/account']
   ['signup', '/account/signup']
   ['forgot-password', '/account/forgot-password']
   ['reset-password', '/account/reset-password'] #?resetToken=:code

@@ -10,7 +10,7 @@ renderer = require '../../client/entry/renderer'
 module.exports = signInController = app.controller 'signin', ->
 
   @action 'redirect', (req, res, callback) ->
-    res.redirect '/signin'
+    res.redirect '/account/signin'
 
   @action 'render', (req, res, callback) ->
     {accountToken} = req.get()
