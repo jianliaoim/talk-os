@@ -7,7 +7,7 @@ module.exports = config =
   apiVersion: 'v2'
   webHost: 'localhost:7001'
   sessionDomain: '.localhost'
-  guestHost: 'localhost:7000'
+  guestHost: 'localhost:7001'
   schema: 'http'
   mongodb: 'mongodb://localhost:27017/talk'
   redisHost: 'localhost'
@@ -18,15 +18,15 @@ module.exports = config =
     clientId: 'Client id of snapper'
     clientSecret: 'Client secret of snapper'
     channelPrefix: 'snapper'
-    host: 'localhost:7000/snapper'  # For test
-  talkAccountApiUrl: 'http://localhost:7000/v2/account'
-  talkAccountPageUrl: 'http://localhost:7000/page'
+    host: 'localhost:7001/snapper'  # For test
+  talkAccountApiUrl: 'http://localhost:7001/account'
+  talkAccountPageUrl: 'http://localhost:7001/page'
   cdnPrefix: 'https://dn-talk.oss.aliyuncs.com'
   checkToken: 'Check token for heartbeat statement'
   serviceConfig:
-    apiHost: 'http://localhost:7000/v2'
-    cdnPrefix: "http://localhost:7000/v2/services-static"
-    talkAccountApiUrl: 'http://localhost:7000/account'
+    apiHost: 'http://localhost:7001/v2'
+    cdnPrefix: "http://localhost:7001/v2/services-static"
+    talkAccountApiUrl: 'http://localhost:7001/account'
     teambition:
       clientSecret: 'Your teambition application secret'
       host: 'https://www.teambition.com'

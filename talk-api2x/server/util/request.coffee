@@ -263,6 +263,7 @@ module.exports = requestUtil =
       url: config.talkAccountApiUrl + '/v1/user/get'
       json: true
       qs: accountToken: accountToken
+    console.log options
     request options, (err, res, user) ->
       return callback(new Err('TOKEN_EXPIRED')) unless user?._id
       callback err, user
