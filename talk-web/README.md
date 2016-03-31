@@ -13,8 +13,11 @@ Orderd by starting date
 
 Name | github
 ---- | ------
-寸志 | https://github.com/island205
+齐俊元 | https://github.com/conan007ai
 陈涌（题叶）| https://github.com/jiyinyiyong
+寸志 | https://github.com/island205
+熊舒乐 | https://github.com/SuneBear
+龙逸楠 | https://github.com/Brooooooklyn
 卢泰安 | https://github.com/vagusX
 王艺霖 | https://github.com/irinakk
 姚天宇 | https://github.com/xiaobuu
