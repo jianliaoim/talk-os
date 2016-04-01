@@ -6,6 +6,9 @@
 
 ## 部署
 
+- Node 4 (`nvm use`)
+- Npm 2
+
 ### 安装环境
 
 - 简聊使用 MongoDB 作为数据库，Redis 作为缓存和消息通讯中间件。所以首先需要在本地部署 [MongoDB](https://www.mongodb.org/) 和 [Redis](http://redis.io/) 并使用默认端口号（配置文件见 config/default.coffee）。建议使用 MongoDB 3.2 和 Redis 2.8，更高版本未经过生产环境测试。
