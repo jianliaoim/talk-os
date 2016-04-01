@@ -21,11 +21,13 @@ socket =
     channel = _talkPrefix channel
     args = {0: socketId, 1: channel}
     client.publish "#{config.snapper.channelPrefix}:join", JSON.stringify(args)
+    callback()
 
   leave: (channel, socketId, callback = ->) ->
     channel = _talkPrefix channel
     args = {0: socketId, 1: channel}
     client.publish "#{config.snapper.channelPrefix}:leave", JSON.stringify(args)
+    callback()
 
   broadcast: (channel, event, data, socketId, callback = ->) ->
     channels = _getChannels channel
@@ -34,6 +36,7 @@ socket =
     # Broadcast message by snapper
     args = {0: channels, 1: JSON.stringify(payload), 2: socketId}
     client.publish "#{config.snapper.channelPrefix}:broadcast", JSON.stringify(args)
+    callback()
 
 Promise.promisifyAll socket
 

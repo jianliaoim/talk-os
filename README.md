@@ -32,6 +32,8 @@
   searchProtocol: 'http'
   ```
 
+- 执行 'talk-api2x/scripts/create-search-template.sh' 索引结构
+
 ### 安装代码依赖
 
 1. 初始化安装依赖 `npm run init`
