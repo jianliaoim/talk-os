@@ -55,6 +55,8 @@ exports.read = (_teamId, { maxUpdatedAt, limit }, success, fail) ->
         type: 'notification/read'
         data: { _teamId, data: resp }
       success? resp
+    .catch ->
+      fail?()
 
 # http://talk.ci/doc/restful/notification.update.html
 # data:
