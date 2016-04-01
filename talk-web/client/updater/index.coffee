@@ -22,6 +22,7 @@ contact = require './contact'
 message = require './message'
 favorite = require './favorite'
 settings = require './settings'
+timeline = require './timeline'
 favResult = require './fav-result'
 activities = require './activities'
 collection = require './collection'
@@ -206,10 +207,15 @@ methods = {
   'mentioned-message/clear': mentionedMessages.clear
   'mentioned-message/read': mentionedMessages.read
 
+  'activities/initial': activities.initial
   'activities/read': activities.read
+  'activities/replace': activities.replace
   'activities/create': activities.create
   'activities/update': activities.update
   'activities/remove': activities.remove
+  'activities/loading': activities.loading
+
+  'timeline/init': timeline.init
 }
 
 module.exports = (store, actionType, actionData) ->

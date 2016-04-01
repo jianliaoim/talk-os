@@ -61,10 +61,9 @@ module.exports = React.createClass
 
   render: ->
     div className: 'team-tools',
-      if __GA__
-        Tooltip template: lang.getText('activities'),
-          a className: cx('btn-tool', 'active': @isActiveRoute 'overview'), onClick: @onRouteOverview,
-            Icon name: 'activity', size: 18
+      Tooltip template: lang.getText('activities'),
+        a className: cx('btn-tool', 'active': @isActiveRoute 'overview'), onClick: @onRouteOverview,
+          Icon name: 'activity', size: 18
       Tooltip template: lang.getText('mentioned-me'),
         a className: cx('btn-tool', 'active': @isActiveRoute 'mentions'), onClick: @onRouteMentions,
           Icon name: 'at', size: 18

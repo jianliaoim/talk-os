@@ -843,3 +843,5 @@ module.exports =
   'loading-failure': '加載失敗'
   'load-again': '嘗試再次加載'
   "help-center": "幫助中心"
+  'delete-activity-confirm': '刪除這條動態?'
+  'team-info': '團隊信息'

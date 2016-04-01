@@ -28,9 +28,9 @@ exports.leave = (removeEvent) ->
     data: removeEvent
 
 exports.channels = (_teamId, cb) ->
-  deps = [
+  d = dataRely.ensure [
     dataRely.relyTeamTopics(_teamId)
     dataRely.relyTeamMembers(_teamId)
   ]
 
-  dataRely.ensure deps, cb
+  d.request().then(cb).done()

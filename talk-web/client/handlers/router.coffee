@@ -12,6 +12,7 @@ detect = require '../util/detect'
 analytics = require '../util/analytics'
 lazyModules = require '../util/lazy-modules'
 
+actions = require '../actions/index'
 teamActions = require '../actions/team'
 prefsActions = require '../actions/prefs'
 storyActions = require '../actions/story'
@@ -497,17 +498,18 @@ exports.mentions = (params, searchQuery = {}) ->
       routerActions.mentions params, searchQuery
     .done()
 
-fetchTeamOverviewDataIfNeed = (_teamId) ->
-  [
-    dataRely.relyTeamActivities _teamId
+exports.teamOverview = (_teamId, searchQuery) ->
+  deps = dataRely.ensure [
+    fetchTeamDataIfNeed _teamId
   ]
 
-exports.teamOverview = (_teamId) ->
-  d = dataRely.ensure [
-    fetchTeamDataIfNeed _teamId
-    fetchTeamOverviewDataIfNeed _teamId
-  ]
-  d.request()
+  deps.request()
     .then ->
-      routerActions.overview(_teamId)
+      nextDeps = dataRely.ensure [
+        dataRely.relyTeamActivities _teamId
+        dataRely.relyTimelineList _teamId
+      ]
+      nextDeps.request()
+    .then ->
+      routerActions.overview(_teamId, searchQuery)
     .done()

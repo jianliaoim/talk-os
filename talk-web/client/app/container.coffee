@@ -22,11 +22,11 @@ TeamPage = React.createFactory require './team-page'
 ProfilePage = React.createFactory require './profile-page'
 SettingPage = React.createFactory require './setting-page'
 NotifyCenter = React.createFactory require './notify-center'
-TeamOverview = React.createFactory require './team-overview'
 TeamWireframe = React.createFactory require './team-wireframe'
 LaunchFullscreen = React.createFactory require './launch-fullscreen'
 ContainerWireframe = React.createFactory require './container-wireframe'
 NotFound = React.createFactory require './not-found'
+Overview = React.createFactory require './overview'
 
 div = React.createFactory 'div'
 
@@ -109,19 +109,13 @@ module.exports = React.createClass
         ContainerWireframe
           sentence: loadingSentences.get(new Date())
       when 'overview'
-        team = store.getIn ['teams', _teamId]
-        contacts = store.getIn ['contacts', _teamId]
-        userInContact = contacts.find (contact) ->
-          contact.get('_id') is _userId
-        isAdmin = userInContact?.get('role') in ['owner', 'admin']
-        activities = store.getIn ['activities', _teamId]
-        invitations = store.getIn ['invitations', _teamId]
-        TeamOverview
-          team: team, activities: activities, contacts: contacts, router: store.get('router')
-          user: store.get('user')
-          teams: store.get('teams')
-          invitations: invitations
-          isAdmin: isAdmin
+        Overview
+          team: store.getIn ['teams', _teamId]
+          stage: store.getIn ['activities', _teamId, 'stage']
+          contacts: store.getIn ['contacts', _teamId]
+          invitations: store.getIn ['invitations', _teamId]
+          timelineList: store.getIn ['timelineList', _teamId]
+          transformedData: store.getIn ['activities', _teamId, 'transformedData']
       when '404'
         NotFound()
       else

@@ -72,24 +72,21 @@ module.exports = React.createClass
     .map (contact) -> contact.get('_id')
 
     div className: 'team-card',
+      div className: 'team-card-title', lang.getText 'team-info'
       div className: 'card-detail',
         if @props.team.has('logoUrl')
           style = backgroundImage: "url(#{@props.team.get('logoUrl')})"
           div className: 'card-logo', style: style
         else
           div className: 'card-logo', firstLetter
-        Space height: 16
         div className: 'card-title', onClick: @onClick, @props.team.get('name')
-        Space height: 8
         div className: 'card-text', @props.team.get('description')
-        Space height: 24
         MembersRow
           _teamId: @props.team.get('_id')
           _memberIds: visibleMemberIds
           contacts: @props.contacts
           onChange: ->
           isEditable: false
-      Space height: 48
       div className: 'card-footer', onClick: @onInviteShow,
         Icon size: 16, name: 'plus'
         Space width: 8

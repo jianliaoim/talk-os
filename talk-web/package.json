@@ -1,6 +1,6 @@
 {
   "name": "talk-web",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "The web application of jianliao.com",
   "main": "lib/index.html",
   "repository": {
