@@ -62,7 +62,7 @@ exports.relyTeamActivities = (_teamId) ->
   kind: 'activities'
   isSatisfied: store.getIn(['activities', _teamId])?
   request: (resolve, reject) ->
-    activitiesActions.get _teamId, null, resolve, reject
+    activitiesActions.get _teamId, resolve, reject
 
 exports.relyTopicMessages = (_teamId, _roomId) ->
   store = recorder.getState()
@@ -280,6 +280,19 @@ exports.relyTeamSubscribe = (_teamId) ->
   isSatisfied: store.getIn ['teamSubscribe', _teamId]
   request: (resolve, reject) ->
     actions.team.teamSubscribe _teamId, resolve, reject
+
+exports.relyTimelineList = (_teamId) ->
+  store = recorder.getStore()
+
+  kind: 'timeline-list'
+  isSatisfied: store.getIn(['timelineList', _teamId])?.size > 0
+  request: (resolve, reject) ->
+    store = recorder.getStore()
+    createdAt = new Date store.getIn ['teams', _teamId, 'createdAt']
+    currentAt = new Date()
+    actions.timeline.init _teamId, createdAt, currentAt, resolve, reject
+
+# final caller
 
 exports.ensure = (deps) ->
   deps = flattenDeep(deps)

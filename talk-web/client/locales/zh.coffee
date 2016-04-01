@@ -842,3 +842,5 @@ module.exports =
   'loading-failure': '加载失败'
   'load-again': '尝试再次加载'
   "help-center": "帮助中心"
+  'delete-activity-confirm': '删除这条动态?'
+  'team-info': '团队信息'
