@@ -842,3 +842,5 @@ module.exports =
   'loading-failure': 'Failed to load'
   'load-again': 'Again'
   "help-center": "Help Center"
+  'delete-activity-confirm': 'Delete this activity?'
+  'team-info': 'Team Infomation'

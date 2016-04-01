@@ -146,8 +146,8 @@ exports.mentions = (params, searchQuery) ->
     data: params
     query: searchQuery
 
-exports.overview = (_teamId) ->
+exports.overview = (_teamId, searchQuery) ->
   exports.go
     name: 'overview'
     data: {_teamId}
-    query: {}
+    query: searchQuery

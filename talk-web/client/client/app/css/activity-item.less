@@ -1,0 +1,118 @@
+.activity-item {
+  display: flex;
+
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  padding: 16px 24px;
+  background: #FFF;
+  border-radius: 4px;
+
+  color: #393C40;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #FDFDFD;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, .06);
+    color: #393C40;
+  }
+
+  &.is-static {
+    cursor: default;
+
+    &:hover {
+      background: #FFF;
+      box-shadow: none;
+    }
+  }
+
+  .activity-item-avatar {
+    position: relative;
+
+    flex: 0 0 auto;
+
+    height: 40px;
+    width: 40px;
+
+    border-radius: 20px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .ti {
+      position: absolute;
+
+      right: -12px;
+      bottom: 0;
+
+      height: 24px;
+      width: 24px;
+
+      border: 2px solid #FFF;
+      border-radius: 12px;
+      color: #FFF;
+
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+
+      &.ti-horn {
+        right: 8px;
+        bottom: 8px;
+        border: none;
+        line-height: 24px;
+      }
+
+      &:before {
+        font-size: inherit;
+        line-height: inherit;
+      }
+    }
+  }
+
+  .activity-item-time {
+    flex: 0 0 auto;
+
+    margin-left: 30px;
+
+    color: #7D7E80;
+    font-size: 14px;
+  }
+
+  .activity-item-text {
+    flex: 1;
+
+    margin-left: 36px;
+  }
+
+  .activity-item-remove {
+    display: none;
+
+    flex: 0 0 auto;
+
+    height: 32px;
+    width: 32px;
+
+    margin-left: 12px;
+
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+
+    background-color: #F5F5F5;
+    border-radius: 16px;
+    color: #9D9FA1;
+
+    &:hover {
+      background-color: #EEE;
+    }
+  }
+
+  &:hover {
+    .activity-item-remove {
+      display: block;
+    }
+  }
+}

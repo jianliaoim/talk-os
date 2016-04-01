@@ -1,0 +1,24 @@
+.activity-section {
+
+  & > .timestamp {
+    font-size: 18px;
+    line-height: 30px;
+    color: #393C40;
+  }
+
+  .activity-list {
+    margin-top: 16px;
+
+    .activity-cell {
+
+      & + .activity-cell {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  & + .activity-section {
+    margin-top: 32px;
+  }
+
+}

@@ -61,7 +61,7 @@ exports.database = Immutable.fromJS
   contacts: {} # _teamId
   messages: {} # [_teamId, _channelId]
   favorites: {} # _teamId
-  activities: {} # _teamId
+  activities: {} # _teamId, {stage: loading|partial|entire, data}. Notice: this field is in new format with `stage` mark.
   topicPrefs: {} # [_teamId, _roomId]
   invitations: {} # _teamId
   contactPrefs: {} # [_teamId, _contactId]
@@ -88,6 +88,9 @@ exports.database = Immutable.fromJS
   thirdParties: {} # refer
   mentionedMessages: [] # [_teamId]
   loadingSentences: loadingSentences.list
+  # 持久化数据
+  # timelineList 从团队创建日期开始到今天的时间分割数据
+  timelineList: {}
 
   teamSubscribe: {}
 

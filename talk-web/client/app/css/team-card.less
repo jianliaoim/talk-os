@@ -1,25 +1,31 @@
-
 .team-card {
-  width: 296px;
-  background-color: white;
-  box-shadow: 0px 1px 4px rgba(0,0,0,0.08);
+  position: fixed;
+  top: 24px;
+  right: 48px;
+  width: 272px;
+
   display: flex;
   flex-direction: column;
-  border: 1px solid #EDEDED;
-  border-radius: 4px;
+
+  .team-card-title {
+    font-size: 18px;
+    line-height: 32px;
+  }
 
   .card-detail {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 48px;
-    padding-left: 20px;
-    padding-right: 20px;
+    margin-top: 16px;
+    padding: 24px;
+    background-color: #FFF;
+    border-radius: 4px 4px 0 0;
   }
 
   .card-logo {
     width: 80px;
     height: 80px;
+    margin-bottom: 16px;
     color: #B33322;
     background-color: #FA6855;
     background-size: cover;
@@ -32,6 +38,7 @@
 
   .card-title {
     margin-top: 4px;
+    margin-bottom: 8px;
     line-height: 36px;
     font-size: 24px;
     font-weight: bold;
@@ -40,6 +47,7 @@
   }
 
   .card-text {
+    margin-bottom: 24px;
     line-height: 24px;
     font-size: 14px;
     color: #393C40;
@@ -54,6 +62,8 @@
     line-height: 48px;
     text-align: center;
     color: #FA6855;
+    background-color: #FFF;
+    border-radius: 0 0 4px 4px;
     border-top: 1px solid #EDEDED;
     cursor: pointer;
 
@@ -62,7 +72,7 @@
     }
 
     &:hover {
-      background-color: #FAFAFA;
+      background-color: #FDFDFD;
     }
   }
 

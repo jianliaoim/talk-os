@@ -1,0 +1,55 @@
+.timeline-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 264px;
+
+  overflow: auto;
+
+  padding: 24px 0;
+
+  background: #FFF;
+  color: #393C40;
+
+  .timeline-list-content {
+
+    & + .timeline-list-content {
+      margin-top: 8px;
+    }
+
+  }
+
+  .timeline-list-year {
+    padding: 0 24px;
+
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+
+    border-left: 4px solid transparent;
+  }
+
+  .timeline-list-month-list {
+
+    li {
+      margin-top: 8px;
+    }
+
+    a {
+      display: block;
+
+      padding: 0 24px;
+
+      font-size: 14px;
+      line-height: 24px;
+
+      border-left: 4px solid transparent;
+      color: #393C40;
+
+      &:hover {
+        border-left: 4px solid #FA6855;
+      }
+    }
+  }
+}
