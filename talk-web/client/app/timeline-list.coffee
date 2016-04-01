@@ -8,5 +8,5 @@ module.exports = React.createClass
     children: React.PropTypes.any.isRequired
 
   render: ->
-    div className: 'timeline-list thin-scroll',
+    div className: 'timeline-list',
       @props.children

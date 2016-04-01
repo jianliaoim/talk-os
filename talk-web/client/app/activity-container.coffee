@@ -38,7 +38,7 @@ module.exports = React.createClass
       @debouncedOnRequestAfter()
 
   render: ->
-    div className: 'activity-container thin-scroll', onScroll: @onScroll,
+    div className: 'activity-container', onScroll: @onScroll,
       div className: 'overview-loading',
         switch @props.stage.first()
           when 'loading'
