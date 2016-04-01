@@ -35,7 +35,7 @@
   searchProtocol: 'http'
   ```
 
-- 执行 'talk-api2x/scripts/create-search-template.sh' 索引结构
+- 执行 [create-search-template.sh](talk-api2x/scripts/create-search-template.sh) 创建索引结构
 
 ### 安装代码依赖
 
