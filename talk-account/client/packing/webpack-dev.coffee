@@ -42,25 +42,25 @@ module.exports = (info) ->
         loader: 'url'
         query:
           limit: 100
-          minetype: 'image/svg+xml'
+          mimetype: 'image/svg+xml'
           name: fontName
       o test: /\.ttf((\?|\#)[\?\#\w\d_-]+)?$/,
         loader: 'url'
         query:
           limit: 100
-          minetype: 'application/octet-stream'
+          mimetype: 'application/octet-stream'
           name: fontName
       o test: /\.woff((\?|\#)[\?\#\w\d_-]+)?$/,
         loader: 'url'
         query:
           limit: 100
-          minetype: 'application/font-woff'
+          mimetype: 'application/font-woff'
           name: fontName
       o test: /\.woff2((\?|\#)[\?\#\w\d_-]+)?$/,
         loader: 'url'
         query:
           limit: 100
-          minetype: 'application/font-woff2'
+          mimetype: 'application/font-woff2'
           name: fontName
     ]
   plugins: [
