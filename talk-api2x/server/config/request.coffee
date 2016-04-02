@@ -88,3 +88,4 @@ req.validators =
 # Custom setter for specific key
 req.setters =
   _tagIds: (_tagIds) -> _.uniq _tagIds
+  limit: (limit) -> Number(limit)

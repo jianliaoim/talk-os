@@ -69,7 +69,7 @@ statics =
       sort = _id: 1
 
     query = @find conditions
-      .limit limit
+      .limit Number(limit)
       .skip limit * (page - 1)
       .sort sort
 
