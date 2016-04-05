@@ -1,4 +1,4 @@
 {
-  "githubHost": "https://code.teambition.com/",
+  "githubHost": "https://github.com/",
   "plugins": ["-mathjax"]
 }

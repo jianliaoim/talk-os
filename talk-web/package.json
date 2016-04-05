@@ -5,7 +5,7 @@
   "main": "lib/index.html",
   "repository": {
     "type": "git",
-    "url": "https://code.teambition.com/talk/talk-web/"
+    "url": "https://github.com/talk/talk-web/"
   },
   "author": "teambition",
   "devDependencies": {

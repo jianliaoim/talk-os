@@ -90,7 +90,7 @@ checkMultipleFiles = (files, config) ->
 checkSingleFile = (file, config) ->
   Q.Promise (resolve, reject) ->
     # striker 文件上传限制1G
-    # https://code.teambition.com/server/striker2/blob/master/services/file.js#L19
+    # https://github.com/server/striker2/blob/master/services/file.js#L19
     if file.size >= 1024 * 1024 * 1024
       reject errorTypes.File_Size_Exceeded
 

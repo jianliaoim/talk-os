@@ -452,7 +452,7 @@
 
 ## 0.4.0
 
-* feature: change push service to [snapper](https://code.teambition.com/server/snapper)
+* feature: change push service to [snapper](https://github.com/server/snapper)
 * feature: upgrade express to 4.x
 * feature: add team/source schemas
 * feature: sync teambition organizations to teams

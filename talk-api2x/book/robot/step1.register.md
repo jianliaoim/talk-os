@@ -1,7 +1,7 @@
 ## step1: register
 
 ### Step1: Register Your Robot
-First, initialize a repository start with `tbot-` (e.g. [tbot-jarvis](https://code.teambition.com/talk/tbot-jarvis)) and put it in talk's `node_module` directory.
+First, initialize a repository start with `tbot-` (e.g. [tbot-jarvis](https://github.com/talk/tbot-jarvis)) and put it in talk's `node_module` directory.
 
 Talk will autoload it as a robot module and activate this robot in the ecosystem.
 
