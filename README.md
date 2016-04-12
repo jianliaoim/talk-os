@@ -39,8 +39,10 @@
 
 ### 安装代码依赖
 
-1. 初始化安装依赖 `npm run init`
-2. 执行代码 `npm start`
+注意：确保node版本为 4.x,安装好coffeescript、mongodb、redis
+
+1. 初始化安装依赖 `npm run init`(安装PhantomJS时可能会卡住)
+2. 启动mongodb、redis后，执行代码 `npm start`
 3. 访问浏览器 `http://localhost:7001`
 
 ## LICENSE

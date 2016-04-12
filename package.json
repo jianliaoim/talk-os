@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jianliaoim/talk-os#readme",
   "dependencies": {
+    "coffee-script": "^1.10.0",
     "config": "^1.19.0",
     "express": "^4.13.4",
     "graceful-logger": "^0.4.3",
