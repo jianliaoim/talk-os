@@ -39,11 +39,12 @@
 
 ### 安装代码依赖
 
-注意：确保node版本为 4.x,安装好coffeescript、mongodb、redis
+注意：请使用 node 4.x，npm 2.x 版本，并预先启动 mongodb, redis
 
-1. 初始化安装依赖 `npm run init`(安装PhantomJS时可能会卡住)
-2. 启动mongodb、redis后，执行代码 `npm start`
-3. 访问浏览器 `http://localhost:7001`
+1. 初始化安装依赖 `npm run init`（安装PhantomJS时可能会卡住）
+2. 安装全局 coffee-script `npm i -g coffee-script`（并确保 coffee 命令在当前环境变量下可用）
+3. 启动 mongodb，redis 后，执行代码 `npm start`
+4. 访问浏览器 `http://localhost:7001`
 
 ## LICENSE
 
