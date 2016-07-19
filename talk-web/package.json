@@ -51,8 +51,7 @@
     "webpack-dev-server": "^1.9.0"
   },
   "scripts": {
-    "watch": "webpack-dev-server --hot",
-    "lan": "webpack-dev-server --hot --host=0.0.0.0",
+    "watch": "gulp dev",
     "test": "karma start --single-run",
     "test-dev": "karma start",
     "static": "NODE_ENV=static gulp build",
