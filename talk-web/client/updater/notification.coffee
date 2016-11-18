@@ -146,7 +146,7 @@ exports.remove = (store, notificationsData) ->
       else
         cursor
     .updateIn ['teams', _teamId, 'unread'], (currentUnread) ->
-      currentUnread or = 0
+      currentUnread or= 0
       Math.max(currentUnread - notificationsData.get('unreadNum'), 0)
 
   if inTeam
