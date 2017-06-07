@@ -63,7 +63,7 @@
     "moment": "^2.10.6",
     "moment-timezone": "^0.5.0",
     "mongoosastic": "^3.4.0",
-    "mongoose": "^4.1.0",
+    "mongoose": "4.1.0",
     "morgan": "^1.6.1",
     "multer": "^0.1.8",
     "node-push": "^0.2.0",
