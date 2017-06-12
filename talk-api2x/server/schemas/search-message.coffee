@@ -5,7 +5,7 @@ SearchMessageSchemaConstructor = require './constructors/search-message'
 
 module.exports = SearchMessageSchema = SearchMessageSchemaConstructor()
 
-return # @osv
+#return # @osv
 
 SearchMessageSchema.add
   tags: [

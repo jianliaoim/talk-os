@@ -49,7 +49,7 @@ module.exports = SearchStorySchema = new Schema
   createdAt: type: Date
   updatedAt: type: Date
 
-return # @osv
+#return # @osv
 
 SearchStorySchema.add
   tags: [
