@@ -47,7 +47,7 @@ StorySchema.post 'create', (story) ->
 
   $story.then (story) -> _broadcast story, 'story:create'
 
-  return # @osv
+#  return # @osv
   # Index story search data
   story.indexSearch()
 

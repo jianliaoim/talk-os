@@ -5,7 +5,7 @@ SearchMessageSchemaConstructor = require './constructors/search-message'
 
 module.exports = SearchFavoriteSchema = SearchMessageSchemaConstructor()
 
-return # @osv
+#return # @osv
 
 SearchFavoriteSchema.add
   _favoritedById:
