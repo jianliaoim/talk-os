@@ -6,3 +6,4 @@ module.exports =
   pub: [6379, "10.10.10.1"]
   sub: [6379, "10.10.10.1"]
   channelPrefix: 'snapper'
+  
