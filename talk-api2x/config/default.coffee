@@ -1,6 +1,6 @@
 path = require 'path'
 
-domain_str = "wx.hoootools.com";
+domain_str = "abc.test.com";
 
 module.exports = config =
   debug: true

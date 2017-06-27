@@ -1,6 +1,6 @@
 countries = require './util/countries'
 
-domain_str = "wx.hoootools.com";
+domain_str = "abc.test.com";
 
 module.exports =
   env: 'static'

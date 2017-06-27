@@ -1,7 +1,7 @@
 
 isGuest = process.env.APP is 'guest'
 
-domain_str = "wx.hoootools.com";
+domain_str = "abc.test.com";
 
 module.exports =
   env: 'static',
