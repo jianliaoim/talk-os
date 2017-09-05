@@ -32,7 +32,7 @@ Name | github
 
 ```bash
 npm i
-gulp dev
+NODE_ENV=dev gulp dev
 ```
 
 ### Gulp builds
