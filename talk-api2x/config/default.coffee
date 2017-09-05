@@ -1,32 +1,34 @@
 path = require 'path'
 
+domain_str = "abc.test.com";
+
 module.exports = config =
   debug: true
-  apiHost: 'localhost:7001'
+  apiHost: domain_str
   accountId: 'aid'
   apiVersion: 'v2'
-  webHost: 'localhost:7001'
+  webHost: domain_str
   sessionDomain: '.localhost'
-  guestHost: 'localhost:7001'
+  guestHost: domain_str
   schema: 'http'
   mongodb: 'mongodb://localhost:27017/talk'
-  redisHost: 'localhost'
+  redisHost: '10.10.10.1'
   redisPort: 6379
   redisDb: 0
   snapper:
-    pub: [6379, 'localhost']
+    pub: [6379, '10.10.10.1']
     clientId: 'Client id of snapper'
     clientSecret: 'Client secret of snapper'
     channelPrefix: 'snapper'
-    host: 'localhost:7001/snapper'  # For test
-  talkAccountApiUrl: 'http://localhost:7001/account'
-  talkAccountPageUrl: 'http://localhost:7001/page'
+    host: "#{domain_str}/snapper"  # For test
+  talkAccountApiUrl: "http://#{domain_str}/account"
+  talkAccountPageUrl: "http://#{domain_str}/page"
   cdnPrefix: 'https://dn-talk.oss.aliyuncs.com'
   checkToken: 'Check token for heartbeat statement'
   serviceConfig:
-    apiHost: 'http://localhost:7001/v2'
-    cdnPrefix: "http://localhost:7001/v2/services-static"
-    talkAccountApiUrl: 'http://localhost:7001/account'
+    apiHost: "http://#{domain_str}/v2"
+    cdnPrefix: "http://#{domain_str}/v2/services-static"
+    talkAccountApiUrl: "http://#{domain_str}/account"
     teambition:
       clientSecret: 'Your teambition application secret'
       host: 'https://www.teambition.com'

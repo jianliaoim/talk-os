@@ -3,6 +3,7 @@ recorder = require 'actions-recorder'
 
 if typeof window isnt 'undefined'
   cookie = require 'cookie_js'
+  cookie = cookie.cookie;
 
 config = require '../config'
 actions = require '../actions'
